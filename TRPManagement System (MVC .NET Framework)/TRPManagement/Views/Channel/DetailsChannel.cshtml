@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "DetailsChannel";
+}
+
+<h2>DetailsChannel</h2>
+
+<div class="mt-4">
+    <p><strong>Channel ID:</strong> @Model.ChannelId</p>
+    <p><strong>Channel Name:</strong> @Model.ChannelName</p>
+    <p><strong>Established Year:</strong> @Model.EstablishedYear</p>
+    <p><strong>Country:</strong> @Model.Country</p>
+    <p><strong>Programs:</strong></p>
+    <ul>
+        @foreach (var program in Model.Programs)
+        {
+            <li>@program.ProgramName (TRP: @program.TRPScore, AirTime: @program.AirTime)</li>
+        }
+    </ul>
+
+</div>

@@ -1,0 +1,40 @@
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\Contract_Management_System.dll.config
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\Contract_Management_System.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\Contract_Management_System.pdb
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\Business Logic Layer.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\EntityFramework.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\EntityFramework.SqlServer.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\Newtonsoft.Json.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\System.Net.Http.Formatting.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\System.Web.Http.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\System.Web.Http.WebHost.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\AutoMapper.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\Data Access Layer.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\Business Logic Layer.pdb
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\EntityFramework.xml
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\EntityFramework.SqlServer.xml
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\Newtonsoft.Json.xml
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\System.Net.Http.Formatting.xml
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\System.Web.Http.xml
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\System.Web.Http.WebHost.xml
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\AutoMapper.xml
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\Data Access Layer.pdb
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\Data Access Layer.dll.config
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\obj\Debug\API_Contact_Management_System.csproj.AssemblyReference.cache
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\obj\Debug\API_Contact_Management_System.csproj.CoreCompileInputs.cache
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\obj\Debug\API_Cont.538430CA.Up2Date
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\obj\Debug\Contract_Management_System.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\obj\Debug\Contract_Management_System.pdb
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\Newtonsoft.Json.Bson.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\System.Buffers.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\System.Memory.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\System.Numerics.Vectors.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\Newtonsoft.Json.Bson.pdb
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\Newtonsoft.Json.Bson.xml
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\System.Buffers.xml
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\System.Memory.xml
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\System.Numerics.Vectors.xml
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Contract_Management_System\bin\System.Threading.Tasks.Extensions.xml

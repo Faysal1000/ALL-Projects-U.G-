@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "TokenGenerate";
+}
+
+<h2>TokenGenerate</h2>
+
+@if (TempData["msg"] != null)
+{
+    <p class="text-bg-danger">@TempData["msg"]</p>
+}
+<div class="container mt-5">
+    <h4>What kind of visa processing service you want?</h4>
+    <form method="post" class="mt-3">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="visaPurpose" id="medicalPurpose" value="Medical">
+            <label class="form-check-label" for="medicalPurpose">Medical Purpose</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="visaPurpose" id="touristPurpose" value="Tourist">
+            <label class="form-check-label" for="touristPurpose">Tourist Purpose</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="visaPurpose" id="businessPurpose" value="Business">
+            <label class="form-check-label" for="businessPurpose">Business Purpose</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="visaPurpose" id="govtPurpose" value="Govt">
+            <label class="form-check-label" for="govtPurpose">Govt. Purpose</label>
+        </div>
+        <div class="mt-3">
+            <input type="submit" value="Generate a Token" class="btn btn-success">
+        </div>
+    </form>
+</div>
+

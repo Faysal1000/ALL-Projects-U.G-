@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Faysal Ahmmed\\Desktop\\Advance .NET Lab\\TRPManagement\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{13E1E9AD-73B7-41F3-9FD9-A774BDB1D23F}|TRPManagement\\TRPManagement.csproj|c:\\users\\faysal ahmmed\\desktop\\advance .net lab\\trpmanagement\\trpmanagement\\views\\admin\\adminlogin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{13E1E9AD-73B7-41F3-9FD9-A774BDB1D23F}|TRPManagement\\TRPManagement.csproj|solutionrelative:trpmanagement\\views\\admin\\adminlogin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdminLogin.cshtml",
+              "DocumentMoniker": "C:\\Users\\Faysal Ahmmed\\Desktop\\Advance .NET Lab\\TRPManagement\\TRPManagement\\Views\\Admin\\AdminLogin.cshtml",
+              "RelativeDocumentMoniker": "TRPManagement\\Views\\Admin\\AdminLogin.cshtml",
+              "ToolTip": "C:\\Users\\Faysal Ahmmed\\Desktop\\Advance .NET Lab\\TRPManagement\\TRPManagement\\Views\\Admin\\AdminLogin.cshtml",
+              "RelativeToolTip": "TRPManagement\\Views\\Admin\\AdminLogin.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-20T17:57:06.721Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

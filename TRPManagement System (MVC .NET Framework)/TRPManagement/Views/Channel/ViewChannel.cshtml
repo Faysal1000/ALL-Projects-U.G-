@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "ViewChannel";
+}
+
+<h2>ViewChannel</h2>
+@if (TempData["msg"] != null)
+{
+    <span class="alert alert-primary">@TempData["msg"]</span>
+    <br>
+}
+<a href="/Channel/AddChannel">Add new Channel</a>
+<a href="/Program/ViewProgram">View All Programs</a>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ChannelId</th>
+        <th>Channel Name</th>
+        <th>Established year</th>
+        <th>Country</th>
+        <th>Associated Programs</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var d in Model)
+    {
+        <tr>
+            <td>@d.ChannelId</td>
+            <td>@d.ChannelName</td>
+            <td>@d.EstablishedYear</td>
+            <td>@d.Country</td>
+
+            <td>
+                <ul>
+                    @foreach (var program in d.Programs)
+                    {
+                        <li>@program.ProgramName (TRP: @program.TRPScore, AirTime: @program.AirTime)</li>
+                    }
+                </ul>
+            </td>
+            <td>
+                <a href="/Channel/DEtailsChannel/@d.ChannelId" class="btn btn-info">Details</a>
+                <a href="/Channel/EditChannel/@d.ChannelId" class="btn btn-warning">Edit</a>
+                <a href="/Channel/DeleteChannel/@d.ChannelId" class="btn btn-danger" onclick="return confirm('Are You Sure to Delete this data?')">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

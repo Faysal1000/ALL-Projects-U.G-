@@ -1,0 +1,16 @@
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Data Access Layer\bin\Debug\Data Access Layer.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Data Access Layer\bin\Debug\Data Access Layer.pdb
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Data Access Layer\obj\Debug\Data Access Layer.csproj.AssemblyReference.cache
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Data Access Layer\obj\Debug\Data Access Layer.csproj.CoreCompileInputs.cache
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Data Access Layer\obj\Debug\Data Access Layer.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Data Access Layer\obj\Debug\Data Access Layer.pdb
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Data Access Layer\bin\Debug\Data Access Layer.dll.config
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Data Access Layer\bin\Debug\EntityFramework.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Data Access Layer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Data Access Layer\bin\Debug\EntityFramework.xml
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Data Access Layer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Data Access Layer\obj\Debug\Data Acc.F8789B99.Up2Date
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Data Access Layer\obj\Debug\Data_Access_Layer.Migrations.initDbWithContactTable.resources
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Data Access Layer\obj\Debug\Data Access Layer.csproj.GenerateResource.cache
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Data Access Layer\obj\Debug\Data_Access_Layer.Migrations.madeDateNullable.resources
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Data Access Layer\obj\Debug\Data_Access_Layer.Migrations.addedUserAndTokenTable.resources

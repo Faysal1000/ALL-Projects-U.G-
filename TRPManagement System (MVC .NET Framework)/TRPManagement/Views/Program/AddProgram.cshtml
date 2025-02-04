@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "AddProgram";
+}
+
+<h2>AddProgram</h2>
+
+<form method="post">
+    <label class="form-label" for="ProgramName">Program Name: </label>
+    <input type="text" value="@Model.ProgramName" placeholder="Program Name" name="ProgramName" class="form-control" />
+    <p class="text-danger">@Html.ValidationMessage("ProgramName")</p>
+
+    <label class="form-label" for="AirTime">AirTime : </label>
+    <input type="time" value="@Model.AirTime" name="AirTime" class="form-control" />
+    <p class="text-danger">@Html.ValidationMessage("AirTime")</p>
+
+    <label class="form-label">Select Your Channel: </label>
+    <select name="ChannelId" class="form-control">
+        <option value="" disabled selected>Select a Channel</option>
+        @foreach (var channel in (List<TRPManagement.Entity_Framework.Channel>)ViewBag.Channels)
+        {
+            <option value="@channel.ChannelId">@channel.ChannelName</option>
+        }
+    </select>
+
+    <input type="submit" value="Add Program" class="btn btn-success" />
+
+</form>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TRP_ManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Channels">
+    <Key>
+      <PropertyRef Name="ChannelId" />
+    </Key>
+    <Property Name="ChannelId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChannelName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="EstablishedYear" Type="int" Nullable="false" />
+    <Property Name="Country" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Programs">
+    <Key>
+      <PropertyRef Name="ProgramId" />
+    </Key>
+    <Property Name="ProgramId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProgramName" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="TRPScore" Type="float" Nullable="false" />
+    <Property Name="ChannelId" Type="int" Nullable="false" />
+    <Property Name="AirTime" Type="time" Precision="7" Nullable="false" />
+  </EntityType>
+  <Association Name="Foreign key - ChannelID">
+    <End Role="Channels" Type="Self.Channels" Multiplicity="1" />
+    <End Role="Programs" Type="Self.Programs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Channels">
+        <PropertyRef Name="ChannelId" />
+      </Principal>
+      <Dependent Role="Programs">
+        <PropertyRef Name="ChannelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TRP_ManagementModelStoreContainer">
+    <EntitySet Name="Channels" EntityType="Self.Channels" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Programs" EntityType="Self.Programs" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="Foreign key - ChannelID" Association="Self.Foreign key - ChannelID">
+      <End Role="Channels" EntitySet="Channels" />
+      <End Role="Programs" EntitySet="Programs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

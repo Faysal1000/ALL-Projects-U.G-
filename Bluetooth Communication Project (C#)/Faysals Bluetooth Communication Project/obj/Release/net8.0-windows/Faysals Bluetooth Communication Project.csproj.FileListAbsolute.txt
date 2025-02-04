@@ -1,0 +1,23 @@
+C:\Users\Faysal Ahmmed\Desktop\C# Codes\Faysals Bluetooth Communication Project\Faysals Bluetooth Communication Project\bin\Release\net8.0-windows\Faysals Bluetooth Communication Project.exe
+C:\Users\Faysal Ahmmed\Desktop\C# Codes\Faysals Bluetooth Communication Project\Faysals Bluetooth Communication Project\bin\Release\net8.0-windows\Faysals Bluetooth Communication Project.deps.json
+C:\Users\Faysal Ahmmed\Desktop\C# Codes\Faysals Bluetooth Communication Project\Faysals Bluetooth Communication Project\bin\Release\net8.0-windows\Faysals Bluetooth Communication Project.runtimeconfig.json
+C:\Users\Faysal Ahmmed\Desktop\C# Codes\Faysals Bluetooth Communication Project\Faysals Bluetooth Communication Project\bin\Release\net8.0-windows\Faysals Bluetooth Communication Project.dll
+C:\Users\Faysal Ahmmed\Desktop\C# Codes\Faysals Bluetooth Communication Project\Faysals Bluetooth Communication Project\bin\Release\net8.0-windows\Faysals Bluetooth Communication Project.pdb
+C:\Users\Faysal Ahmmed\Desktop\C# Codes\Faysals Bluetooth Communication Project\Faysals Bluetooth Communication Project\bin\Release\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Faysal Ahmmed\Desktop\C# Codes\Faysals Bluetooth Communication Project\Faysals Bluetooth Communication Project\bin\Release\net8.0-windows\RJCP.SerialPortStream.dll
+C:\Users\Faysal Ahmmed\Desktop\C# Codes\Faysals Bluetooth Communication Project\Faysals Bluetooth Communication Project\obj\Release\net8.0-windows\Faysals Bluetooth Communication Project.csproj.AssemblyReference.cache
+C:\Users\Faysal Ahmmed\Desktop\C# Codes\Faysals Bluetooth Communication Project\Faysals Bluetooth Communication Project\obj\Release\net8.0-windows\Faysals_Bluetooth_Communication_Project.firstPage.resources
+C:\Users\Faysal Ahmmed\Desktop\C# Codes\Faysals Bluetooth Communication Project\Faysals Bluetooth Communication Project\obj\Release\net8.0-windows\Faysals_Bluetooth_Communication_Project.Properties.Resources.resources
+C:\Users\Faysal Ahmmed\Desktop\C# Codes\Faysals Bluetooth Communication Project\Faysals Bluetooth Communication Project\obj\Release\net8.0-windows\Faysals_Bluetooth_Communication_Project.SecondPage.resources
+C:\Users\Faysal Ahmmed\Desktop\C# Codes\Faysals Bluetooth Communication Project\Faysals Bluetooth Communication Project\obj\Release\net8.0-windows\Faysals Bluetooth Communication Project.csproj.GenerateResource.cache
+C:\Users\Faysal Ahmmed\Desktop\C# Codes\Faysals Bluetooth Communication Project\Faysals Bluetooth Communication Project\obj\Release\net8.0-windows\Faysals Bluetooth Communication Project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Faysal Ahmmed\Desktop\C# Codes\Faysals Bluetooth Communication Project\Faysals Bluetooth Communication Project\obj\Release\net8.0-windows\Faysals Bluetooth Communication Project.AssemblyInfoInputs.cache
+C:\Users\Faysal Ahmmed\Desktop\C# Codes\Faysals Bluetooth Communication Project\Faysals Bluetooth Communication Project\obj\Release\net8.0-windows\Faysals Bluetooth Communication Project.AssemblyInfo.cs
+C:\Users\Faysal Ahmmed\Desktop\C# Codes\Faysals Bluetooth Communication Project\Faysals Bluetooth Communication Project\obj\Release\net8.0-windows\Faysals Bluetooth Communication Project.csproj.CoreCompileInputs.cache
+C:\Users\Faysal Ahmmed\Desktop\C# Codes\Faysals Bluetooth Communication Project\Faysals Bluetooth Communication Project\obj\Release\net8.0-windows\Faysals .FD076C06.Up2Date
+C:\Users\Faysal Ahmmed\Desktop\C# Codes\Faysals Bluetooth Communication Project\Faysals Bluetooth Communication Project\obj\Release\net8.0-windows\Faysals Bluetooth Communication Project.dll
+C:\Users\Faysal Ahmmed\Desktop\C# Codes\Faysals Bluetooth Communication Project\Faysals Bluetooth Communication Project\obj\Release\net8.0-windows\refint\Faysals Bluetooth Communication Project.dll
+C:\Users\Faysal Ahmmed\Desktop\C# Codes\Faysals Bluetooth Communication Project\Faysals Bluetooth Communication Project\obj\Release\net8.0-windows\Faysals Bluetooth Communication Project.pdb
+C:\Users\Faysal Ahmmed\Desktop\C# Codes\Faysals Bluetooth Communication Project\Faysals Bluetooth Communication Project\obj\Release\net8.0-windows\Faysals Bluetooth Communication Project.genruntimeconfig.cache
+C:\Users\Faysal Ahmmed\Desktop\C# Codes\Faysals Bluetooth Communication Project\Faysals Bluetooth Communication Project\obj\Release\net8.0-windows\ref\Faysals Bluetooth Communication Project.dll
+C:\Users\Faysal Ahmmed\Desktop\C# Codes\Faysals Bluetooth Communication Project\Faysals Bluetooth Communication Project\obj\Release\net8.0-windows\Faysals_Bluetooth_Communication_Project.helpPage.resources

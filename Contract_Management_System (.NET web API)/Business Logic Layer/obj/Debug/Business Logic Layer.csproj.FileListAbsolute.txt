@@ -1,0 +1,14 @@
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Business Logic Layer\bin\Debug\Business Logic Layer.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Business Logic Layer\bin\Debug\Business Logic Layer.pdb
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Business Logic Layer\bin\Debug\Data Access Layer.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Business Logic Layer\bin\Debug\Data Access Layer.pdb
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Business Logic Layer\obj\Debug\Business Logic Layer.csproj.AssemblyReference.cache
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Business Logic Layer\obj\Debug\Business Logic Layer.csproj.CoreCompileInputs.cache
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Business Logic Layer\obj\Debug\Business.6AB683E1.Up2Date
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Business Logic Layer\obj\Debug\Business Logic Layer.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Business Logic Layer\obj\Debug\Business Logic Layer.pdb
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Business Logic Layer\bin\Debug\AutoMapper.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Business Logic Layer\bin\Debug\EntityFramework.dll
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Business Logic Layer\bin\Debug\Data Access Layer.dll.config
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Business Logic Layer\bin\Debug\AutoMapper.xml
+C:\Users\Faysal Ahmmed\Desktop\Advance .NET Lab\Contract_Management_System\Business Logic Layer\bin\Debug\EntityFramework.xml

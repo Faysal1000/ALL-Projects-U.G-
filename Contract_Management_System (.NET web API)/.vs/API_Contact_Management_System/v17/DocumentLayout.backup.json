@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Faysal Ahmmed\\Desktop\\Advance .NET Lab\\Contract_Management_System\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9972D6D1-127C-41AB-A264-676B1FB3C4EA}|Contract_Management_System\\API_Contact_Management_System.csproj|c:\\users\\faysal ahmmed\\desktop\\advance .net lab\\contract_management_system\\contract_management_system\\controllers\\registrationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9972D6D1-127C-41AB-A264-676B1FB3C4EA}|Contract_Management_System\\API_Contact_Management_System.csproj|solutionrelative:contract_management_system\\controllers\\registrationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B6E02D4-9554-417A-A1AF-D8A56B9C1D30}|Business Logic Layer\\Business Logic Layer.csproj|c:\\users\\faysal ahmmed\\desktop\\advance .net lab\\contract_management_system\\business logic layer\\services\\registrationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B6E02D4-9554-417A-A1AF-D8A56B9C1D30}|Business Logic Layer\\Business Logic Layer.csproj|solutionrelative:business logic layer\\services\\registrationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9972D6D1-127C-41AB-A264-676B1FB3C4EA}|Contract_Management_System\\API_Contact_Management_System.csproj|c:\\users\\faysal ahmmed\\desktop\\advance .net lab\\contract_management_system\\contract_management_system\\authentication\\logged.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9972D6D1-127C-41AB-A264-676B1FB3C4EA}|Contract_Management_System\\API_Contact_Management_System.csproj|solutionrelative:contract_management_system\\authentication\\logged.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B6E02D4-9554-417A-A1AF-D8A56B9C1D30}|Business Logic Layer\\Business Logic Layer.csproj|c:\\users\\faysal ahmmed\\desktop\\advance .net lab\\contract_management_system\\business logic layer\\services\\contactservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B6E02D4-9554-417A-A1AF-D8A56B9C1D30}|Business Logic Layer\\Business Logic Layer.csproj|solutionrelative:business logic layer\\services\\contactservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9972D6D1-127C-41AB-A264-676B1FB3C4EA}|Contract_Management_System\\API_Contact_Management_System.csproj|c:\\users\\faysal ahmmed\\desktop\\advance .net lab\\contract_management_system\\contract_management_system\\controllers\\contactcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9972D6D1-127C-41AB-A264-676B1FB3C4EA}|Contract_Management_System\\API_Contact_Management_System.csproj|solutionrelative:contract_management_system\\controllers\\contactcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{284DC479-4BFF-4447-9B2B-C38F4E9D7606}|Data Access Layer\\Data Access Layer.csproj|c:\\users\\faysal ahmmed\\desktop\\advance .net lab\\contract_management_system\\data access layer\\repos\\contactrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{284DC479-4BFF-4447-9B2B-C38F4E9D7606}|Data Access Layer\\Data Access Layer.csproj|solutionrelative:data access layer\\repos\\contactrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Logged.cs",
+              "DocumentMoniker": "C:\\Users\\Faysal Ahmmed\\Desktop\\Advance .NET Lab\\Contract_Management_System\\Contract_Management_System\\Authentication\\Logged.cs",
+              "RelativeDocumentMoniker": "Contract_Management_System\\Authentication\\Logged.cs",
+              "ToolTip": "C:\\Users\\Faysal Ahmmed\\Desktop\\Advance .NET Lab\\Contract_Management_System\\Contract_Management_System\\Authentication\\Logged.cs",
+              "RelativeToolTip": "Contract_Management_System\\Authentication\\Logged.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAsAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T14:47:46.627Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RegistrationController.cs",
+              "DocumentMoniker": "C:\\Users\\Faysal Ahmmed\\Desktop\\Advance .NET Lab\\Contract_Management_System\\Contract_Management_System\\Controllers\\RegistrationController.cs",
+              "RelativeDocumentMoniker": "Contract_Management_System\\Controllers\\RegistrationController.cs",
+              "ToolTip": "C:\\Users\\Faysal Ahmmed\\Desktop\\Advance .NET Lab\\Contract_Management_System\\Contract_Management_System\\Controllers\\RegistrationController.cs",
+              "RelativeToolTip": "Contract_Management_System\\Controllers\\RegistrationController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABgAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T14:47:41.419Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RegistrationService.cs",
+              "DocumentMoniker": "C:\\Users\\Faysal Ahmmed\\Desktop\\Advance .NET Lab\\Contract_Management_System\\Business Logic Layer\\Services\\RegistrationService.cs",
+              "RelativeDocumentMoniker": "Business Logic Layer\\Services\\RegistrationService.cs",
+              "ToolTip": "C:\\Users\\Faysal Ahmmed\\Desktop\\Advance .NET Lab\\Contract_Management_System\\Business Logic Layer\\Services\\RegistrationService.cs",
+              "RelativeToolTip": "Business Logic Layer\\Services\\RegistrationService.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T14:46:40.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ContactService.cs",
+              "DocumentMoniker": "C:\\Users\\Faysal Ahmmed\\Desktop\\Advance .NET Lab\\Contract_Management_System\\Business Logic Layer\\Services\\ContactService.cs",
+              "RelativeDocumentMoniker": "Business Logic Layer\\Services\\ContactService.cs",
+              "ToolTip": "C:\\Users\\Faysal Ahmmed\\Desktop\\Advance .NET Lab\\Contract_Management_System\\Business Logic Layer\\Services\\ContactService.cs",
+              "RelativeToolTip": "Business Logic Layer\\Services\\ContactService.cs",
+              "ViewState": "AgIAAK0AAAAAAAAAAAAqwLAAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T14:32:50.449Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ContactController.cs",
+              "DocumentMoniker": "C:\\Users\\Faysal Ahmmed\\Desktop\\Advance .NET Lab\\Contract_Management_System\\Contract_Management_System\\Controllers\\ContactController.cs",
+              "RelativeDocumentMoniker": "Contract_Management_System\\Controllers\\ContactController.cs",
+              "ToolTip": "C:\\Users\\Faysal Ahmmed\\Desktop\\Advance .NET Lab\\Contract_Management_System\\Contract_Management_System\\Controllers\\ContactController.cs",
+              "RelativeToolTip": "Contract_Management_System\\Controllers\\ContactController.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAcwEsAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T14:33:50.757Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ContactRepo.cs",
+              "DocumentMoniker": "C:\\Users\\Faysal Ahmmed\\Desktop\\Advance .NET Lab\\Contract_Management_System\\Data Access Layer\\Repos\\ContactRepo.cs",
+              "RelativeDocumentMoniker": "Data Access Layer\\Repos\\ContactRepo.cs",
+              "ToolTip": "C:\\Users\\Faysal Ahmmed\\Desktop\\Advance .NET Lab\\Contract_Management_System\\Data Access Layer\\Repos\\ContactRepo.cs",
+              "RelativeToolTip": "Data Access Layer\\Repos\\ContactRepo.cs",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAuwGcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-21T14:25:21.407Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

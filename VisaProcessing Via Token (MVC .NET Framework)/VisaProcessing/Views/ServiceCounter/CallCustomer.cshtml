@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "CallCustomer";
+}
+
+<h2>CallCustomer</h2>
+
+@if (TempData["msg"] != null)
+{
+    <p class="text-bg-danger">@TempData["msg"]</p>
+}
+
+<form method="post">
+    <div class="form-group">
+        <label for="counter">Select Counter No:</label>
+        <select class="form-control" name="counter">
+            <option value="0">Medical</option>
+            <option value="1">Tourist</option>
+            <option value="2">Business</option>
+            <option value="3">Govt</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>

@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "EditProgram";
+}
+
+<h2>EditProgram</h2>
+<form method="post">
+
+    <input type="hidden" value="@Model.ProgramId" name="ProgramId" class="form-control">
+
+    @if (Session["user"] != null)
+    {
+        <label class="form-label" for="TRPScore">TRP Score: </label>
+        <input type="number" step="0.1" min="0" max="10" value="@Model.TRPScore" name="TRPScore" class="form-control">
+        <p class="text-danger">@Html.ValidationMessage("TRPScore")</p>
+    }
+    else
+    {
+        <input type="hidden" value="@Model.TRPScore" name="TRPScore">
+    }
+
+
+    <label class="form-label" for="ProgramName">Program Name: </label>
+    <input type="text" value="@Model.ProgramName" placeholder="Program Name" name="ProgramName" class="form-control" />
+    <p class="text-danger">@Html.ValidationMessage("ProgramName")</p>
+
+    <label class="form-label" for="AirTime">Air Time : </label>
+    <input type="time" value="@Model.AirTime" name="AirTime" class="form-control" />
+    <p class="text-danger">@Html.ValidationMessage("AirTime")</p>
+
+    <label class="form-label">Select Your Channel: </label>
+    <select name="ChannelId" class="form-control">
+        @foreach (var channel in (List<TRPManagement.Entity_Framework.Channel>)ViewBag.Channels)
+        {
+            <option value="@channel.ChannelId"  @(channel.ChannelId == Model.ChannelId ? "selected" : "")>@channel.ChannelName</option>
+        }
+    </select>
+
+    <input type="submit" value="Update Channel" class="btn btn-success" />
+
+</form>

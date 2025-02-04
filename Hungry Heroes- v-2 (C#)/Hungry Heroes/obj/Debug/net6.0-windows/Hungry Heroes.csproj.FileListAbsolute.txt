@@ -1,0 +1,54 @@
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\bin\Debug\net6.0-windows\Hungry Heroes.exe
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\bin\Debug\net6.0-windows\Hungry Heroes.deps.json
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\bin\Debug\net6.0-windows\Hungry Heroes.runtimeconfig.json
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\bin\Debug\net6.0-windows\Hungry Heroes.dll
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\bin\Debug\net6.0-windows\Hungry Heroes.pdb
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry Heroes.csproj.AssemblyReference.cache
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.Properties.Resources.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry Heroes.csproj.GenerateResource.cache
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry Heroes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry Heroes.AssemblyInfoInputs.cache
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry Heroes.AssemblyInfo.cs
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry Heroes.csproj.CoreCompileInputs.cache
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry Heroes.dll
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\refint\Hungry Heroes.dll
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry Heroes.pdb
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry Heroes.genruntimeconfig.cache
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\ref\Hungry Heroes.dll
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.First_page.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.CustomerLogin.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.ResturantLogin.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.CustomerSignup.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.ResturantSignup.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.CustomerHomePage.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.HomeReuse.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.FindResturantReuse.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.PreviousOrderReuse.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.ProfileReuse.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.AboutUsReuse.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.ResturantHome.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.ForgotPasswordHome.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.ManagerHomePage.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.ManagerLogin.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.GuestHomePage.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.AdminLogin.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.AdminHomepage.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.Rating.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.CustomerOrder.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.ChoosePaymentMethod.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.BkashPaymentHome.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.PaymentSuccess.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.CardPayment.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry Heroes.csproj.CopyComplete
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.ResturantAvailability.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.AdminHomeReuse.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.CustomerAdd.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.ResturantOwnerAdd.resources
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\bin\Debug\net6.0-windows\Xamarin.Essentials.dll
+C:\Users\Faysal Ahmmed\Desktop\C# codes\Hungry Heroes\Hungry Heroes\obj\Debug\net6.0-windows\Hungry_Heroes.CustomerEdit.resources

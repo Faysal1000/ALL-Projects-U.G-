@@ -1,0 +1,7 @@
+C:\Users\Faysal Ahmmed\Desktop\Bluetooth Communicator\Faysals Bluetooth Communication Project.exe
+C:\Users\Faysal Ahmmed\Desktop\Bluetooth Communicator\Faysals Bluetooth Communication Project.dll
+C:\Users\Faysal Ahmmed\Desktop\Bluetooth Communicator\Faysals Bluetooth Communication Project.deps.json
+C:\Users\Faysal Ahmmed\Desktop\Bluetooth Communicator\Faysals Bluetooth Communication Project.runtimeconfig.json
+C:\Users\Faysal Ahmmed\Desktop\Bluetooth Communicator\Faysals Bluetooth Communication Project.pdb
+C:\Users\Faysal Ahmmed\Desktop\Bluetooth Communicator\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Faysal Ahmmed\Desktop\Bluetooth Communicator\RJCP.SerialPortStream.dll

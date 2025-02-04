@@ -1,0 +1,134 @@
+##User creation:
+create user owners identified by apartment;
+grant connect, resource, unlimited tablespace to owners;
+ALTER USER owners DEFAULT TABLESPACE USERS;
+ALTER USER owners TEMPORARY TABLESPACE TEMP;
+
+##sequences 
+1. CREATE SEQUENCE apartment_owner_id
+INCREMENT BY 10
+START WITH 10;
+
+2. CREATE SEQUENCE apartment_no
+INCREMENT BY 1
+START WITH 101;
+
+3. CREATE SEQUENCE guard_id
+INCREMENT BY 1
+START WITH 2001;
+
+4. CREATE SEQUENCE t_id
+INCREMENT BY 1
+START WITH 1001;
+
+##Table creation
+1. create table apartment_owner (o_id number(10)primary key, o_name varchar2(15), email varchar2(40), o_city varchar2(15), o_house_no number(5), o_street_no number(5), owner_phone_no_1 varchar2(11), owner_phone_no_2 varchar2(11), owner_phone_no_3 varchar2(11));
+
+2. create table apartment(a_no number(10)primary key, a_name varchar2(15), block_id varchar2(5), block_no varchar2(5), a_type varchar2(15), a_road_no number(3), o_id number(10), FOREIGN KEY(o_id) REFERENCES apartment_owner(o_id));
+
+3. create table tenant(t_id number(10)primary key, t_name varchar2(15), t_email varchar2(40), t_DOB date, t_phone_no_1 varchar2(11), t_phone_no_2 varchar2(11), t_phone_no_3 varchar2(11));
+
+4. create table unit(u_no varchar2(10)primary key, u_size number(5), u_level number(2), a_no number(10), t_id number(10), FOREIGN KEY(a_no) REFERENCES apartment(a_no), FOREIGN KEY(t_id) REFERENCES tenant(t_id));
+
+5. create table security_guard(guard_id number(10)primary key, guard_name varchar2(15), guard_salary number(6), guard_address varchar2(35), guard_phone_no_1 varchar2(11), guard_phone_no_2 varchar2(11), guard_phone_no_3 varchar2(11), a_no number(10), FOREIGN KEY(a_no) REFERENCES apartment(a_no));
+
+6. create table bills(bill_id varchar2(10)primary key, electric_bill number(5),apartment_rent number(6), gas_bill number(5), b_date date, o_id number(10), t_id number(10), FOREIGN KEY(o_id) REFERENCES apartment_owner(o_id), FOREIGN KEY(t_id) REFERENCES tenant(t_id));
+
+7. create table parking_space_allocation (v_id varchar2(10) primary key, v_tpe varchar2(10), v_allocated_space number(3));
+
+8. create table vehicles(v_number number(10)primary key, v_color varchar2(10), v_brand varchar2(15), v_id varchar2(10), o_id number(10), t_id number(10), FOREIGN KEY(v_id) REFERENCES parking_space_allocation(v_id), FOREIGN KEY(o_id) REFERENCES apartment_owner(o_id), FOREIGN KEY(t_id) REFERENCES tenant(t_id));
+
+
+## Data insert 
+
+1. insert into apartment_owner values (APARTMENT_OWNER_ID.nextval, 'Faysal', 'faysal@gmail.com', 'Rajshahi', 02, 03,'01737498963', '01774595705', '01718822355');
+2. insert into apartment_owner values (APARTMENT_OWNER_ID.nextval, 'Lamyea', 'lamyea@gmail.com', 'Barisal', 08, 07,'01319595261', null, null);
+3. insert into apartment_owner values (APARTMENT_OWNER_ID.nextval, 'Safkat', 'safkat@gmail.com', 'Chattogram', 04, 09,'0189278712', '01819940392', null);
+4. insert into apartment_owner values (APARTMENT_OWNER_ID.nextval, 'Ajmi', 'ajmi@gmail.com', 'Faridpur', 16, 1,'01312654585', null, null);
+5. insert into apartment_owner values (APARTMENT_OWNER_ID.nextval, 'Sayem', 'Sayem@gmail.com', 'Dhaka', 17, 7,'01942518639', null, null);
+6. insert into apartment_owner values (APARTMENT_OWNER_ID.nextval, 'Shairy', 'shairy@gmail.com', 'Rajshahi', 3, 8,'01795260274', null, null);
+
+7. insert into apartment values (APARTMENT_NO.nextval, 'Padma', 'A', 'A1', 'Residential', 1, 10);
+8. insert into apartment values (APARTMENT_NO.nextval, 'Meghna', 'B', 'B4', 'Comercial', 7, 10);
+9. insert into apartment values (APARTMENT_NO.nextval, 'Jamuna', 'C', 'C1', 'Residential', 9, 20);
+10. insert into apartment values (APARTMENT_NO.nextval, 'Karnaphuli', 'D', 'D5', 'Residential', 2, 30);
+11. insert into apartment values (APARTMENT_NO.nextval, 'Shitalokkha', 'E', 'E7', 'Residential', 11, 40);
+12. insert into apartment values (APARTMENT_NO.nextval, 'Buriganges', 'F', 'F9', 'Residential', 5, 50);
+13. insert into apartment values (APARTMENT_NO.nextval, 'Amazon', 'G', 'G2', 'Residential', 6, 60);
+
+14. insert into tenant values (t_id.nextval, 'Monalisha', 'monalisha@yahoo.com', to_date('21-04-1997','dd-mm-yyyy'), '01732100203', null, null);
+15. insert into tenant values (t_id.nextval, 'Ayesha', 'ayesha@yahoo.com', to_date('01-01-1988','dd-mm-yyyy'), '01766692501', '01819734712', null);
+16. insert into tenant values (t_id.nextval, 'Upanta', 'upanta@yahoo.com', to_date('09-11-1973','dd-mm-yyyy'), '01812383971', null, null);
+17. insert into tenant values (t_id.nextval, 'Samiya', 'samiya@yahoo.com', to_date('05-07-2001','dd-mm-yyyy'), '01612572333', null, null);
+18. insert into tenant values (t_id.nextval, 'Sadia', 'sadia@yahoo.com', to_date('20-09-1966','dd-mm-yyyy'), '01317571923', null, null);
+19. insert into tenant values (t_id.nextval, 'Sanjana', 'samjana@yahoo.com', to_date('12-08-1988','dd-mm-yyyy'), '01612733257', null, null);
+
+20. insert into unit values ('A', 5000, 2, 101, 1001);
+21. insert into unit values ('B', 3400, 5, 101, 1002);
+22. insert into unit values ('C', 4100, 7, 103, 1003);
+23. insert into unit values ('D', 2100, 13, 104, 1004);
+24. insert into unit values ('E', 2700, 12, 106, 1005);
+25. insert into unit values ('F', 2400, 4, 103, 1006);
+
+26. insert into security_guard values (GUARD_ID.nextval, 'Sayem', 10000, 'Kanchan, Dhaka', '01828968554', null, null, 101);
+27. insert into security_guard values (GUARD_ID.nextval, 'Ashik', 13000, 'Veramara, Kustia', '01876207688', null, null, 101);
+28. insert into security_guard values (GUARD_ID.nextval, 'Sadik', 10000, 'Fatikchari, Chottogram', '01850901798', null, null, 102);
+29. insert into security_guard values (GUARD_ID.nextval, 'Salam', 12000, 'Halishahan, Manikgonj', '01910857903', '01745256589', null, 103);
+30. insert into security_guard values (GUARD_ID.nextval, 'Abdul', 15000, 'Kaola, Rajshahi', '01916803884', null, null, 104);
+31. insert into security_guard values (GUARD_ID.nextval, 'Roni', 17000, 'Laxmipur, Rajshahi', '01731451540', null, null, 105);
+
+32. insert into bills values('Jan2207', 2000, 27000, 1500, to_date('07-02-2022','dd-mm-yyyy'), 10, 1001);
+33. insert into bills values('Mar2203', 2500, 32000, 1000, to_date('09-04-2022','dd-mm-yyyy'), 10, 1002);
+34. insert into bills values('Sept2107', 2800, 42000, 2000, to_date('01-10-2021','dd-mm-yyyy'), 20, 1003);
+35. insert into bills values('Dec2113', 1800, 3700, 1500, to_date('13-01-2022','dd-mm-yyyy'), 30, 1004);
+36. insert into bills values('Oct2207', 2000, 40000, 1000, to_date('10-11-2022','dd-mm-yyyy'), 50, 1005);
+37. insert into bills values('Feb2202', 2100, 35000, 1500, to_date('07-03-2022','dd-mm-yyyy'), 20, 1006);
+
+38. insert into parking_space_allocation values ('C1211', 'Car', 40);
+39. insert into parking_space_allocation values ('C2122', 'Car', 40);
+40. insert into parking_space_allocation values ('C3132', 'Car', 40);
+41. insert into parking_space_allocation values ('B1621', 'Bike', 10);
+42. insert into parking_space_allocation values ('C1622', 'Car', 40);
+43. insert into parking_space_allocation values ('C1633', 'Car', 40);
+
+44. insert into vehicles values (256012, 'black', 'Lancer', 'C1211', null, 1001);
+45. insert into vehicles values (256013, 'grey', 'Lamborghini', 'C2122', null, 1001);
+46. insert into vehicles values (256014, 'red', 'Buggati', 'C3132', 10, null);
+47. insert into vehicles values (256015, 'blue', 'Kawashaki', 'B1621', 20, null);
+48. insert into vehicles values (256016, 'yellow', 'Honda', 'C1622', 40, null);
+49. insert into vehicles values (256017, 'white', 'Toyota', 'C1633', null, 1002);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
