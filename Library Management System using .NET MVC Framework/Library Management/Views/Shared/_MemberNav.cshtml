@@ -1,0 +1,44 @@
+﻿@{
+    var db = new Library_Management.Models.LibraryDBEntities1();
+    int? memberId = Session["UserId"] as int?;
+    var pendingRequests = 0;
+    string userLabel = memberId != null ? "Library Member" : "Library Guest";
+
+    if (memberId != null)
+    {
+        pendingRequests = db.BorrowRequests
+                            .Count(r => r.MemberId == memberId && r.ApprovedAt == null);
+    }
+}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <a class="navbar-brand" href="/Member/Books">@userLabel</a>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="/Member/Books">Books</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Member/MyBorrowOverview">
+                Borrow Requests
+                @if (pendingRequests > 0)
+                {
+                    <span class="badge badge-warning">@pendingRequests</span>
+                }
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Member/ViewProfile">Profile</a>
+        </li>
+        @if (Session["UserId"] == null)
+        {
+            <li class="nav-item">
+                <a class="nav-link" href="/Login/Login">Login</a>
+            </li>
+        }
+        else{
+            <li class="nav-item">
+                <a class="nav-link" href="/Login/Logout">Logout</a>
+            </li>
+        }
+    </ul>
+</nav>

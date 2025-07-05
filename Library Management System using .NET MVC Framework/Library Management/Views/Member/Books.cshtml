@@ -1,0 +1,36 @@
+﻿@model List<Library_Management.Models.Book>
+@{
+    ViewBag.Title = "Available Books";
+}
+@Html.Partial("_MemberNav")
+
+<h2>Available Books</h2>
+
+@using (Html.BeginForm("Books", "Member", FormMethod.Get))
+{
+    <div class="form-inline mb-3">
+        <input type="text" name="searchTerm" class="form-control mr-2" placeholder="Search by title or author" value="@Request.QueryString["searchTerm"]" style="width: 300px;" />
+        <button type="submit" class="btn btn-primary">Search</button>
+        <a href="@Url.Action("Books", "Member")" class="btn btn-secondary ml-2">Reset</a>
+    </div>
+}
+
+<div class="row">
+    @foreach (var book in Model)
+    {
+        <div class="col-md-3 col-sm-4 col-xs-6" style="margin-bottom: 30px;">
+            <div class="card border shadow-sm p-2" style="height: 100%;">
+                <div class="text-center">
+                    <img src="@Url.Content(book.CoverImageUrl)" alt="Book Cover" style="max-height: 200px; width: auto;" class="img-fluid" />
+                </div>
+                <div class="mt-2">
+                    <h5 class="text-center">@book.Title</h5>
+                    <p class="text-center text-muted">by @book.Author</p>
+                </div>
+                <div class="text-center">
+                    <a href="@Url.Action("BookDetails", "Member", new { id = book.ID })" class="btn btn-info btn-sm">View Details</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

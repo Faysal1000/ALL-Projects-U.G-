@@ -1,0 +1,43 @@
+﻿@model List<Library_Management.Models.BorrowHistory>
+@{
+    ViewBag.Title = "Return Requests";
+}
+@Html.Partial("_AdminNav")
+
+<h2>Pending Return Requests</h2>
+
+@if (Model.Count == 0)
+{
+    <p>No return requests found.</p>
+}
+else
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Member</th>
+                <th>Book</th>
+                <th>Borrowed At</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var h in Model)
+            {
+                <tr>
+                    <td>@h.User.Name (@h.User.Email)</td>
+                    <td>@h.Book.Title</td>
+                    <td>@h.BorrowedAt</td>
+                    <td>
+                        @using (Html.BeginForm("ApproveReturn", "Admin", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.Hidden("id", h.ID)
+                            <button type="submit" class="btn btn-success btn-sm">Approve Return</button>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

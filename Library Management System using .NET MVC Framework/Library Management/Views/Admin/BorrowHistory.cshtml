@@ -1,0 +1,44 @@
+﻿@model List<Library_Management.Models.BorrowHistory>
+@{
+    ViewBag.Title = "Borrow History";
+}
+@Html.Partial("_AdminNav")
+
+<h2>Borrow History for @ViewBag.MemberName</h2>
+
+@if (Model.Count == 0)
+{
+    <p>This member has no borrow history.</p>
+}
+else
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Book Title</th>
+                <th>Borrowed At</th>
+                <th>Returned At</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Book.Title</td>
+                    <td>@item.BorrowedAt</td>
+                    <td>
+                        @if (item.ReturnedAt.HasValue)
+                        {
+                            @item.ReturnedAt.Value
+                        }
+                        else
+                        {
+                            <span class="text-danger">Not Returned</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<a href="@Url.Action("AllMembers", "Admin")" class="btn btn-secondary">Back to Members</a>

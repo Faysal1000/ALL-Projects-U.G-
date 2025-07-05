@@ -1,0 +1,62 @@
+﻿@model Library_Management.Classes.AdminDashboardViewModel
+@{
+    ViewBag.Title = "Admin Dashboard";
+    int maxBorrow = Model.BorrowedLast7Days.Max(x => x.Count);
+    int maxReturn = Model.ReturnedLast7Days.Max(x => x.Count);
+    int maxBarLength = 20;
+}
+
+@Html.Partial("_AdminNav")
+
+<h2>Admin Dashboard</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <td><strong>Total Borrowed Books</strong></td>
+        <td>@Model.TotalBorrowed</td>
+    </tr>
+    <tr>
+        <td><strong>Total Books in Stock</strong></td>
+        <td>@Model.TotalInStock</td>
+    </tr>
+</table>
+
+<h4>Books Borrowed (Last 7 Days)</h4>
+<table class="table table-sm">
+    <tr>
+        <th>Date</th>
+        <th>Graph</th>
+        <th>Count</th>
+    </tr>
+    @foreach (var item in Model.BorrowedLast7Days)
+    {
+        var barLength = maxBorrow == 0 ? 0 : (int)Math.Round((item.Count / (double)maxBorrow) * maxBarLength);
+        <tr>
+            <td>@item.DateLabel</td>
+            <td>
+                <div style="background-color:#4a90e2; height:20px; width:@(barLength * 10)px;"></div>
+            </td>
+            <td>@item.Count</td>
+        </tr>
+    }
+</table>
+
+<h4>Books Returned (Last 7 Days)</h4>
+<table class="table table-sm">
+    <tr>
+        <th>Date</th>
+        <th>Graph</th>
+        <th>Count</th>
+    </tr>
+    @foreach (var item in Model.ReturnedLast7Days)
+    {
+        var barLength = maxReturn == 0 ? 0 : (int)Math.Round((item.Count / (double)maxReturn) * maxBarLength);
+        <tr>
+            <td>@item.DateLabel</td>
+            <td>
+                <div style="background-color:#28a745; height:20px; width:@(barLength * 10)px;"></div>
+            </td>
+            <td>@item.Count</td>
+        </tr>
+    }
+</table>

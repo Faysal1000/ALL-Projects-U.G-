@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Verify Code";
+}
+<h3>Enter the code sent to your email</h3>
+<form method="post" action="/Member/VerifyCode">
+    <input type="text" name="code" class="form-control" required />
+    <button type="submit" class="btn btn-success mt-2">Verify</button>
+</form>
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}

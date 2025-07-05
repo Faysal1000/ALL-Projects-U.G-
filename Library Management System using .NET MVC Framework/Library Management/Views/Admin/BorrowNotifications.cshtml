@@ -1,0 +1,72 @@
+﻿@model List<Library_Management.Models.BorrowRequest>
+@{
+    ViewBag.Title = "Borrow Requests";
+}
+@Html.Partial("_AdminNav")
+
+<h2>Borrow Request Notifications</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Member</th>
+            <th>Book</th>
+            <th>Requested At</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var request in Model)
+        {
+            <tr>
+                <td>@request.User.Name (@request.User.Email)</td>
+                <td>@request.Book.Title</td>
+                <td>@request.RequestedAt</td>
+                <td>
+                    @if (request.Status)
+                    {
+                        <span class="text-success">Approved</span>
+                    }
+                    else if (request.ApprovedAt.HasValue)
+                    {
+                        <span class="text-danger">Rejected</span>
+                    }
+                    else
+                    {
+                        <span class="text-warning">Pending</span>
+                    }
+                </td>
+                <td>
+                    @if (!request.ApprovedAt.HasValue)
+                    {
+                        <form action="@Url.Action("ApproveBorrow", "Admin")" method="post" style="display:inline;">
+                            @Html.AntiForgeryToken()
+                            @Html.Hidden("id", request.ID)
+                            <button type="submit" class="btn btn-success btn-sm">Accept</button>
+                        </form>
+
+                        <form action="@Url.Action("RejectBorrow", "Admin")" method="post" style="display:inline;">
+                            @Html.AntiForgeryToken()
+                            @Html.Hidden("id", request.ID)
+                            <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <em>N/A</em>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,51 @@
+﻿@model Library_Management.Models.Book
+@{
+    ViewBag.Title = "Add Book";
+}
+@Html.Partial("_AdminNav")
+
+<h2>Add New Book</h2>
+
+@using (Html.BeginForm("AddBook", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Title)
+        @Html.TextBoxFor(m => m.Title, new { @class = "form-control", required = "required" })
+        @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Author)
+        @Html.TextBoxFor(m => m.Author, new { @class = "form-control", required = "required" })
+        @Html.ValidationMessageFor(m => m.Author, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Category)
+        @Html.TextBoxFor(m => m.Category, new { @class = "form-control", required = "required" })
+        @Html.ValidationMessageFor(m => m.Category, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Quantity)
+        @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control", type = "number", min = "0", required = "required" })
+        @Html.ValidationMessageFor(m => m.Quantity, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Description)
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = 4 })
+        @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <label for="CoverImage">Upload Cover Image</label>
+        <input type="file" name="CoverImage" accept=".jpg,.jpeg,.png" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Book</button>
+    <a href="@Url.Action("AllBooks", "Admin")" class="btn btn-secondary">Cancel</a>
+}

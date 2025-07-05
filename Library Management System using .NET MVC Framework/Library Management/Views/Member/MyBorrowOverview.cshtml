@@ -1,0 +1,105 @@
+﻿@model Library_Management.Classes.MemberBorrowOverview
+@{
+    ViewBag.Title = "My Borrow Overview";
+}
+@Html.Partial("_MemberNav")
+
+<h2>My Borrow Requests</h2>
+
+@if (Model.BorrowRequests.Count == 0)
+{
+    <p>No active borrow requests.</p>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Book</th>
+                <th>Requested At</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var r in Model.BorrowRequests)
+            {
+                <tr>
+                    <td>@r.Book.Title</td>
+                    <td>@r.RequestedAt</td>
+                    <td class="text-warning">Pending</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<hr />
+
+<h2>My Borrowed Books</h2>
+
+@if (Model.BorrowedBooks.Count == 0)
+{
+    <p>No borrow history.</p>
+}
+else
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Book</th>
+                <th>Borrowed At</th>
+                <th>Returned At</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var h in Model.BorrowedBooks)
+            {
+                <tr>
+                    <td>@h.Book.Title</td>
+                    <td>@h.BorrowedAt</td>
+                    <td>
+                        @if (h.ReturnedAt.HasValue)
+                        {
+                            @h.ReturnedAt.Value
+                        }
+                        else
+                        {
+                            <span class="text-danger">Not Returned</span>
+                        }
+                    </td>
+                    <td>
+                        @if (h.ReturnedAt.HasValue)
+                        {
+                            <span class="text-success">Returned</span>
+                        }
+                        else
+                        {
+                            <span class="text-warning">Borrowed</span>
+                        }
+                    </td>
+                    <td>
+                        @if (!h.ReturnedAt.HasValue && !h.ReturnRequested)
+                        {
+                            using (Html.BeginForm("RequestReturn", "Member", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.Hidden("id", h.ID)
+                                <button type="submit" class="btn btn-warning btn-sm">Request Return</button>
+                            }
+                        }
+                        else if (h.ReturnRequested && !h.ReturnedAt.HasValue)
+                        {
+                            <span class="text-info">Return Requested</span>
+                        }
+                        else
+                        {
+                            <span>-</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

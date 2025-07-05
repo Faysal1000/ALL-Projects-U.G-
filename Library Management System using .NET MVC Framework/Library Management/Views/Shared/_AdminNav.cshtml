@@ -1,0 +1,37 @@
+﻿@{
+    var db = new Library_Management.Models.LibraryDBEntities1();
+    var unseenNotifications = db.BorrowRequests.Count(n => n.ApprovedAt == null);
+    var pendingReturns = db.BorrowHistories.Count(r => r.ReturnRequested && r.ReturnedAt == null);
+}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <a class="navbar-brand" href="/Admin/Dashboard">Library Admin</a>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="/Admin/AllBooks">All Books</a></li>
+        <li class="nav-item"><a class="nav-link" href="/Admin/AddBook">Add Book</a></li>
+        <li class="nav-item"><a class="nav-link" href="/Admin/AllMembers">All Members</a></li>
+        <li class="nav-item"><a class="nav-link" href="/Admin/AddMember">Add Member</a></li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Admin/BorrowNotifications">
+                Borrow Request
+                @if (unseenNotifications > 0)
+                {
+                    <span class="badge badge-warning">@unseenNotifications</span>
+                }
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Admin/ReturnRequests">
+                Return Requests
+                @if (pendingReturns > 0)
+                {
+                    <span class="badge badge-danger">@pendingReturns</span>
+                }
+            </a>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="/Login/Logout">Logout</a></li>
+    </ul>
+</nav>
+

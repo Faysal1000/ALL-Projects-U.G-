@@ -1,0 +1,278 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\library management\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|solutionrelative:library management\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\library management\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|solutionrelative:library management\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|c:\\users\\antik\\onedrive - american international university-bangladesh\\desktop\\.net project\\library management\\library management\\models\\borrowrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|solutionrelative:library management\\models\\borrowrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\library management\\models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|solutionrelative:library management\\models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\library management\\models\\borrowhistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|solutionrelative:library management\\models\\borrowhistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\library management\\controllers\\membercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|solutionrelative:library management\\controllers\\membercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\library management\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|solutionrelative:library management\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\library management\\models\\membernotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|solutionrelative:library management\\models\\membernotification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\library management\\models\\model1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|solutionrelative:library management\\models\\model1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\library management\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|solutionrelative:library management\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\library management\\controllers\\api\\bookapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|solutionrelative:library management\\controllers\\api\\bookapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\library management\\views\\member\\forgetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|solutionrelative:library management\\views\\member\\forgetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\library management\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|solutionrelative:library management\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\library management\\app_start\\webapiconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|solutionrelative:library management\\app_start\\webapiconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\library management\\authorization\\adminonlyattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|solutionrelative:library management\\authorization\\adminonlyattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\library management\\models\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{E44A471C-C5F1-45AE-B533-307E584988AA}|Library Management\\Library Management.csproj|solutionrelative:library management\\models\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MemberNotification.cs",
+              "DocumentMoniker": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Models\\MemberNotification.cs",
+              "RelativeDocumentMoniker": "Library Management\\Models\\MemberNotification.cs",
+              "ToolTip": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Models\\MemberNotification.cs",
+              "RelativeToolTip": "Library Management\\Models\\MemberNotification.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T10:49:17.463Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BorrowHistory.cs",
+              "DocumentMoniker": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Models\\BorrowHistory.cs",
+              "RelativeDocumentMoniker": "Library Management\\Models\\BorrowHistory.cs",
+              "ToolTip": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Models\\BorrowHistory.cs",
+              "RelativeToolTip": "Library Management\\Models\\BorrowHistory.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T10:47:29.162Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Book.cs",
+              "DocumentMoniker": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Models\\Book.cs",
+              "RelativeDocumentMoniker": "Library Management\\Models\\Book.cs",
+              "ToolTip": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Models\\Book.cs",
+              "RelativeToolTip": "Library Management\\Models\\Book.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAABgAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T10:05:44.351Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BookApiController.cs",
+              "DocumentMoniker": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Controllers\\API\\BookApiController.cs",
+              "RelativeDocumentMoniker": "Library Management\\Controllers\\API\\BookApiController.cs",
+              "ToolTip": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Controllers\\API\\BookApiController.cs",
+              "RelativeToolTip": "Library Management\\Controllers\\API\\BookApiController.cs",
+              "ViewState": "AgIAAAUAAACAMjMzM7MSwBoAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T10:00:53.677Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BookController.cs",
+              "DocumentMoniker": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Controllers\\BookController.cs",
+              "RelativeDocumentMoniker": "Library Management\\Controllers\\BookController.cs",
+              "ToolTip": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Controllers\\BookController.cs",
+              "RelativeToolTip": "Library Management\\Controllers\\BookController.cs",
+              "ViewState": "AgIAAAwAAADAmZmZmZkpwBMAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T10:14:35.101Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MemberController.cs",
+              "DocumentMoniker": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Controllers\\MemberController.cs",
+              "RelativeDocumentMoniker": "Library Management\\Controllers\\MemberController.cs",
+              "ToolTip": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Controllers\\MemberController.cs",
+              "RelativeToolTip": "Library Management\\Controllers\\MemberController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T09:38:09.807Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Library Management\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Library Management\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAJMBAAAAAAAAAAASwKMBAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T09:53:23.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "Library Management\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "Library Management\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T09:34:22.625Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BorrowRequest.cs",
+              "DocumentMoniker": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Models\\BorrowRequest.cs",
+              "RelativeDocumentMoniker": "Library Management\\Models\\BorrowRequest.cs",
+              "ToolTip": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Models\\BorrowRequest.cs",
+              "RelativeToolTip": "Library Management\\Models\\BorrowRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T10:12:51.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Library Management\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Models\\User.cs",
+              "RelativeToolTip": "Library Management\\Models\\User.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T10:50:41.425Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Model1.cs",
+              "DocumentMoniker": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Models\\Model1.cs",
+              "RelativeDocumentMoniker": "Library Management\\Models\\Model1.cs",
+              "ToolTip": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Models\\Model1.cs",
+              "RelativeToolTip": "Library Management\\Models\\Model1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T10:54:10.793Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ForgetPassword.cshtml",
+              "DocumentMoniker": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Views\\Member\\ForgetPassword.cshtml",
+              "RelativeDocumentMoniker": "Library Management\\Views\\Member\\ForgetPassword.cshtml",
+              "ToolTip": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Views\\Member\\ForgetPassword.cshtml",
+              "RelativeToolTip": "Library Management\\Views\\Member\\ForgetPassword.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-28T10:37:33.034Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "WebApiConfig.cs",
+              "DocumentMoniker": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\App_Start\\WebApiConfig.cs",
+              "RelativeDocumentMoniker": "Library Management\\App_Start\\WebApiConfig.cs",
+              "ToolTip": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\App_Start\\WebApiConfig.cs",
+              "RelativeToolTip": "Library Management\\App_Start\\WebApiConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T10:27:58.891Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "RouteConfig.cs",
+              "DocumentMoniker": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\App_Start\\RouteConfig.cs",
+              "RelativeDocumentMoniker": "Library Management\\App_Start\\RouteConfig.cs",
+              "ToolTip": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\App_Start\\RouteConfig.cs",
+              "RelativeToolTip": "Library Management\\App_Start\\RouteConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T10:28:00.09Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AdminOnlyAttribute.cs",
+              "DocumentMoniker": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Authorization\\AdminOnlyAttribute.cs",
+              "RelativeDocumentMoniker": "Library Management\\Authorization\\AdminOnlyAttribute.cs",
+              "ToolTip": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Authorization\\AdminOnlyAttribute.cs",
+              "RelativeToolTip": "Library Management\\Authorization\\AdminOnlyAttribute.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T09:52:28.366Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Model1.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Models\\Model1.edmx",
+              "RelativeDocumentMoniker": "Library Management\\Models\\Model1.edmx",
+              "ToolTip": "C:\\Users\\Antik\\OneDrive - American International University-Bangladesh\\Desktop\\.Net project\\Library Management\\Library Management\\Models\\Model1.edmx [Diagram1]",
+              "RelativeToolTip": "Library Management\\Models\\Model1.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2025-06-28T09:31:38.879Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

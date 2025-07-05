@@ -1,0 +1,41 @@
+﻿@model Library_Management.Models.Book
+@{
+    ViewBag.Title = "View Book";
+}
+@Html.Partial("_AdminNav")
+
+<h2>Book Details</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Title</th>
+        <td>@Model.Title</td>
+    </tr>
+    <tr>
+        <th>Author</th>
+        <td>@Model.Author</td>
+    </tr>
+    <tr>
+        <th>Category</th>
+        <td>@Model.Category</td>
+    </tr>
+    <tr>
+        <th>Quantity</th>
+        <td>@Model.Quantity</td>
+    </tr>
+    <tr>
+        <th>Description</th>
+        <td>@Model.Description</td>
+    </tr>
+    <tr>
+        <th>Cover Image</th>
+        <td>
+            @if (!string.IsNullOrEmpty(Model.CoverImageUrl))
+            {
+                <img src="@Url.Content(Model.CoverImageUrl)" style="height:150px;" />
+            }
+        </td>
+    </tr>
+</table>
+
+<a href="@Url.Action("AllBooks", "Admin")" class="btn btn-secondary">Back to List</a>

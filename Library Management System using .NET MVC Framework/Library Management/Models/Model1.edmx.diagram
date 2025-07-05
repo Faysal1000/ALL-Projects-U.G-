@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6a222dde1d01459e8f727cc46d64638e" Name="Diagram1">
+        <EntityTypeShape EntityType="LibraryDBModel.Book" Width="1.5" PointX="5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.BorrowHistory" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.BorrowRequest" Width="1.5" PointX="6.875" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.MemberNotification" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibraryDBModel.User" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="LibraryDBModel.FK__BorrowHis__BookI__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK__BorrowReq__BookI__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK__BorrowHis__Membe__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK__BorrowReq__Membe__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="LibraryDBModel.FK__MemberNot__Membe__49C3F6B7" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

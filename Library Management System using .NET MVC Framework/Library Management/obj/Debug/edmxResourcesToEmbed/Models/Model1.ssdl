@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibraryDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Author" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Category" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CoverImageUrl" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BorrowHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="int" Nullable="false" />
+    <Property Name="BookId" Type="int" Nullable="false" />
+    <Property Name="BorrowedAt" Type="datetime" />
+    <Property Name="ReturnedAt" Type="datetime" />
+    <Property Name="ReturnRequested" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BorrowRequest">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="int" Nullable="false" />
+    <Property Name="BookId" Type="int" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="RequestedAt" Type="datetime" />
+    <Property Name="ApprovedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MemberNotification">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberId" Type="int" Nullable="false" />
+    <Property Name="SeenStatus" Type="bit" Nullable="false" />
+    <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Role" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__BorrowHis__BookI__412EB0B6">
+    <End Role="Book" Type="Self.Book" Multiplicity="1" />
+    <End Role="BorrowHistory" Type="Self.BorrowHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BorrowHistory">
+        <PropertyRef Name="BookId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BorrowHis__Membe__403A8C7D">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="BorrowHistory" Type="Self.BorrowHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BorrowHistory">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BorrowReq__BookI__45F365D3">
+    <End Role="Book" Type="Self.Book" Multiplicity="1" />
+    <End Role="BorrowRequest" Type="Self.BorrowRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BorrowRequest">
+        <PropertyRef Name="BookId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BorrowReq__Membe__44FF419A">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="BorrowRequest" Type="Self.BorrowRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BorrowRequest">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MemberNot__Membe__49C3F6B7">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="MemberNotification" Type="Self.MemberNotification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MemberNotification">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LibraryDBModelStoreContainer">
+    <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BorrowHistory" EntityType="Self.BorrowHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BorrowRequest" EntityType="Self.BorrowRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MemberNotification" EntityType="Self.MemberNotification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__BorrowHis__BookI__412EB0B6" Association="Self.FK__BorrowHis__BookI__412EB0B6">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="BorrowHistory" EntitySet="BorrowHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BorrowHis__Membe__403A8C7D" Association="Self.FK__BorrowHis__Membe__403A8C7D">
+      <End Role="User" EntitySet="User" />
+      <End Role="BorrowHistory" EntitySet="BorrowHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BorrowReq__BookI__45F365D3" Association="Self.FK__BorrowReq__BookI__45F365D3">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="BorrowRequest" EntitySet="BorrowRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BorrowReq__Membe__44FF419A" Association="Self.FK__BorrowReq__Membe__44FF419A">
+      <End Role="User" EntitySet="User" />
+      <End Role="BorrowRequest" EntitySet="BorrowRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MemberNot__Membe__49C3F6B7" Association="Self.FK__MemberNot__Membe__49C3F6B7">
+      <End Role="User" EntitySet="User" />
+      <End Role="MemberNotification" EntitySet="MemberNotification" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
