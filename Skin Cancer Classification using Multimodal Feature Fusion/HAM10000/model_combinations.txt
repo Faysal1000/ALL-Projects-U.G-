@@ -1,0 +1,23 @@
+Xception + InceptionV3           //done
+Xception + InceptionResNetV2     //done
+Xception + DenseNet201           //done
+Xception + DenseNet121           //done
+InceptionV3 + InceptionResNetV2  //done
+InceptionV3 + DenseNet201        //done
+InceptionV3 + DenseNet121        //done
+InceptionResNetV2 + DenseNet201  //done
+InceptionResNetV2 + DenseNet121  //done
+DenseNet201 + DenseNet121        //done
+
+Xception + InceptionV3 + InceptionResNetV2     //done
+Xception + InceptionV3 + DenseNet201           //done 
+Xception + InceptionV3 + DenseNet121           //done 
+Xception + InceptionResNetV2 + DenseNet201     //done
+Xception + InceptionResNetV2 + DenseNet121     //done
+Xception + DenseNet201 + DenseNet121           //done
+InceptionV3 + InceptionResNetV2 + DenseNet201  //done
+InceptionV3 + InceptionResNetV2 + DenseNet121  //done
+InceptionV3 + DenseNet201 + DenseNet121        //done
+InceptionResNetV2 + DenseNet201 + DenseNet121  //done
+
+
