@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Faysal Ahmmed\\Desktop\\LifeinnovirorMentalHealthConsultency\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5910F55C-1961-433D-AD97-4EE06F8B2A41}|LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency.csproj|c:\\users\\faysal ahmmed\\desktop\\lifeinnovirormentalhealthconsultency\\lifeinnovirormentalhealthconsultency\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{5910F55C-1961-433D-AD97-4EE06F8B2A41}|LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency.csproj|solutionrelative:lifeinnovirormentalhealthconsultency\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5910F55C-1961-433D-AD97-4EE06F8B2A41}|LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency.csproj|c:\\users\\faysal ahmmed\\desktop\\lifeinnovirormentalhealthconsultency\\lifeinnovirormentalhealthconsultency\\authorization\\tokenmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5910F55C-1961-433D-AD97-4EE06F8B2A41}|LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency.csproj|solutionrelative:lifeinnovirormentalhealthconsultency\\authorization\\tokenmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5910F55C-1961-433D-AD97-4EE06F8B2A41}|LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency.csproj|c:\\users\\faysal ahmmed\\desktop\\lifeinnovirormentalhealthconsultency\\lifeinnovirormentalhealthconsultency\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5910F55C-1961-433D-AD97-4EE06F8B2A41}|LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency.csproj|solutionrelative:lifeinnovirormentalhealthconsultency\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5910F55C-1961-433D-AD97-4EE06F8B2A41}|LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency.csproj|c:\\users\\faysal ahmmed\\desktop\\lifeinnovirormentalhealthconsultency\\lifeinnovirormentalhealthconsultency\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5910F55C-1961-433D-AD97-4EE06F8B2A41}|LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency.csproj|solutionrelative:lifeinnovirormentalhealthconsultency\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5910F55C-1961-433D-AD97-4EE06F8B2A41}|LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency.csproj|c:\\users\\faysal ahmmed\\desktop\\lifeinnovirormentalhealthconsultency\\lifeinnovirormentalhealthconsultency\\models\\fakedb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5910F55C-1961-433D-AD97-4EE06F8B2A41}|LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency.csproj|solutionrelative:lifeinnovirormentalhealthconsultency\\models\\fakedb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "C:\\Users\\Faysal Ahmmed\\Desktop\\LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency\\Startup.cs",
+              "RelativeDocumentMoniker": "LifeinnovirorMentalHealthConsultency\\Startup.cs",
+              "ToolTip": "C:\\Users\\Faysal Ahmmed\\Desktop\\LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency\\Startup.cs",
+              "RelativeToolTip": "LifeinnovirorMentalHealthConsultency\\Startup.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAgwBgAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T17:39:50.681Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\Faysal Ahmmed\\Desktop\\LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency\\Web.config",
+              "RelativeDocumentMoniker": "LifeinnovirorMentalHealthConsultency\\Web.config",
+              "ToolTip": "C:\\Users\\Faysal Ahmmed\\Desktop\\LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency\\Web.config*",
+              "RelativeToolTip": "LifeinnovirorMentalHealthConsultency\\Web.config*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-07-20T17:05:16.936Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FakeDB.cs",
+              "DocumentMoniker": "C:\\Users\\Faysal Ahmmed\\Desktop\\LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency\\Models\\FakeDB.cs",
+              "RelativeDocumentMoniker": "LifeinnovirorMentalHealthConsultency\\Models\\FakeDB.cs",
+              "ToolTip": "C:\\Users\\Faysal Ahmmed\\Desktop\\LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency\\Models\\FakeDB.cs",
+              "RelativeToolTip": "LifeinnovirorMentalHealthConsultency\\Models\\FakeDB.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAwB0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T16:54:08.035Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\Faysal Ahmmed\\Desktop\\LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "LifeinnovirorMentalHealthConsultency\\Controllers\\LoginController.cs",
+              "ToolTip": "C:\\Users\\Faysal Ahmmed\\Desktop\\LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "LifeinnovirorMentalHealthConsultency\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T16:50:51.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TokenManager.cs",
+              "DocumentMoniker": "C:\\Users\\Faysal Ahmmed\\Desktop\\LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency\\Authorization\\TokenManager.cs",
+              "RelativeDocumentMoniker": "LifeinnovirorMentalHealthConsultency\\Authorization\\TokenManager.cs",
+              "ToolTip": "C:\\Users\\Faysal Ahmmed\\Desktop\\LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency\\Authorization\\TokenManager.cs",
+              "RelativeToolTip": "LifeinnovirorMentalHealthConsultency\\Authorization\\TokenManager.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAgwBIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T16:40:04.643Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
