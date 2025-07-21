@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.Policy;
 using System.Web;
+using LifeinnovirorMentalHealthConsultency.Authorization;
 
 namespace LifeinnovirorMentalHealthConsultency.Context.Tables
 {
@@ -54,5 +56,8 @@ namespace LifeinnovirorMentalHealthConsultency.Context.Tables
 
         [Required]
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
+
+        [StringLength(255)]
+        public string PasswordHash { get; set; } // deafault should be hashed email address
     }
 }

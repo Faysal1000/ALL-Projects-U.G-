@@ -169,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Authorization\Hashing.cs" />
     <Compile Include="Authorization\TokenManager.cs" />
     <Compile Include="Context\LifeinnovirorContext.cs" />
     <Compile Include="Context\Tables\Admin.cs" />
@@ -193,7 +194,9 @@
     <Compile Include="Context\Tables\Specialization.cs" />
     <Compile Include="Context\Tables\SubSpecialization.cs" />
     <Compile Include="Context\Tables\SystemLog.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdminControllers\AdminCrudOperationController.cs" />
+    <Compile Include="Controllers\AdminControllers\AdminSpecializationManagementController.cs" />
+    <Compile Include="Controllers\AdminControllers\AdminSubSpecializationManagementController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -201,6 +204,14 @@
     <Compile Include="Migrations\202507191745017_initializeDatabase.cs" />
     <Compile Include="Migrations\202507191745017_initializeDatabase.Designer.cs">
       <DependentUpon>202507191745017_initializeDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202507210611367_AdminUserNameDelete.cs" />
+    <Compile Include="Migrations\202507210611367_AdminUserNameDelete.Designer.cs">
+      <DependentUpon>202507210611367_AdminUserNameDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202507210840569_addingPassFieldToPatient.cs" />
+    <Compile Include="Migrations\202507210840569_addingPassFieldToPatient.Designer.cs">
+      <DependentUpon>202507210840569_addingPassFieldToPatient.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\FakeDB.cs" />
@@ -223,6 +234,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202507191745017_initializeDatabase.resx">
       <DependentUpon>202507191745017_initializeDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507210611367_AdminUserNameDelete.resx">
+      <DependentUpon>202507210611367_AdminUserNameDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507210840569_addingPassFieldToPatient.resx">
+      <DependentUpon>202507210840569_addingPassFieldToPatient.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
