@@ -9,8 +9,8 @@ using System.Web.Http;
 using System.Web.Services.Description;
 using LifeinnovirorMentalHealthConsultency.Authorization;
 using LifeinnovirorMentalHealthConsultency.Context;
+using LifeinnovirorMentalHealthConsultency.Context.Tables;
 using LifeinnovirorMentalHealthConsultency.Models;
-using static LifeinnovirorMentalHealthConsultency.Models.FakeDB;
 
 namespace LifeinnovirorMentalHealthConsultency.Controllers
 {
@@ -35,7 +35,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers
                 return Content(HttpStatusCode.BadRequest, 
                     new { message = "Email or password is missing." });
 
-            var passwordHash = Hashing.CreateMD5(model.Password);
+            var passwordHash = CustomFunctions.CreateMD5(model.Password);
 
             // Check if credentials match
             var user = db.Admins.FirstOrDefault(u => u.Email == model.Email &&
@@ -45,6 +45,17 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers
                 return Unauthorized();
 
             var token = TokenManager.GenerateToken(user.Email, "Admin");
+
+            // Log: Successful admin login
+            db.SystemLogs.Add(new SystemLog
+            {
+                ActorType = "Admin",
+                ActorId = CustomFunctions.GetAdminUserIdFromToken(User),
+                Action = "Admin Login",
+                Details = $"Admin '{user.Email}' logged into the system successfully.",
+                CreatedAt = DateTime.Now
+            });
+            db.SaveChanges();
 
             return Ok(new
             {
@@ -64,7 +75,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers
                 return Content(HttpStatusCode.BadRequest, 
                     new { message = "Email or password is missing." });
 
-            var passwordHash = Hashing.CreateMD5(model.Password);
+            var passwordHash = CustomFunctions.CreateMD5(model.Password);
 
             // Check if credentials match
             var user = db.Doctors.FirstOrDefault(u => u.Email == model.Email &&
@@ -74,6 +85,17 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers
                 return Unauthorized();
 
             var token = TokenManager.GenerateToken(user.Email, "Doctor");
+
+            // Log: Successful doctor login
+            db.SystemLogs.Add(new SystemLog
+            {
+                ActorType = "Doctor",
+                ActorId = CustomFunctions.GetDoctorUserIdFromToken(User),
+                Action = "Doctor Login",
+                Details = $"Doctor '{user.Email}' logged into the system successfully.",
+                CreatedAt = DateTime.Now
+            });
+            db.SaveChanges();
 
             return Ok(new
             {
@@ -93,7 +115,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers
                 return Content(HttpStatusCode.BadRequest, 
                     new { message = "Email or password is missing." });
 
-            var passwordHash = Hashing.CreateMD5(model.Password);
+            var passwordHash = CustomFunctions.CreateMD5(model.Password);
 
             // Check if credentials match with hashed
             var user = db.Patients.FirstOrDefault(u => u.Email == model.Email &&
@@ -104,12 +126,23 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers
 
             // Warn if password is same as email
             string message = "";
-            if (Hashing.CreateMD5(user.Email) == user.PasswordHash)
+            if (CustomFunctions.CreateMD5(user.Email) == user.PasswordHash)
             {
                 message = "It is recommended to change your password as your default password is your email address.";
             }
 
             var token = TokenManager.GenerateToken(user.Email, "Patient");
+
+            // Log: Successful patient login
+            db.SystemLogs.Add(new SystemLog
+            {
+                ActorType = "Patient",
+                ActorId = CustomFunctions.GetPatientUserIdFromToken(User),
+                Action = "Patient Login",
+                Details = $"Patient '{user.Email}' logged into the system successfully.",
+                CreatedAt = DateTime.Now
+            });
+            db.SaveChanges();
 
             return Ok(new
             {

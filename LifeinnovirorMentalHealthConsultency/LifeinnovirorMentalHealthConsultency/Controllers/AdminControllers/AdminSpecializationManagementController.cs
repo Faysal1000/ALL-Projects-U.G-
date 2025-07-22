@@ -18,7 +18,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
         }
 
 
-        //This will take Specialization data inputed by admin and add it to the database
+        // it receives specialization data and add to database
         [HttpPost]
         [Route("api/admin/addSpecialization")]
         public IHttpActionResult AddSpecialization(Specialization data)
@@ -26,17 +26,16 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
             //Try-catch block to handle unintended errors
             try
             {
-                // If the Data is valid then it will add to database
+                // it checks if the data is valid or not
                 if (ModelState.IsValid)
                 {
-                    // Check if a specialization with the same name already exists (case-insensitive)
+                    // Check if specialization already exists
                     var exists = db.Specializations
                                    .Any(s => s.Name.ToLower().Trim() == data.Name.ToLower().Trim());
 
-                    // If exists then send HTTPconflict code
                     if (exists)
                     {
-                        return Content(HttpStatusCode.Conflict, new   // 409 if not conflict
+                        return Content(HttpStatusCode.Conflict, new
                         {
                             success = false,
                             message = "This specialization already exists.",
@@ -44,7 +43,19 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                         });
                     }
 
+                    // Add specialization to DB
                     db.Specializations.Add(data);
+                    db.SaveChanges();
+
+                    // Log: Successful addition
+                    db.SystemLogs.Add(new SystemLog
+                    {
+                        ActorType = "Admin",
+                        ActorId = CustomFunctions.GetAdminUserIdFromToken(User), 
+                        Action = "Add Specialization",
+                        Details = $"Added specialization '{data.Name}' successfully.",
+                        CreatedAt = DateTime.Now
+                    });
                     db.SaveChanges();
 
                     return Ok(new
@@ -55,8 +66,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                     });
                 }
 
-
-                // If data is invalid then the error message and the from data will sent to frontend
+                // if invalid data then Collect validation errors
                 var errors = ModelState.Where(ms => ms.Value.Errors.Count > 0)
                                        .Select(ms => new
                                        {
@@ -77,6 +87,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                 return InternalServerError(new Exception("An error occurred while adding specialization: " + ex.Message));
             }
         }
+
 
         //This is retrive all the specialization data available in the database and send it
         [HttpGet]
@@ -113,6 +124,8 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                 return InternalServerError(new Exception("An error occurred while retrieving specializations: " + ex.Message));
             }
         }
+
+
 
 
         // This will take the new specialization data and update that specialization
@@ -166,7 +179,17 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
 
                 // Update fields
                 existingSpecialization.Name = updatedData.Name;
+                db.SaveChanges();
 
+                // Log: Successful Update of specialization
+                db.SystemLogs.Add(new SystemLog
+                {
+                    ActorType = "Admin",
+                    ActorId = CustomFunctions.GetAdminUserIdFromToken(User),
+                    Action = "Update Specialization",
+                    Details = $"Updated specialization '{updatedData.Name}' successfully.",
+                    CreatedAt = DateTime.Now
+                });
                 db.SaveChanges();
 
                 return Ok(new
@@ -183,30 +206,50 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
         }
 
 
-        // This will take an id of the specialization object and delete it
         [HttpPost]
         [Route("api/admin/deleteSpecialization/{id}")]
         public IHttpActionResult DeleteSpecialization(int id)
         {
-            //Try-catch block to handle unintended errors
             try
             {
-                // Find if the existed id have data to delete 
+                // Find the specialization
                 var specialization = db.Specializations.FirstOrDefault(s => s.SpecializationId == id);
 
                 if (specialization == null)
                 {
-                    return NotFound(); // 404 if not found
+                    return NotFound(); // Return 404 if not found
                 }
 
-                // If found then delete
+                // Find all sub-specializations associated with this specialization
+                var subSpecializations = db.SubSpecializations
+                                           .Where(ss => ss.SpecializationId == id)
+                                           .ToList();
+
+                // Delete all associated sub-specializations
+                db.SubSpecializations.RemoveRange(subSpecializations);
+
+                // Delete the specialization itself
                 db.Specializations.Remove(specialization);
+
+                // Save all changes to the database
+                db.SaveChanges();
+
+                // Log successful deletion 
+                db.SystemLogs.Add(new SystemLog
+                {
+                    ActorType = "Admin",
+                    ActorId = CustomFunctions.GetAdminUserIdFromToken(User),
+                    Action = "Delete Specialization",
+                    Details = $"Deleted specialization '{specialization.Name}' and its {subSpecializations.Count} sub-specializations.",
+                    CreatedAt = DateTime.Now
+                });
+
                 db.SaveChanges();
 
                 return Ok(new
                 {
                     success = true,
-                    message = "Specialization deleted successfully.",
+                    message = "Specialization and all related sub-specializations deleted successfully.",
                     data = specialization
                 });
             }
@@ -215,6 +258,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                 return InternalServerError(new Exception("An error occurred while deleting the specialization. Details: " + ex.Message));
             }
         }
+
 
 
     }

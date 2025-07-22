@@ -9,7 +9,7 @@ namespace LifeinnovirorMentalHealthConsultency.Authorization
 {
     public class TokenManager
     {
-        public static string GenerateToken(string userEmail, string role, int expirationInMinutes = 60)
+        public static string GenerateToken(string userEmail, string role, int expirationInMinutes = 300)
         {
             var secretKey = ConfigurationManager.AppSettings["JwtKey"];
             var issuer = ConfigurationManager.AppSettings["JwtIssuer"];

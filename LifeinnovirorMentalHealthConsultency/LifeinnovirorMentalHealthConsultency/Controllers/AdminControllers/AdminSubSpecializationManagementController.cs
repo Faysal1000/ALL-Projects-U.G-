@@ -48,6 +48,18 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                     db.SubSpecializations.Add(data);      //add data to the database
                     db.SaveChanges();
 
+                    // Log: Successful addition
+                    db.SystemLogs.Add(new SystemLog
+                    {
+                        ActorType = "Admin",
+                        ActorId = CustomFunctions.GetAdminUserIdFromToken(User),
+                        Action = "Add Sub Specialization",
+                        Details = $"Added sub-specialization '{data.Name}' successfully.",
+                        CreatedAt = DateTime.Now
+                    });
+                    db.SaveChanges();
+
+
                     return Ok(new
                     {
                         success = true,
@@ -225,7 +237,18 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
 
                 // if all success then update the subspecialization name
                 existing.Name = updatedData.Name;
+                db.SaveChanges();
 
+
+                // Log: Successful update
+                db.SystemLogs.Add(new SystemLog
+                {
+                    ActorType = "Admin",
+                    ActorId = CustomFunctions.GetAdminUserIdFromToken(User),
+                    Action = "Update Sub Specialization",
+                    Details = $"Updated sub-specialization '{updatedData.Name}' successfully.",
+                    CreatedAt = DateTime.Now
+                });
                 db.SaveChanges();
 
                 return Ok(new
@@ -258,6 +281,18 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                     return NotFound();   // if not found then send 404 status code
 
                 db.SubSpecializations.Remove(sub);  // if found then delete that
+                db.SaveChanges();
+
+
+                // Log: Successful deletion
+                db.SystemLogs.Add(new SystemLog
+                {
+                    ActorType = "Admin",
+                    ActorId = CustomFunctions.GetAdminUserIdFromToken(User),
+                    Action = "Delete Sub Specialization",
+                    Details = $"Deleted sub-specialization '{sub.Name}' successfully.",
+                    CreatedAt = DateTime.Now
+                });
                 db.SaveChanges();
 
                 return Ok(new

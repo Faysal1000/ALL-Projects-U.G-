@@ -62,8 +62,20 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                 }
 
                 //if all successfull then secure the password by hashing
-                data.PasswordHash = Hashing.CreateMD5(data.PasswordHash); //creating MD5 hashing
+                data.PasswordHash = CustomFunctions.CreateMD5(data.PasswordHash); //creating MD5 hashing
                 db.Admins.Add(data);
+                db.SaveChanges();
+
+
+                // Log: Successful creation
+                db.SystemLogs.Add(new SystemLog
+                {
+                    ActorType = "Admin",
+                    ActorId = CustomFunctions.GetAdminUserIdFromToken(User),
+                    Action = "Create Admin",
+                    Details = $"Created admin '{data.Email}' successfully.",
+                    CreatedAt = DateTime.Now
+                });
                 db.SaveChanges();
 
                 return Ok(new
@@ -155,12 +167,24 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                 if (existingAdmin.PasswordHash != updatedData.PasswordHash)
                 {
                     //if changed then hash the new password and update it
-                    existingAdmin.PasswordHash = Hashing.CreateMD5(updatedData.PasswordHash);
+                    existingAdmin.PasswordHash = CustomFunctions.CreateMD5(updatedData.PasswordHash);
                 }
                 // Update others fields also
                 existingAdmin.Email = updatedData.Email;
                 existingAdmin.FullName = updatedData.FullName;
                 db.SaveChanges();
+
+                // Log: Successful update
+                db.SystemLogs.Add(new SystemLog
+                {
+                    ActorType = "Admin",
+                    ActorId = CustomFunctions.GetAdminUserIdFromToken(User),
+                    Action = "Update Admin",
+                    Details = $"Updated admin '{updatedData.Email}' successfully.",
+                    CreatedAt = DateTime.Now
+                });
+                db.SaveChanges();
+
 
                 return Ok(new
                 {
@@ -192,6 +216,17 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                 }
 
                 db.Admins.Remove(admin);  // if existes then remove
+                db.SaveChanges();
+
+                // Log: Successful deletion
+                db.SystemLogs.Add(new SystemLog
+                {
+                    ActorType = "Admin",
+                    ActorId = CustomFunctions.GetAdminUserIdFromToken(User),
+                    Action = "Delete Admin",
+                    Details = $"Deleted admin '{admin.Email}' successfully.",
+                    CreatedAt = DateTime.Now
+                });
                 db.SaveChanges();
 
                 return Ok(new
