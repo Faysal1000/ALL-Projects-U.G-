@@ -64,7 +64,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers
         }
 
         /// <summary>
-        /// Doctor login with plain password match 
+        /// Doctor login with password match 
         /// Returns JWT token on success.
         /// </summary>
         [HttpPost]

@@ -37,7 +37,6 @@ namespace LifeinnovirorMentalHealthConsultency.Context.Tables
 
         public int? PaymentId { get; set; }
 
-        [Required]
         [StringLength(20)]
         [RegularExpression("Booked|Cancelled|Completed", 
             ErrorMessage = "Status must be Booked, Cancelled, or Completed")]

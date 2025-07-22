@@ -2,12 +2,14 @@
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Text;
+using System.Web.Http;
 using LifeinnovirorMentalHealthConsultency.Context;
 
 public static class CustomFunctions
 {
     private static LifeinnovirorContext db = new LifeinnovirorContext();
-
+    
+    //this will return current logged in admin user id
     public static int GetAdminUserIdFromToken(IPrincipal user)
     {
         var identity = user.Identity as ClaimsIdentity;
@@ -20,6 +22,7 @@ public static class CustomFunctions
         return admin?.AdminId ?? 0;
     }
 
+    //this will return current logged in doctor user id
     public static int GetDoctorUserIdFromToken(IPrincipal user)
     {
         var identity = user.Identity as ClaimsIdentity;
@@ -32,6 +35,7 @@ public static class CustomFunctions
         return doctor?.DoctorId ?? 0;
     }
 
+    //this will return current logged in patient user id
     public static int GetPatientUserIdFromToken(IPrincipal user)
     {
         var identity = user.Identity as ClaimsIdentity;

@@ -22,6 +22,7 @@ namespace LifeinnovirorMentalHealthConsultency.Context.Tables
         public string Gender { get; set; }
 
         [EmailAddress]
+        [Required]
         public string Email { get; set; }
 
         [StringLength(20)]
@@ -58,6 +59,8 @@ namespace LifeinnovirorMentalHealthConsultency.Context.Tables
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
         [StringLength(255)]
+        [Required] //you should remove this validation if the account is created automatically with booking appointment
+        [MinLength(6, ErrorMessage = "Password must be at least 6 characters.")]
         public string PasswordHash { get; set; } // deafault should be hashed email address
     }
 }

@@ -17,10 +17,8 @@ namespace LifeinnovirorMentalHealthConsultency.Context.Tables
         [Required]
         public string Answer { get; set; }
 
-        [Required]
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
-        [Required]
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
     }
 }

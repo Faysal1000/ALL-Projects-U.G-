@@ -194,10 +194,14 @@
     <Compile Include="Context\Tables\Specialization.cs" />
     <Compile Include="Context\Tables\SubSpecialization.cs" />
     <Compile Include="Context\Tables\SystemLog.cs" />
+    <Compile Include="Controllers\AdminControllers\AdminAppointmentTypeManagementController.cs" />
     <Compile Include="Controllers\AdminControllers\AdminCrudOperationController.cs" />
+    <Compile Include="Controllers\AdminControllers\AdminFaqManagementController.cs" />
+    <Compile Include="Controllers\AdminControllers\AdminLogsManagementController.cs" />
     <Compile Include="Controllers\AdminControllers\AdminSpecializationManagementController.cs" />
     <Compile Include="Controllers\AdminControllers\AdminSubSpecializationManagementController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PatientControllers\PatientAccountManagementController.cs" />
     <Compile Include="Functional Class\CustomFunctions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -214,7 +218,12 @@
     <Compile Include="Migrations\202507210840569_addingPassFieldToPatient.Designer.cs">
       <DependentUpon>202507210840569_addingPassFieldToPatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202507221644339_patientTableChanged.cs" />
+    <Compile Include="Migrations\202507221644339_patientTableChanged.Designer.cs">
+      <DependentUpon>202507221644339_patientTableChanged.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ChangePasswordModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App_Start\Startup.cs" />
@@ -229,7 +238,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Data\PatientProfilePhoto\" />
+    <Folder Include="App_Data\Temp\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202507191745017_initializeDatabase.resx">
@@ -240,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202507210840569_addingPassFieldToPatient.resx">
       <DependentUpon>202507210840569_addingPassFieldToPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507221644339_patientTableChanged.resx">
+      <DependentUpon>202507221644339_patientTableChanged.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
