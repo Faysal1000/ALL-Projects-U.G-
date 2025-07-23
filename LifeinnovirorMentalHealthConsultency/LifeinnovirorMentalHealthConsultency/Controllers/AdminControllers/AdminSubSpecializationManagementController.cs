@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using LifeinnovirorMentalHealthConsultency.Context;
 using LifeinnovirorMentalHealthConsultency.Context.Tables;
@@ -11,10 +13,10 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
 {
     public class AdminSubSpecializationManagementController : ApiController
     {
-        private LifeinnovirorContext db;    // Creating private db object to manupulate data
+        private readonly LifeinnovirorContext db;  
         public AdminSubSpecializationManagementController()
         {
-            db = new LifeinnovirorContext(); // Initializing the database in constructor 
+            db = new LifeinnovirorContext(); // Initializing the database 
         }
 
 
@@ -22,18 +24,17 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
         // Add a new SubSpecialization 
         [HttpPost]
         [Route("api/admin/addSubSpecialization")]
-        public IHttpActionResult AddSubSpecialization(SubSpecialization data)
+        public async Task<IHttpActionResult> AddSubSpecialization(SubSpecialization data)
         {
-            //Try-catch block to handle unintended errors
             try
             {
                 // if it is valid data
                 if (ModelState.IsValid)
                 {
                     // checking if the subspecialization already exists under the specialization
-                    var exists = db.SubSpecializations
-                                   .Any(s => s.SpecializationId == data.SpecializationId &&
-                                             s.Name.ToLower().Trim() == data.Name.ToLower().Trim());
+                    var exists = await db.SubSpecializations
+                                     .AnyAsync(s => s.SpecializationId == data.SpecializationId &&
+                                              s.Name.ToLower().Trim() == data.Name.ToLower().Trim());
 
                     if (exists)
                     {
@@ -46,7 +47,6 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                     }
 
                     db.SubSpecializations.Add(data);      //add data to the database
-                    db.SaveChanges();
 
                     // Log: Successful addition
                     db.SystemLogs.Add(new SystemLog
@@ -57,7 +57,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                         Details = $"Added sub-specialization '{data.Name}' successfully.",
                         CreatedAt = DateTime.Now
                     });
-                    db.SaveChanges();
+                    await db.SaveChangesAsync();
 
 
                     return Ok(new
@@ -86,7 +86,12 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception("Error while adding sub-specialization: " + ex.Message));
+                return Content(HttpStatusCode.InternalServerError, new
+                {
+                    success = false,
+                    message = "An error occurred while adding sub-specialization",
+                    error = ex.Message
+                });
             }
         }
 
@@ -96,12 +101,12 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
         // Get all SubSpecializations
         [HttpGet]
         [Route("api/admin/getAllSubSpecializations")]
-        public IHttpActionResult GetAllSubSpecializations()
+        public async Task<IHttpActionResult> GetAllSubSpecializations()
         {
             try
             {
                 //Only select respective fields to send. No need to send specialization also
-                var subs = db.SubSpecializations
+                var subs = await db.SubSpecializations
                              .Select(s => new
                              {
                                  s.SubSpecializationId,
@@ -109,7 +114,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                                  s.SpecializationId,
                                  SpecializationName = s.Specialization.Name
                              })
-                             .ToList();
+                             .ToListAsync();
 
                 // if there is no subspecialization
                 if (subs == null || !subs.Any())
@@ -132,22 +137,71 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception("Error retrieving sub-specializations: " + ex.Message));
+                return Content(HttpStatusCode.InternalServerError, new
+                {
+                    success = false,
+                    message = "An error occurred while retriving all sub-specialization",
+                    error = ex.Message
+                });
             }
         }
 
 
 
+        // Get SubSpecializations by its id
+        [HttpGet]
+        [Route("api/admin/getSubSpecialization/{id}")]
+        public async Task<IHttpActionResult> GetSubSpecialization(int id)
+        {
+            try
+            {
+                var subs = await db.SubSpecializations
+                   .Where(s => s.SubSpecializationId == id)
+                   .Select(s => new
+                   {
+                       s.SubSpecializationId,
+                       s.Name,
+                       s.SpecializationId,
+                       SpecializationName = s.Specialization.Name
+                   })
+                   .FirstOrDefaultAsync();
 
-        // This will take specialization id and give all the associated subspecialist
+                // if there is no subspecialization
+                if (subs == null)
+                {
+                    return NotFound();
+                }
+
+                //send subspecialization details
+                return Ok(new
+                {
+                    success = true,
+                    message = "Sub-specialization retrieved successfully.",
+                    data = subs
+                });
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.InternalServerError, new
+                {
+                    success = false,
+                    message = "An error occurred while retriving sub-specialization with its id",
+                    error = ex.Message
+                });
+            }
+        }
+
+
+
+        // This will take specialization id and give all the associated subspecial list
         [HttpGet]
         [Route("api/admin/getSubSpecializationsBySpecialization/{id}")]
-        public IHttpActionResult GetSubSpecializationsBySpecialization(int id)
+        public async Task<IHttpActionResult> GetSubSpecializationsBySpecialization(int id)
         {
             try
             {
                 // get all subspecialization where it matches given specialization id
-                var subSpecializations = db.SubSpecializations
+                var subSpecializations =await db.SubSpecializations
                                            .Where(ss => ss.SpecializationId == id)
                                            .Select(s => new   // only select necessary data
                                            {
@@ -156,7 +210,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                                                s.SpecializationId,
                                                SpecializationName = s.Specialization.Name
                                            })
-                                          .ToList();
+                                          .ToListAsync();
 
                 //if there is no subspecialization found under that specialization
                 if (subSpecializations == null || !subSpecializations.Any())
@@ -179,7 +233,12 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception("An error occurred while retrieving data: " + ex.Message));
+                return Content(HttpStatusCode.InternalServerError, new
+                {
+                    success = false,
+                    message = "An error occurred while retriving sub-specialization with specialization id",
+                    error = ex.Message
+                });
             }
         }
 
@@ -188,7 +247,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
         // Update an existing SubSpecialization
         [HttpPost]
         [Route("api/admin/updateSubSpecialization")]
-        public IHttpActionResult UpdateSubSpecialization(SubSpecialization updatedData)
+        public async Task<IHttpActionResult> UpdateSubSpecialization(SubSpecialization updatedData)
         {
             try
             {
@@ -212,15 +271,16 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                 }
 
                 // Checking if the subspecialization is exists or not
-                var existing = db.SubSpecializations.Find(updatedData.SubSpecializationId);
+                var existing = await db.SubSpecializations.FindAsync(updatedData.SubSpecializationId);
                 if (existing == null)
+                {
                     return NotFound();  //404 status code
-
+                }
 
                 //checking if duplicate subspecialization given or not
                 // condition: ignoring same subspecialization, and searching in same specialization
-                bool isDuplicate = db.SubSpecializations
-                                     .Any(s => s.SubSpecializationId != updatedData.SubSpecializationId &&
+                bool isDuplicate =await db.SubSpecializations
+                                     .AnyAsync(s => s.SubSpecializationId != updatedData.SubSpecializationId &&
                                                s.Name.ToLower().Trim() == updatedData.Name.ToLower().Trim() &&
                                                s.SpecializationId == updatedData.SpecializationId);
 
@@ -237,8 +297,6 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
 
                 // if all success then update the subspecialization name
                 existing.Name = updatedData.Name;
-                db.SaveChanges();
-
 
                 // Log: Successful update
                 db.SystemLogs.Add(new SystemLog
@@ -249,7 +307,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                     Details = $"Updated sub-specialization '{updatedData.Name}' successfully.",
                     CreatedAt = DateTime.Now
                 });
-                db.SaveChanges();
+                await db.SaveChangesAsync();
 
                 return Ok(new
                 {
@@ -260,7 +318,12 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception("Error updating sub-specialization: " + ex.Message));
+                return Content(HttpStatusCode.InternalServerError, new
+                {
+                    success = false,
+                    message = "An error occurred while updating sub-specialization",
+                    error = ex.Message
+                });
             }
         }
 
@@ -270,19 +333,19 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
         // Delete SubSpecialization by ID
         [HttpPost]
         [Route("api/admin/deleteSubSpecialization/{id}")]
-        public IHttpActionResult DeleteSubSpecialization(int id)
+        public async Task<IHttpActionResult> DeleteSubSpecialization(int id)
         {
             try
             {
                 // finding if the subspecialization exists or not
-                var sub = db.SubSpecializations.FirstOrDefault(s => s.SubSpecializationId == id);
+                var sub = await db.SubSpecializations.FirstOrDefaultAsync(s => s.SubSpecializationId == id);
 
                 if (sub == null)
+                {
                     return NotFound();   // if not found then send 404 status code
+                }
 
                 db.SubSpecializations.Remove(sub);  // if found then delete that
-                db.SaveChanges();
-
 
                 // Log: Successful deletion
                 db.SystemLogs.Add(new SystemLog
@@ -293,7 +356,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                     Details = $"Deleted sub-specialization '{sub.Name}' successfully.",
                     CreatedAt = DateTime.Now
                 });
-                db.SaveChanges();
+                await db.SaveChangesAsync();
 
                 return Ok(new
                 {
@@ -304,7 +367,12 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception("Error deleting sub-specialization: " + ex.Message));
+                return Content(HttpStatusCode.InternalServerError, new
+                {
+                    success = false,
+                    message = "An error occurred while deleting sub-specialization",
+                    error = ex.Message
+                });
             }
         }
 

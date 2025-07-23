@@ -4,7 +4,6 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Security.Principal;
 using System.Text;
-using System.Web.Http;
 using LifeinnovirorMentalHealthConsultency.Context;
 
 public static class CustomFunctions

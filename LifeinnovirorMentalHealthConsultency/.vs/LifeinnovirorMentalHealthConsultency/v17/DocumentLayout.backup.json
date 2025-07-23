@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Faysal Ahmmed\\Desktop\\All Projects\\LifeinnovirorMentalHealthConsultency\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5910F55C-1961-433D-AD97-4EE06F8B2A41}|LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency.csproj|c:\\users\\faysal ahmmed\\desktop\\all projects\\lifeinnovirormentalhealthconsultency\\lifeinnovirormentalhealthconsultency\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5910F55C-1961-433D-AD97-4EE06F8B2A41}|LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency.csproj|solutionrelative:lifeinnovirormentalhealthconsultency\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5910F55C-1961-433D-AD97-4EE06F8B2A41}|LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency.csproj|c:\\users\\faysal ahmmed\\desktop\\all projects\\lifeinnovirormentalhealthconsultency\\lifeinnovirormentalhealthconsultency\\controllers\\patientcontrollers\\patientaccountmanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5910F55C-1961-433D-AD97-4EE06F8B2A41}|LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency.csproj|solutionrelative:lifeinnovirormentalhealthconsultency\\controllers\\patientcontrollers\\patientaccountmanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5910F55C-1961-433D-AD97-4EE06F8B2A41}|LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency.csproj|c:\\users\\faysal ahmmed\\desktop\\all projects\\lifeinnovirormentalhealthconsultency\\lifeinnovirormentalhealthconsultency\\functional class\\customfunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5910F55C-1961-433D-AD97-4EE06F8B2A41}|LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency.csproj|solutionrelative:lifeinnovirormentalhealthconsultency\\functional class\\customfunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5910F55C-1961-433D-AD97-4EE06F8B2A41}|LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency.csproj|c:\\users\\faysal ahmmed\\desktop\\all projects\\lifeinnovirormentalhealthconsultency\\lifeinnovirormentalhealthconsultency\\functional class\\customvariables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5910F55C-1961-433D-AD97-4EE06F8B2A41}|LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency.csproj|solutionrelative:lifeinnovirormentalhealthconsultency\\functional class\\customvariables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +27,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "C:\\Users\\Faysal Ahmmed\\Desktop\\All Projects\\LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency\\Controllers\\LoginController.cs",
-              "RelativeDocumentMoniker": "LifeinnovirorMentalHealthConsultency\\Controllers\\LoginController.cs",
-              "ToolTip": "C:\\Users\\Faysal Ahmmed\\Desktop\\All Projects\\LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency\\Controllers\\LoginController.cs",
-              "RelativeToolTip": "LifeinnovirorMentalHealthConsultency\\Controllers\\LoginController.cs",
-              "ViewState": "AgIAAHcAAAAAAAAAAAAIwIsAAAArAAAAAAAAAA==",
+              "Title": "PatientAccountManagementController.cs",
+              "DocumentMoniker": "C:\\Users\\Faysal Ahmmed\\Desktop\\All Projects\\LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency\\Controllers\\PatientControllers\\PatientAccountManagementController.cs",
+              "RelativeDocumentMoniker": "LifeinnovirorMentalHealthConsultency\\Controllers\\PatientControllers\\PatientAccountManagementController.cs",
+              "ToolTip": "C:\\Users\\Faysal Ahmmed\\Desktop\\All Projects\\LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency\\Controllers\\PatientControllers\\PatientAccountManagementController.cs",
+              "RelativeToolTip": "LifeinnovirorMentalHealthConsultency\\Controllers\\PatientControllers\\PatientAccountManagementController.cs",
+              "ViewState": "AgIAAPUAAAAAAAAAAAAwwBQCAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T08:39:31.535Z",
+              "WhenOpened": "2025-07-23T17:09:14.24Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CustomVariables.cs",
+              "DocumentMoniker": "C:\\Users\\Faysal Ahmmed\\Desktop\\All Projects\\LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency\\Functional Class\\CustomVariables.cs",
+              "RelativeDocumentMoniker": "LifeinnovirorMentalHealthConsultency\\Functional Class\\CustomVariables.cs",
+              "ToolTip": "C:\\Users\\Faysal Ahmmed\\Desktop\\All Projects\\LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency\\Functional Class\\CustomVariables.cs",
+              "RelativeToolTip": "LifeinnovirorMentalHealthConsultency\\Functional Class\\CustomVariables.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T16:29:41.481Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CustomFunctions.cs",
+              "DocumentMoniker": "C:\\Users\\Faysal Ahmmed\\Desktop\\All Projects\\LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency\\Functional Class\\CustomFunctions.cs",
+              "RelativeDocumentMoniker": "LifeinnovirorMentalHealthConsultency\\Functional Class\\CustomFunctions.cs",
+              "ToolTip": "C:\\Users\\Faysal Ahmmed\\Desktop\\All Projects\\LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency\\Functional Class\\CustomFunctions.cs",
+              "RelativeToolTip": "LifeinnovirorMentalHealthConsultency\\Functional Class\\CustomFunctions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T16:27:18.22Z",
               "EditorCaption": ""
             }
           ]

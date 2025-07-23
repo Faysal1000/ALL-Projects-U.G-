@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using LifeinnovirorMentalHealthConsultency.Context;
 using LifeinnovirorMentalHealthConsultency.Context.Tables;
@@ -11,10 +13,10 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
 {
     public class AdminAppointmentTypeManagementController : ApiController
     {
-        private readonly LifeinnovirorContext db;    // Creating private db object to manupulate data
+        private readonly LifeinnovirorContext db;   
         public AdminAppointmentTypeManagementController()
         {
-            db = new LifeinnovirorContext(); // Initializing the database in constructor 
+            db = new LifeinnovirorContext(); // Initializing the database
         }
 
 
@@ -22,7 +24,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("api/admin/addAppointmentType")]
-        public IHttpActionResult AddAppointmentType(AppointmentType model)
+        public async Task<IHttpActionResult> AddAppointmentType(AppointmentType model)
         {
             try
             {
@@ -49,8 +51,8 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                 string incomingAppointmentName = model.Name.Trim().ToLower();
 
                 // Check if a Appointment with same name already exists
-                var existing = db.AppointmentTypes
-                    .FirstOrDefault(f => f.Name.Trim().ToLower() == incomingAppointmentName);
+                var existing = await db.AppointmentTypes
+                                     .FirstOrDefaultAsync(f => f.Name.Trim().ToLower() == incomingAppointmentName);
 
                 if (existing != null)
                 {
@@ -63,7 +65,6 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                 }
 
                 db.AppointmentTypes.Add(model);
-                db.SaveChanges();
 
                 //add successfull addition logs
                 db.SystemLogs.Add(new SystemLog
@@ -74,7 +75,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                     Details = $"Added appointment type '{model.Name}' with cost {model.Cost}.",
                     CreatedAt = DateTime.Now
                 });
-                db.SaveChanges();
+                await db.SaveChangesAsync();
 
                 return Ok(new
                 {
@@ -85,7 +86,12 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception("An error occurred while adding appointment type: " + ex.Message));
+                return Content(HttpStatusCode.InternalServerError, new
+                {
+                    success = false,
+                    message = "Unexpected error while adding appointment type.",
+                    error = ex.Message
+                });
             }
         }
 
@@ -93,7 +99,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("api/admin/updateAppointmentType")]
-        public IHttpActionResult UpdateAppointmentType(AppointmentType updatedType)
+        public async Task<IHttpActionResult> UpdateAppointmentType(AppointmentType updatedType)
         {
             try
             {
@@ -117,15 +123,15 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                 }
 
                 // check if the appointmenttype exists or not
-                var existing = db.AppointmentTypes.Find(updatedType.AppointmentTypeId);
+                var existing = await db.AppointmentTypes.FindAsync(updatedType.AppointmentTypeId);
                 if (existing == null)
                 {
                     return NotFound();
                 }
 
+                //update data
                 existing.Name = updatedType.Name;
                 existing.Cost = updatedType.Cost;
-                db.SaveChanges();
 
                 // add update appointment type logs
                 db.SystemLogs.Add(new SystemLog
@@ -136,7 +142,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                     Details = $"Updated appointment type ID {existing.AppointmentTypeId}.",
                     CreatedAt = DateTime.Now
                 });
-                db.SaveChanges();
+                await db.SaveChangesAsync();
 
                 return Ok(new
                 {
@@ -147,7 +153,12 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception("An error occurred while updating appointment type: " + ex.Message));
+                return Content(HttpStatusCode.InternalServerError, new
+                {
+                    success = false,
+                    message = "Unexpected error while updating appointment type.",
+                    error = ex.Message
+                });
             }
         }
 
@@ -155,19 +166,18 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("api/admin/deleteAppointmentType")]
-        public IHttpActionResult DeleteAppointmentType(int id)
+        public async Task<IHttpActionResult> DeleteAppointmentType(int id)
         {
             try
             {
                 //check if appointment type exists or not
-                var type = db.AppointmentTypes.Find(id);
+                var type = await db.AppointmentTypes.FindAsync(id);
                 if (type == null)
                 {
                     return NotFound();
                 }
 
                 db.AppointmentTypes.Remove(type);
-                db.SaveChanges();
 
                 // add deletion system log
                 db.SystemLogs.Add(new SystemLog
@@ -178,7 +188,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                     Details = $"Deleted appointment type '{type.Name}' with ID {id}.",
                     CreatedAt = DateTime.Now
                 });
-                db.SaveChanges();
+                await db.SaveChangesAsync();
 
                 return Ok(new
                 {
@@ -189,7 +199,12 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception("An error occurred while deleting appointment type: " + ex.Message));
+                return Content(HttpStatusCode.InternalServerError, new
+                {
+                    success = false,
+                    message = "Unexpected error while deleting appointment type.",
+                    error = ex.Message
+                });
             }
         }
 
@@ -199,11 +214,11 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
         // no authorization cause it need to be accessed by home page
         [HttpGet]
         [Route("api/getAppointmentTypes")]
-        public IHttpActionResult GetAppointmentTypes()
+        public async Task<IHttpActionResult> GetAppointmentTypes()
         {
             try
             {
-                var types = db.AppointmentTypes.ToList();
+                var types = await db.AppointmentTypes.ToListAsync();
 
                 // If no type found then it will send success message with the message
                 if (types == null || !types.Any())
@@ -224,7 +239,12 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception("An error occurred while retrieving appointment types: " + ex.Message));
+                return Content(HttpStatusCode.InternalServerError, new
+                {
+                    success = false,
+                    message = "Unexpected error while retriving appointment type.",
+                    error = ex.Message
+                });
             }
         }
 

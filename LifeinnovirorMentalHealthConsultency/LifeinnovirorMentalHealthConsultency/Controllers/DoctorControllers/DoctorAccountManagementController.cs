@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using System.Xml.Linq;
 using LifeinnovirorMentalHealthConsultency.Context;
 using LifeinnovirorMentalHealthConsultency.Context.Tables;
 using LifeinnovirorMentalHealthConsultency.Functional_Class;
@@ -19,10 +20,10 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.DoctorControllers
 {
     public class DoctorAccountManagementController : ApiController
     {
-        private readonly LifeinnovirorContext db;    // Creating private db object to manupulate data
+        private readonly LifeinnovirorContext db;   
         public DoctorAccountManagementController()
         {
-            db = new LifeinnovirorContext(); // Initializing the database in constructor 
+            db = new LifeinnovirorContext();
         }
 
 
@@ -35,8 +36,8 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.DoctorControllers
          * logs the request, and returns appropriate response.
          */
         [HttpPost]
-        [Route("api/doctor/register")]
-        public async Task<IHttpActionResult> RegisterDoctor()
+        [Route("api/doctor/createDoctorAccount")]
+        public async Task<IHttpActionResult> CreateDoctor()
         {
             try
             {
@@ -59,7 +60,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.DoctorControllers
                 var provider = new MultipartFormDataStreamProvider(tempUploadPath);
                 await Request.Content.ReadAsMultipartAsync(provider);
 
-                // get data form doctor form
+                // get data from doctor form
                 var doctorJson = provider.FormData["doctor"];
                 if (string.IsNullOrWhiteSpace(doctorJson))
                 {
@@ -70,7 +71,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.DoctorControllers
                     });
                 }
 
-                // map data to doctor
+                // map data to Doctor Model
                 var model = JsonConvert.DeserializeObject<Doctor>(doctorJson);
                 if (model == null)
                 {
@@ -146,7 +147,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.DoctorControllers
                 await db.SaveChangesAsync();
 
                 string imageSaveError = null;
-                var photo = provider.FileData.FirstOrDefault();
+                var photo = provider.FileData.FirstOrDefault(); 
                 if (photo != null)
                 {
                     try
@@ -179,7 +180,6 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.DoctorControllers
                         File.Move(photo.LocalFileName, finalPath);
 
                         model.ProfilePhotoUrl = $"{CustomVariables.doctorProfilePicturesPath}/{model.DoctorId}{extension}";
-                        await db.SaveChangesAsync();
                     }
                     catch (Exception imgEx)
                     {
@@ -196,7 +196,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.DoctorControllers
                     Details = $"Doctor '{model.Email}' requested account registration.",
                     CreatedAt = DateTime.Now
                 });
-                await db.SaveChangesAsync();
+                await db.SaveChangesAsync();  //final saving everything
 
                 var message = photo == null ?
                     "Doctor registration request submitted successfully." :
@@ -204,11 +204,14 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.DoctorControllers
                         "Doctor registration and profile photo uploaded successfully." :
                         $"Doctor registered, but image upload failed: {imageSaveError}";
 
+                //sending account creation mail
+                string mailStatusReport = EmailManagement.AccountCreationMail(model.FullName, model.Email);
                 return Ok(new
                 {
                     success = true,
                     message = message,
-                    data = model
+                    data = model,
+                    mailStatusReport = mailStatusReport
                 });
             }
             catch (Exception ex)
@@ -233,8 +236,8 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.DoctorControllers
          * logs the request, and returns appropriate response.
          */
         [Authorize(Roles = "Doctor")]
-        [HttpPost]
-        [Route("api/doctor/update")]
+        [HttpPut]
+        [Route("api/doctor/updateDoctorAccount")]
         public async Task<IHttpActionResult> UpdateDoctor()
         {
             try
@@ -285,9 +288,9 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.DoctorControllers
 
                 // Filter out PasswordHash errors
                 var filteredResults = validationResults
-                    .Where(r => !(r.MemberNames.Contains("PasswordHash") ||
-                                r.MemberNames.Contains("SecurityAnswerHash")))
-                    .ToList();
+                                     .Where(r => !(r.MemberNames.Contains("PasswordHash") ||
+                                                   r.MemberNames.Contains("SecurityAnswerHash")))
+                                     .ToList();
 
                 // if data is invalid then send invalid sms
                 if (filteredResults.Any())
@@ -309,7 +312,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.DoctorControllers
                 //cehcking if a doctor trying to change another doctor profile or not
                 if (model.DoctorId != CustomFunctions.GetDoctorUserIdFromToken(User))
                 {
-                    return Content(HttpStatusCode.BadRequest, new
+                    return Content(HttpStatusCode.Forbidden, new
                     {
                         success = false,
                         message = "Unauthorized data manupulation"
@@ -391,12 +394,14 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.DoctorControllers
 
                         var photoFolder = HttpContext.Current.Server.MapPath(CustomVariables.doctorProfilePicturesPath);
                         if (!Directory.Exists(photoFolder))
+                        {
                             Directory.CreateDirectory(photoFolder);
-
+                        }
                         var finalPath = Path.Combine(photoFolder, existingDoctor.DoctorId + extension);
                         if (File.Exists(finalPath))
+                        {
                             File.Delete(finalPath);
-
+                        }
                         File.Move(photo.LocalFileName, finalPath);
                         existingDoctor.ProfilePhotoUrl = $"{CustomVariables.doctorProfilePicturesPath}/{existingDoctor.DoctorId}{extension}";
                     }
@@ -442,10 +447,10 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.DoctorControllers
 
 
 
-
+        // this will get current logged in doctor
         [Authorize(Roles = "Doctor")]
         [HttpGet]
-        [Route("api/doctor/getDoctor")]
+        [Route("api/doctor/getDoctorAccount")]
         public async Task <IHttpActionResult> GetDoctor()
         {
             try
@@ -507,10 +512,10 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.DoctorControllers
 
 
 
-
+        // this will delete current logged doctor
         [Authorize(Roles = "Doctor")]
         [HttpDelete]
-        [Route("api/doctor/deleteAccount")]
+        [Route("api/doctor/deleteDoctorAccount")]
         public async Task<IHttpActionResult> DeleteAccount()
         {
             try
@@ -537,15 +542,14 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.DoctorControllers
 
                 // Delete doctor record
                 db.Doctors.Remove(doctor);
-                await db.SaveChangesAsync();
 
-                // Log deletion
+                // Log: deletion
                 db.SystemLogs.Add(new SystemLog
                 {
                     ActorType = "Doctor",
                     ActorId = doctorId,
                     Action = "Delete Doctor",
-                    Details = $"Doctor '{doctor.Email}' deleted their account, id '{doctor.DoctorId}'.",
+                    Details = $"Doctor '{doctor.Email}' deleted their account.",
                     CreatedAt = DateTime.Now
                 });
                 await db.SaveChangesAsync();
@@ -598,7 +602,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.DoctorControllers
 
 
                 // Verify if current user exists or not 
-                var doctor = await db.Patients.FindAsync(CustomFunctions.GetDoctorUserIdFromToken(User));
+                var doctor = await db.Doctors.FindAsync(CustomFunctions.GetDoctorUserIdFromToken(User));
                 if (doctor == null)
                 {
                     return Content(HttpStatusCode.NotFound, new
@@ -620,6 +624,16 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.DoctorControllers
 
                 // Update password
                 doctor.PasswordHash = CustomFunctions.GetSha256HashBase64(model.NewPassword);
+
+                // Log addition
+                db.SystemLogs.Add(new SystemLog
+                {
+                    ActorType = "Doctor",
+                    ActorId = doctor.DoctorId,
+                    Action = "Change Password",
+                    Details = $"Doctor '{doctor.Email}' changed their account password.",
+                    CreatedAt = DateTime.Now
+                });
                 await db.SaveChangesAsync();
 
                 return Ok(new
@@ -640,8 +654,6 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.DoctorControllers
             }
 
         }
-
-
 
     }
 }

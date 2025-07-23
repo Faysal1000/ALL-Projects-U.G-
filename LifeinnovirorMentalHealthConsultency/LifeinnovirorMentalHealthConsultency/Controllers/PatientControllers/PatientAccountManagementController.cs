@@ -19,14 +19,13 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
 {
     public class PatientAccountManagementController : ApiController
     {
-        private readonly LifeinnovirorContext db;    // Creating private db object to manupulate data
+        private readonly LifeinnovirorContext db; 
         public PatientAccountManagementController()
         {
-            db = new LifeinnovirorContext(); // Initializing the database in constructor 
+            db = new LifeinnovirorContext(); // Initializing the database
         }
 
 
-        // it is an async function as it deals with files
         /*
          * Creates a patient with optional profile image.
          * Validates input, checks for duplicate email, saves data,
@@ -34,7 +33,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
          * and returns success or error messages.
          */
         [HttpPost]
-        [Route("api/patient/createPatient")]
+        [Route("api/patient/createPatientAccount")]
         public async Task<IHttpActionResult> CreatePatient()
         {
             try
@@ -50,7 +49,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
                 }
 
                 // Setup temp folder for file processing
-                var tempUploadPath = HttpContext.Current.Server.MapPath("~/App_Data/Temp");
+                var tempUploadPath = HttpContext.Current.Server.MapPath(CustomVariables.temporaryFilePath);
                 if (!Directory.Exists(tempUploadPath))
                 {
                     Directory.CreateDirectory(tempUploadPath);
@@ -104,7 +103,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
 
 
                 // Check for duplicate email
-                bool emailExists = db.Patients.Any(p => p.Email == model.Email);
+                bool emailExists = await db.Patients.AnyAsync(p => p.Email == model.Email);
                 if (emailExists)
                 {
                     return Content(HttpStatusCode.Conflict, new
@@ -151,7 +150,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
                         }
 
                         // Ensure target folder exists
-                        var photoFolder = HttpContext.Current.Server.MapPath("~/App_Data/PatientProfilePhoto");
+                        var photoFolder = HttpContext.Current.Server.MapPath(CustomVariables.patientProfilePicturesPath);
                         if (!Directory.Exists(photoFolder))
                         {
                             Directory.CreateDirectory(photoFolder);
@@ -166,9 +165,8 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
 
                         File.Move(photo.LocalFileName, finalFilePath);
 
-                        // Update DB with image path
-                        model.ProfilePhotoUrl = $"~/App_Data/PatientProfilePhoto/{model.PatientId}{extension}";
-                        await db.SaveChangesAsync();
+                        // Update model with image path
+                        model.ProfilePhotoUrl = $"{CustomVariables.patientProfilePicturesPath}/{model.PatientId}{extension}";
                         imageSaved = true; // Flag success
                     }
                     catch (Exception imgEx)
@@ -196,12 +194,15 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
                         ? "Patient created successfully." // Image saved
                         : $"Patient created successfully. However, the profile image could not be saved: {imageSaveErrorMessage}"; // Image failed
 
+                //sending account creation mail
+                string mailStatusReport = EmailManagement.AccountCreationMail(model.FullName, model.Email);
                 // Return response
                 return Ok(new
                 {
                     success = true,
                     message,
-                    data = model
+                    data = model,
+                    mailStatusReport = mailStatusReport
                 });
             }
             catch (Exception ex)
@@ -225,8 +226,8 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
         /// Returns success or validation error response.
         /// </summary>
         [Authorize(Roles = "Patient")]
-        [HttpPost]
-        [Route("api/patient/updatePatient")]
+        [HttpPut]
+        [Route("api/patient/updatePatientAccount")]
         public async Task<IHttpActionResult> UpdatePatient()
         {
             try
@@ -241,7 +242,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
                     });
                 }
 
-                var tempUploadPath = HttpContext.Current.Server.MapPath("~/App_Data/Temp");
+                var tempUploadPath = HttpContext.Current.Server.MapPath(CustomVariables.temporaryFilePath);
                 if (!Directory.Exists(tempUploadPath))
                 {
                     Directory.CreateDirectory(tempUploadPath);
@@ -303,7 +304,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
                 // if tried to change others data then give unauthorized message
                 if (CustomFunctions.GetPatientUserIdFromToken(User) != updatedModel.PatientId)
                 {
-                    return Content(HttpStatusCode.BadRequest, new
+                    return Content(HttpStatusCode.Forbidden, new
                     {
                         success = false,
                         message = "Unauthorize data Manupulation.",
@@ -312,7 +313,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
 
                 // if data is valid then retrive patient id from it
                 int patientId = updatedModel.PatientId;
-                var patient = db.Patients.Find(patientId);
+                var patient = await db.Patients.FindAsync(patientId);
                 if (patient == null)
                 {
                     return Content(HttpStatusCode.NotFound, new
@@ -323,8 +324,8 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
                 }
 
                 // Check for email conflict excluding current object
-                bool emailExists = db.Patients.Any(p => p.Email == updatedModel.Email &&
-                                                   p.PatientId != patientId);
+                bool emailExists = await db.Patients.AnyAsync(p => p.Email == updatedModel.Email &&
+                                                                   p.PatientId != patientId);
                 if (emailExists)
                 {
                     return Content(HttpStatusCode.Conflict, new
@@ -361,13 +362,13 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
                 {
                     try
                     {
-                        // Check file size limit (max 5 MB)
-                        const int maxFileSizeInBytes = 5 * 1024 * 1024;
+                        // Check file size limit (e.g., max 5 MB)
+                        const int maxFileSizeInBytes = CustomVariables.maxSizeOfProfilePictureInMB * 1024 * 1024;
                         var fileInfo = new FileInfo(photo.LocalFileName);
                         if (fileInfo.Length > maxFileSizeInBytes)
                         {
                             File.Delete(photo.LocalFileName);
-                            throw new Exception("Uploaded image must be less than 5 MB.");
+                            throw new Exception($"Uploaded image must be less than {CustomVariables.maxSizeOfProfilePictureInMB} MB.");
                         }
 
                         // Validate file extension
@@ -380,7 +381,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
                         }
 
                         // Ensure target folder exists
-                        var photoFolder = HttpContext.Current.Server.MapPath("~/App_Data/PatientProfilePhoto");
+                        var photoFolder = HttpContext.Current.Server.MapPath(CustomVariables.patientProfilePicturesPath);
                         if (!Directory.Exists(photoFolder))
                         {
                             Directory.CreateDirectory(photoFolder);
@@ -399,8 +400,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
                         File.Move(photo.LocalFileName, finalFilePath);
 
                         // Update DB with image path
-                        patient.ProfilePhotoUrl = $"~/App_Data/PatientProfilePhoto/{patient.PatientId}{extension}";
-                        await db.SaveChangesAsync();
+                        patient.ProfilePhotoUrl = $"{CustomVariables.patientProfilePicturesPath}/{patient.PatientId}{extension}";
                         imageSaved = true; // Flag success
                     }
                     catch (Exception imgEx)
@@ -416,7 +416,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
                     ActorType = "Patient",
                     ActorId = patientId,
                     Action = "Update Patient",
-                    Details = $"Patient '{updatedModel.Email}' updated their account, id '{updatedModel.PatientId}'.",
+                    Details = $"Patient '{updatedModel.Email}' updated their account.",
                     CreatedAt = DateTime.Now
                 });
                 await db.SaveChangesAsync();
@@ -457,13 +457,12 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
         // <img src="data:image/jpeg;base64,{ProfilePhotoBase64}" />
         [Authorize(Roles = "Patient")]
         [HttpGet]
-        [Route("api/patient/getPatient/{id:int}")]
-        public IHttpActionResult GetPatient(int id)
+        [Route("api/patient/getPatientAccount")]
+        public async Task<IHttpActionResult> GetPatient()
         {
             try
             {
-                var patient = db.Patients.Find(id);
-                // if not found 
+                var patient = await db.Patients.FindAsync(CustomFunctions.GetPatientUserIdFromToken(User));
                 if (patient == null)
                 {
                     return Content(HttpStatusCode.NotFound, new
@@ -531,7 +530,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
         /// <returns>Success message or error response.</returns>
         [Authorize(Roles = "Patient")]
         [HttpDelete]
-        [Route("api/patient/deleteAccount")]
+        [Route("api/patient/deletePatientAccount")]
         public async Task<IHttpActionResult> DeleteAccount()
         {
             try
@@ -551,7 +550,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
                 }
 
                 // Delete profile photo if exists
-                var photoFolder = HttpContext.Current.Server.MapPath("~/App_Data/PatientProfilePhoto");
+                var photoFolder = HttpContext.Current.Server.MapPath(CustomVariables.patientProfilePicturesPath);
                 var existingFiles = Directory.GetFiles(photoFolder, $"{patientId}.*");
                 foreach (var file in existingFiles)
                 {
@@ -560,7 +559,6 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
 
                 // Delete patient record
                 db.Patients.Remove(patient);
-                await db.SaveChangesAsync();
 
                 // Log patient deletion action
                 db.SystemLogs.Add(new SystemLog
@@ -572,6 +570,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
                     CreatedAt = DateTime.Now
                 });
                 await db.SaveChangesAsync();
+
                 return Ok(new
                 {
                     success = true,
@@ -642,6 +641,16 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
 
                 // Update password
                 patient.PasswordHash = CustomFunctions.GetSha256HashBase64(model.NewPassword);
+
+                // Log addition
+                db.SystemLogs.Add(new SystemLog
+                {
+                    ActorType = "Patient",
+                    ActorId = patient.PatientId,
+                    Action = "Change Password",
+                    Details = $"Patient '{patient.Email}' changed their account password.",
+                    CreatedAt = DateTime.Now
+                });
                 await db.SaveChangesAsync();
 
                 return Ok(new

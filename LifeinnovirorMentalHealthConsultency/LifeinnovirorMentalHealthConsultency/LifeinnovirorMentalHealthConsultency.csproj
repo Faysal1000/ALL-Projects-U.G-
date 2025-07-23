@@ -205,6 +205,7 @@
     <Compile Include="Controllers\PatientControllers\PatientAccountManagementController.cs" />
     <Compile Include="Functional Class\CustomFunctions.cs" />
     <Compile Include="Functional Class\CustomVariables.cs" />
+    <Compile Include="Functional Class\EmailManagement.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

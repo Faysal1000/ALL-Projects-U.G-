@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web.Http;
 using LifeinnovirorMentalHealthConsultency.Context;
 using LifeinnovirorMentalHealthConsultency.Context.Tables;
@@ -11,27 +13,26 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
     [Authorize(Roles = "Admin")]
     public class AdminSpecializationManagementController : ApiController
     {
-        private LifeinnovirorContext db;    // Creating private db object to manupulate data
+        private readonly LifeinnovirorContext db;  
         public AdminSpecializationManagementController()
         {
-            db = new LifeinnovirorContext(); // Initializing the database in constructor 
+            db = new LifeinnovirorContext(); // Initializing the database 
         }
 
 
         // it receives specialization data and add to database
         [HttpPost]
         [Route("api/admin/addSpecialization")]
-        public IHttpActionResult AddSpecialization(Specialization data)
+        public async Task<IHttpActionResult> AddSpecialization(Specialization data)
         {
-            //Try-catch block to handle unintended errors
             try
             {
                 // it checks if the data is valid or not
                 if (ModelState.IsValid)
                 {
                     // Check if specialization already exists
-                    var exists = db.Specializations
-                                   .Any(s => s.Name.ToLower().Trim() == data.Name.ToLower().Trim());
+                    var exists = await db.Specializations
+                                      .AnyAsync(s => s.Name.ToLower().Trim() == data.Name.ToLower().Trim());
 
                     if (exists)
                     {
@@ -45,7 +46,6 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
 
                     // Add specialization to DB
                     db.Specializations.Add(data);
-                    db.SaveChanges();
 
                     // Log: Successful addition
                     db.SystemLogs.Add(new SystemLog
@@ -56,7 +56,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                         Details = $"Added specialization '{data.Name}' successfully.",
                         CreatedAt = DateTime.Now
                     });
-                    db.SaveChanges();
+                    await db.SaveChangesAsync();
 
                     return Ok(new
                     {
@@ -84,7 +84,12 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception("An error occurred while adding specialization: " + ex.Message));
+                return Content(HttpStatusCode.InternalServerError, new
+                {
+                    success = false,
+                    message = "An error occurred while adding specialization",
+                    error = ex.Message
+                });
             }
         }
 
@@ -92,13 +97,12 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
         //This is retrive all the specialization data available in the database and send it
         [HttpGet]
         [Route("api/admin/getAllSpecializations")]
-        public IHttpActionResult GetAllSpecializations()
+        public async Task<IHttpActionResult> GetAllSpecializations()
         {
-            //Try-catch block to handle unintended errors
             try
             {
                 // Getting specialization list from database 
-                var specializations = db.Specializations.ToList();
+                var specializations = await db.Specializations.ToListAsync();
 
                 // If no specialization found then it will send success message with the message
                 if (specializations == null || !specializations.Any())
@@ -121,7 +125,12 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception("An error occurred while retrieving specializations: " + ex.Message));
+                return Content(HttpStatusCode.InternalServerError, new
+                {
+                    success = false,
+                    message = "An error occurred while retriving specialization",
+                    error = ex.Message
+                });
             }
         }
 
@@ -131,9 +140,8 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
         // This will take the new specialization data and update that specialization
         [HttpPost]
         [Route("api/admin/updateSpecialization")]
-        public IHttpActionResult UpdateSpecialization(Specialization updatedData)
+        public async Task<IHttpActionResult> UpdateSpecialization(Specialization updatedData)
         {
-            //Try-catch block to handle unintended errors
             try
             {
                 // If received invalid data then send the ModelState error
@@ -156,15 +164,15 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                 }
 
                 // Searching if the specialization existed in the database or not
-                var existingSpecialization = db.Specializations.Find(updatedData.SpecializationId);
+                var existingSpecialization = await db.Specializations.FindAsync(updatedData.SpecializationId);
                 if (existingSpecialization == null)
                 {
                     return NotFound(); // 404 if not found
                 }
 
                 // Check for duplication by name (excluding current record)
-                bool isDuplicate = db.Specializations
-                                     .Any(s => s.SpecializationId != updatedData.SpecializationId &&
+                bool isDuplicate =await  db.Specializations
+                                         .AnyAsync(s => s.SpecializationId != updatedData.SpecializationId &&
                                           s.Name.ToLower().Trim() == updatedData.Name.ToLower().Trim());
 
                 if (isDuplicate)
@@ -179,7 +187,6 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
 
                 // Update fields
                 existingSpecialization.Name = updatedData.Name;
-                db.SaveChanges();
 
                 // Log: Successful Update of specialization
                 db.SystemLogs.Add(new SystemLog
@@ -190,7 +197,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                     Details = $"Updated specialization '{updatedData.Name}' successfully.",
                     CreatedAt = DateTime.Now
                 });
-                db.SaveChanges();
+                await db.SaveChangesAsync();
 
                 return Ok(new
                 {
@@ -201,19 +208,23 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception("An error occurred while Updating specializations: " + ex.Message));
+                return Content(HttpStatusCode.InternalServerError, new
+                {
+                    success = false,
+                    message = "An error occurred while updating specialization",
+                    error = ex.Message
+                });
             }
         }
 
 
         [HttpPost]
         [Route("api/admin/deleteSpecialization/{id}")]
-        public IHttpActionResult DeleteSpecialization(int id)
+        public async Task<IHttpActionResult> DeleteSpecialization(int id)
         {
             try
             {
-                // Find the specialization
-                var specialization = db.Specializations.FirstOrDefault(s => s.SpecializationId == id);
+                var specialization = await db.Specializations.FirstOrDefaultAsync(s => s.SpecializationId == id);
 
                 if (specialization == null)
                 {
@@ -221,18 +232,15 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                 }
 
                 // Find all sub-specializations associated with this specialization
-                var subSpecializations = db.SubSpecializations
+                var subSpecializations = await db.SubSpecializations
                                            .Where(ss => ss.SpecializationId == id)
-                                           .ToList();
+                                           .ToListAsync();
 
                 // Delete all associated sub-specializations
                 db.SubSpecializations.RemoveRange(subSpecializations);
 
                 // Delete the specialization itself
                 db.Specializations.Remove(specialization);
-
-                // Save all changes to the database
-                db.SaveChanges();
 
                 // Log successful deletion 
                 db.SystemLogs.Add(new SystemLog
@@ -244,7 +252,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                     CreatedAt = DateTime.Now
                 });
 
-                db.SaveChanges();
+                await db.SaveChangesAsync();
 
                 return Ok(new
                 {
@@ -255,7 +263,12 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception("An error occurred while deleting the specialization. Details: " + ex.Message));
+                return Content(HttpStatusCode.InternalServerError, new
+                {
+                    success = false,
+                    message = "An error occurred while deleting specialization",
+                    error = ex.Message
+                });
             }
         }
 

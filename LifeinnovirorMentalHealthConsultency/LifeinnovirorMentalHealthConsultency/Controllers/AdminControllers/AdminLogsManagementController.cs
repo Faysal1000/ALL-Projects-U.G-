@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using LifeinnovirorMentalHealthConsultency.Context;
 
@@ -11,22 +13,22 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
     [Authorize(Roles = "Admin")]
     public class AdminLogsManagementController : ApiController
     {
-        private readonly LifeinnovirorContext db;    // Creating private db object to manupulate data
+        private readonly LifeinnovirorContext db;  
         public AdminLogsManagementController()
         {
-            db = new LifeinnovirorContext(); // Initializing the database in constructor 
+            db = new LifeinnovirorContext(); // Initializing the database
         }
 
 
 
         [HttpGet]
         [Route("api/Admin/getAllLogs")]
-        public IHttpActionResult GetAllLogs()
+        public async Task<IHttpActionResult> GetAllLogs()
         {
             try
             {
                 //latest first
-                var logs = db.SystemLogs.OrderByDescending(log => log.CreatedAt).ToList();
+                var logs = await db.SystemLogs.OrderByDescending(log => log.CreatedAt).ToListAsync();
 
                 // If no logs found then it will send success message with the message
                 if (logs == null || !logs.Any())
@@ -47,7 +49,12 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception("An error occurred while retrieving all logs: " + ex.Message));
+                return Content(HttpStatusCode.InternalServerError, new
+                {
+                    success = false,
+                    message = "An error occurred while retriving logs",
+                    error = ex.Message
+                });
             }
         }
 
@@ -55,15 +62,15 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
 
         [HttpGet]
         [Route("api/Admin/getAdminLogs")]
-        public IHttpActionResult GetAdminLogs()
+        public async Task<IHttpActionResult> GetAdminLogs()
         {
             try
             {
                 // only admin logs and latest first
-                var logs = db.SystemLogs
-                             .Where(log => log.ActorType == "Admin")
-                             .OrderByDescending(log => log.CreatedAt)
-                             .ToList();
+                var logs = await db.SystemLogs
+                                 .Where(log => log.ActorType == "Admin")
+                                 .OrderByDescending(log => log.CreatedAt)
+                                 .ToListAsync();
 
                 // If no logs found then it will send success message with the message
                 if (logs == null || !logs.Any())
@@ -84,7 +91,12 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception("An error occurred while retrieving admin logs: " + ex.Message));
+                return Content(HttpStatusCode.InternalServerError, new
+                {
+                    success = false,
+                    message = "An error occurred while retriving admin logs",
+                    error = ex.Message
+                });
             }
         }
 
@@ -92,15 +104,15 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
 
         [HttpGet]
         [Route("api/Admin/getDoctorLogs")]
-        public IHttpActionResult GetDcotorLogs()
+        public async Task<IHttpActionResult> GetDcotorLogs()
         {
             try
             {
                 // only doctor logs and latest first
-                var logs = db.SystemLogs
-                             .Where(log => log.ActorType == "Doctor")
-                             .OrderByDescending(log => log.CreatedAt)
-                             .ToList();
+                var logs = await db.SystemLogs
+                                 .Where(log => log.ActorType == "Doctor")
+                                 .OrderByDescending(log => log.CreatedAt)
+                                 .ToListAsync();
 
                 // If no logs found then it will send success message with the message
                 if (logs == null || !logs.Any())
@@ -121,7 +133,12 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception("An error occurred while retrieving doctor logs: " + ex.Message));
+                return Content(HttpStatusCode.InternalServerError, new
+                {
+                    success = false,
+                    message = "An error occurred while retriving doctor logs",
+                    error = ex.Message
+                });
             }
         }
 
@@ -129,15 +146,15 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
 
         [HttpGet]
         [Route("api/Admin/getPatientLogs")]
-        public IHttpActionResult GetPatientLogs()
+        public async Task<IHttpActionResult> GetPatientLogs()
         {
             try
             {
                 // only patient logs and latest first
-                var logs = db.SystemLogs
-                             .Where(log => log.ActorType == "Patient")
-                             .OrderByDescending(log => log.CreatedAt)
-                             .ToList();
+                var logs = await db.SystemLogs
+                                 .Where(log => log.ActorType == "Patient")
+                                 .OrderByDescending(log => log.CreatedAt)
+                                 .ToListAsync();
 
                 // If no logs found then it will send success message with the message
                 if (logs == null || !logs.Any())
@@ -158,7 +175,12 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception("An error occurred while retrieving patient logs: " + ex.Message));
+                return Content(HttpStatusCode.InternalServerError, new
+                {
+                    success = false,
+                    message = "An error occurred while retriving patient logs",
+                    error = ex.Message
+                });
             }
         }
 

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using LifeinnovirorMentalHealthConsultency.Context;
 using LifeinnovirorMentalHealthConsultency.Context.Tables;
@@ -11,10 +13,10 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
 {
     public class AdminFaqManagementController : ApiController
     {
-        private readonly LifeinnovirorContext db;    // Creating private db object to manupulate data
+        private readonly LifeinnovirorContext db;   
         public AdminFaqManagementController()
         {
-            db = new LifeinnovirorContext(); // Initializing the database in constructor 
+            db = new LifeinnovirorContext(); // Initializing the database
         }
 
 
@@ -22,7 +24,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("api/admin/createFaq")]
-        public IHttpActionResult CreateFaq(FAQ model)
+        public async Task<IHttpActionResult> CreateFaq(FAQ model)
         {
             try
             {
@@ -49,8 +51,8 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                 string incomingQuestion = model.Question.Trim().ToLower();
 
                 // Check if a FAQ with same normalized question already exists
-                var existing = db.FAQs
-                    .FirstOrDefault(f => f.Question.Trim().ToLower() == incomingQuestion);
+                var existing = await db.FAQs
+                    .FirstOrDefaultAsync(f => f.Question.Trim().ToLower() == incomingQuestion);
 
                 if (existing != null)
                 {
@@ -62,12 +64,11 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                     });
                 }
 
-
+                //update data
                 model.CreatedAt = DateTime.Now;
                 model.UpdatedAt = DateTime.Now;
 
                 db.FAQs.Add(model);
-                db.SaveChanges();
 
                 // Logs: successfull addition
                 db.SystemLogs.Add(new SystemLog
@@ -78,7 +79,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                     Details = $"Created FAQ with Question: '{model.Question}'",
                     CreatedAt = DateTime.Now
                 });
-                db.SaveChanges();
+                await db.SaveChangesAsync();
 
                 return Ok(new
                 {
@@ -89,19 +90,24 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception("An error occurred while creating FAQs: " + ex.Message));
+                return Content(HttpStatusCode.InternalServerError, new
+                {
+                    success = false,
+                    message = "An error occurred while creating FAQ",
+                    error = ex.Message
+                });
             }
         }
 
 
         //this can be access by anyone cause it will be in home page. 
         [HttpGet]
-        [Route("api/getFaqs")]
-        public IHttpActionResult GetAllFaqs()
+        [Route("api/getAllFaqs")]
+        public async Task<IHttpActionResult> GetAllFaqs()
         {
             try
             {
-                var faqs = db.FAQs.OrderByDescending(f => f.UpdatedAt).ToList();
+                var faqs = await db.FAQs.OrderByDescending(f => f.UpdatedAt).ToListAsync();
 
                 // If no faqs found then it will send success message with the message
                 if (faqs == null || !faqs.Any())
@@ -124,7 +130,46 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception("An error occurred while retrieving FAQs: " + ex.Message));
+                return Content(HttpStatusCode.InternalServerError, new
+                {
+                    success = false,
+                    message = "An error occurred while retriving FAQs",
+                    error = ex.Message
+                });
+            }
+        }
+
+
+
+        //this can be access by anyone cause it will be in home page. 
+        [HttpGet]
+        [Route("api/getFAQ/{id}")]
+        public async Task<IHttpActionResult> GetFaq(int id)
+        {
+            try
+            {
+                var faqs = await db.FAQs.FindAsync(id);
+
+                if (faqs == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(new
+                {
+                    success = true,
+                    message = "FAQ retrieved successfully.",
+                    data = faqs
+                });
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.InternalServerError, new
+                {
+                    success = false,
+                    message = "An error occurred while retriving FAQ",
+                    error = ex.Message
+                });
             }
         }
 
@@ -134,7 +179,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("api/admin/updateFAQ")]
-        public IHttpActionResult UpdateFAQ(FAQ updatedFaq)
+        public async Task<IHttpActionResult> UpdateFAQ(FAQ updatedFaq)
         {
             try
             {
@@ -158,17 +203,16 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                 }
 
                 // check if the FAQ exists in database
-                var existingFaq = db.FAQs.Find(updatedFaq.FaqId);
+                var existingFaq = await db.FAQs.FindAsync(updatedFaq.FaqId);
                 if (existingFaq == null)
                 {
-                    return NotFound(); // if not found then send 404
+                    return NotFound();
                 }
 
                 // update fields
                 existingFaq.Question = updatedFaq.Question;
                 existingFaq.Answer = updatedFaq.Answer;
                 existingFaq.UpdatedAt = DateTime.Now;
-                db.SaveChanges();
 
                 // Log: Successful update
                 db.SystemLogs.Add(new SystemLog
@@ -179,7 +223,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                     Details = $"Updated FAQ (ID: {updatedFaq.FaqId}) successfully.",
                     CreatedAt = DateTime.Now
                 });
-                db.SaveChanges();
+                await db.SaveChangesAsync();
 
                 return Ok(new
                 {
@@ -190,7 +234,12 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception("An error occurred while updating FAQ: " + ex.Message));
+                return Content(HttpStatusCode.InternalServerError, new
+                {
+                    success = false,
+                    message = "An error occurred while updating FAQ",
+                    error = ex.Message
+                });
             }
         }
 
@@ -199,17 +248,17 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("api/admin/deleteFaq/{id}")]
-        public IHttpActionResult DeleteFaq(int id)
+        public async Task<IHttpActionResult> DeleteFaq(int id)
         {
             try
             {
                 // check if faq exists or not
-                var faq = db.FAQs.FirstOrDefault(f => f.FaqId == id);
+                var faq = await db.FAQs.FirstOrDefaultAsync(f => f.FaqId == id);
                 if (faq == null)
-                    return NotFound(); //404 status code
-
+                {
+                    return NotFound(); 
+                }
                 db.FAQs.Remove(faq);
-                db.SaveChanges();
 
                 //add deletion logs
                 db.SystemLogs.Add(new SystemLog
@@ -220,7 +269,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                     Details = $"Deleted FAQ with Question: '{faq.Question}'",
                     CreatedAt = DateTime.Now
                 });
-                db.SaveChanges();
+                await db.SaveChangesAsync();
 
                 return Ok(new
                 {
@@ -231,7 +280,12 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception("An error occurred while deleting FAQ: " + ex.Message));
+                return Content(HttpStatusCode.InternalServerError, new
+                {
+                    success = false,
+                    message = "An error occurred while deleting FAQ",
+                    error = ex.Message
+                });
             }
         }
 

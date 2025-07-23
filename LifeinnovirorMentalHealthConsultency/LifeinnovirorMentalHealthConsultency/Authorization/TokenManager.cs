@@ -2,8 +2,6 @@
 using System.Configuration;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Text;
-using LifeinnovirorMentalHealthConsultency.Functional_Class;
 using Microsoft.IdentityModel.Tokens;
 
 namespace LifeinnovirorMentalHealthConsultency.Authorization
