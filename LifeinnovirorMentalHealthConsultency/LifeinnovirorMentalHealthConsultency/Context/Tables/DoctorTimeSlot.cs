@@ -26,7 +26,6 @@ namespace LifeinnovirorMentalHealthConsultency.Context.Tables
         [Required]
         public TimeSpan EndTime { get; set; }
 
-        [Required]
         public bool IsBooked { get; set; } = false;
 
     }

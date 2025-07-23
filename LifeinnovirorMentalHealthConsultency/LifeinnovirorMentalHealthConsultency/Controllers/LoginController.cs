@@ -10,6 +10,7 @@ using System.Web.Services.Description;
 using LifeinnovirorMentalHealthConsultency.Authorization;
 using LifeinnovirorMentalHealthConsultency.Context;
 using LifeinnovirorMentalHealthConsultency.Context.Tables;
+using LifeinnovirorMentalHealthConsultency.Functional_Class;
 using LifeinnovirorMentalHealthConsultency.Models;
 
 namespace LifeinnovirorMentalHealthConsultency.Controllers
@@ -35,7 +36,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers
                 return Content(HttpStatusCode.BadRequest, 
                     new { message = "Email or password is missing." });
 
-            var passwordHash = CustomFunctions.CreateMD5(model.Password);
+            var passwordHash = CustomFunctions.GetSha256HashBase64(model.Password);
 
             // Check if credentials match
             var user = db.Admins.FirstOrDefault(u => u.Email == model.Email &&
@@ -44,7 +45,9 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers
             if (user == null)
                 return Unauthorized();
 
-            var token = TokenManager.GenerateToken(user.Email, "Admin");
+            var token = TokenManager.GenerateToken(user.Email, 
+                                                   "Admin", 
+                                                   CustomVariables.loggedSessionValidityForAdminInMinutes);
 
             // Log: Successful admin login
             db.SystemLogs.Add(new SystemLog
@@ -75,7 +78,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers
                 return Content(HttpStatusCode.BadRequest, 
                     new { message = "Email or password is missing." });
 
-            var passwordHash = CustomFunctions.CreateMD5(model.Password);
+            var passwordHash = CustomFunctions.GetSha256HashBase64(model.Password);
 
             // Check if credentials match
             var user = db.Doctors.FirstOrDefault(u => u.Email == model.Email &&
@@ -84,7 +87,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers
             if (user == null)
                 return Unauthorized();
 
-            var token = TokenManager.GenerateToken(user.Email, "Doctor");
+            var token = TokenManager.GenerateToken(user.Email, "Doctor", CustomVariables.loggedSessionValidityForDoctorInMinutes);
 
             // Log: Successful doctor login
             db.SystemLogs.Add(new SystemLog
@@ -115,7 +118,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers
                 return Content(HttpStatusCode.BadRequest, 
                     new { message = "Email or password is missing." });
 
-            var passwordHash = CustomFunctions.CreateMD5(model.Password);
+            var passwordHash = CustomFunctions.GetSha256HashBase64(model.Password);
 
             // Check if credentials match with hashed
             var user = db.Patients.FirstOrDefault(u => u.Email == model.Email &&
@@ -126,12 +129,12 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers
 
             // Warn if password is same as email
             string message = "";
-            if (CustomFunctions.CreateMD5(user.Email) == user.PasswordHash)
+            if (CustomFunctions.GetSha256HashBase64(user.Email) == user.PasswordHash)
             {
                 message = "It is recommended to change your password as your default password is your email address.";
             }
 
-            var token = TokenManager.GenerateToken(user.Email, "Patient");
+            var token = TokenManager.GenerateToken(user.Email, "Patient", CustomVariables.loggedSessionValidityForPatientInMinutes);
 
             // Log: Successful patient login
             db.SystemLogs.Add(new SystemLog

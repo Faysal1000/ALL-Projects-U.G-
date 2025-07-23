@@ -200,9 +200,11 @@
     <Compile Include="Controllers\AdminControllers\AdminLogsManagementController.cs" />
     <Compile Include="Controllers\AdminControllers\AdminSpecializationManagementController.cs" />
     <Compile Include="Controllers\AdminControllers\AdminSubSpecializationManagementController.cs" />
+    <Compile Include="Controllers\DoctorControllers\DoctorAccountManagementController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PatientControllers\PatientAccountManagementController.cs" />
     <Compile Include="Functional Class\CustomFunctions.cs" />
+    <Compile Include="Functional Class\CustomVariables.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -221,6 +223,14 @@
     <Compile Include="Migrations\202507221644339_patientTableChanged.cs" />
     <Compile Include="Migrations\202507221644339_patientTableChanged.Designer.cs">
       <DependentUpon>202507221644339_patientTableChanged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202507230435372_fixedTablesRequiredOptions.cs" />
+    <Compile Include="Migrations\202507230435372_fixedTablesRequiredOptions.Designer.cs">
+      <DependentUpon>202507230435372_fixedTablesRequiredOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202507230453147_fixedAnotherTablesRequiredOptions.cs" />
+    <Compile Include="Migrations\202507230453147_fixedAnotherTablesRequiredOptions.Designer.cs">
+      <DependentUpon>202507230453147_fixedAnotherTablesRequiredOptions.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ChangePasswordModel.cs" />
@@ -253,6 +263,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202507221644339_patientTableChanged.resx">
       <DependentUpon>202507221644339_patientTableChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507230435372_fixedTablesRequiredOptions.resx">
+      <DependentUpon>202507230435372_fixedTablesRequiredOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507230453147_fixedAnotherTablesRequiredOptions.resx">
+      <DependentUpon>202507230453147_fixedAnotherTablesRequiredOptions.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

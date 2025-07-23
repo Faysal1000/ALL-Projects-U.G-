@@ -22,7 +22,6 @@ namespace LifeinnovirorMentalHealthConsultency.Context.Tables
 
         public string Reason { get; set; }
 
-        [Required]
         [RegularExpression("Pending|Approved|Rejected",
             ErrorMessage = "Status must be Pending, Approved, or Rejected")]
         [StringLength(20)]

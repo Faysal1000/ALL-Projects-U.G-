@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Security.Principal;
 using System.Text;
 using System.Web.Http;
@@ -50,23 +52,13 @@ public static class CustomFunctions
 
 
     // this is a function which will be used to secure password using hashing
-    public static string CreateMD5(string input)
+    public static string GetSha256HashBase64(string input)
     {
-        // Use input string to calculate MD5 hash
-        using (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create())
+        using (var sha256 = SHA256.Create())
         {
-            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
-            byte[] hashBytes = md5.ComputeHash(inputBytes);
-
-            //return Convert.ToHexString(hashBytes); // .NET 5 +
-
-            //Convert the byte array to hexadecimal string prior to.NET 5
-            StringBuilder sb = new System.Text.StringBuilder();
-            for (int i = 0; i < hashBytes.Length; i++)
-            {
-                sb.Append(hashBytes[i].ToString("X2"));
-            }
-            return sb.ToString();
+            var inputBytes = Encoding.UTF8.GetBytes(input);
+            var hashBytes = sha256.ComputeHash(inputBytes);
+            return Convert.ToBase64String(hashBytes);
         }
     }
 }

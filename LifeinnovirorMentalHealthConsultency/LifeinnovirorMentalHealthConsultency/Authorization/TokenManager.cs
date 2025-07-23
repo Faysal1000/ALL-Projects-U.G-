@@ -3,13 +3,14 @@ using System.Configuration;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using LifeinnovirorMentalHealthConsultency.Functional_Class;
 using Microsoft.IdentityModel.Tokens;
 
 namespace LifeinnovirorMentalHealthConsultency.Authorization
 {
     public class TokenManager
     {
-        public static string GenerateToken(string userEmail, string role, int expirationInMinutes = 300)
+        public static string GenerateToken(string userEmail, string role, int expirationInMinutes = 60)
         {
             var secretKey = ConfigurationManager.AppSettings["JwtKey"];
             var issuer = ConfigurationManager.AppSettings["JwtIssuer"];

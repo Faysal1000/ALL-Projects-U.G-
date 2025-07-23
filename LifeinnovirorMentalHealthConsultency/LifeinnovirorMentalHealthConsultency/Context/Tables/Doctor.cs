@@ -26,6 +26,7 @@ namespace LifeinnovirorMentalHealthConsultency.Context.Tables
 
         [Required(ErrorMessage = "Password is required.")]
         [StringLength(255)]
+        [MinLength(6, ErrorMessage = "Password must be at least 6 characters.")]
         public string PasswordHash { get; set; }
 
         [Required(ErrorMessage = "Security question is required.")]
@@ -44,7 +45,6 @@ namespace LifeinnovirorMentalHealthConsultency.Context.Tables
         [StringLength(255)]
         public string ProfilePhotoUrl { get; set; }
 
-        [Required]
         [StringLength(20)]
         [RegularExpression("Pending|Approved|Rejected",
             ErrorMessage = "Status must be Pending, Approved, or Rejected")]

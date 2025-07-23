@@ -14,11 +14,10 @@ namespace LifeinnovirorMentalHealthConsultency.Context.Tables
         [Required]
         public int DoctorId { get; set; }
 
-        [Required]
         [RegularExpression("Available|Unavailable|Consultation",
             ErrorMessage = "Status must be Available, Unavailable, or Consultation")]
         [StringLength(20)]
-        public string Status { get; set; } 
+        public string Status { get; set; } = "Available";
 
         public DateTime ChangedAt { get; set; } = DateTime.Now;
     }

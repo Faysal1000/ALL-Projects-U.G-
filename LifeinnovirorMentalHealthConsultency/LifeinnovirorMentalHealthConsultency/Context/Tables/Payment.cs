@@ -16,14 +16,12 @@ namespace LifeinnovirorMentalHealthConsultency.Context.Tables
         [Required]
         public decimal Amount { get; set; }
 
-        [Required]
         public DateTime PaidAt { get; set; } = DateTime.Now;
 
         public string Method { get; set; }
 
         public string TransactionId { get; set; }
 
-        [Required]
         [RegularExpression("Pending|Completed|Failed",
             ErrorMessage = "Status must be Pending, Completed, or Failed")]
         [StringLength(20)]

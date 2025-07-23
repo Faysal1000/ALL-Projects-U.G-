@@ -18,6 +18,7 @@ namespace LifeinnovirorMentalHealthConsultency.Context.Tables
 
         [Required(ErrorMessage = "Password is required.")]
         [StringLength(255, ErrorMessage = "Password length exceeded 255 character.")]
+        [MinLength(6, ErrorMessage = "Password must be at least 6 characters.")]
         public string PasswordHash { get; set; }
 
         [Required(ErrorMessage = "Full Name is required.")]

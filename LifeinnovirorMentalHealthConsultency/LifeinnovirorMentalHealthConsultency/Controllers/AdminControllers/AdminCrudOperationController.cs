@@ -62,7 +62,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                 }
 
                 //if all successfull then secure the password by hashing
-                data.PasswordHash = CustomFunctions.CreateMD5(data.PasswordHash); //creating MD5 hashing
+                data.PasswordHash = CustomFunctions.GetSha256HashBase64(data.PasswordHash); //creating MD5 hashing
                 db.Admins.Add(data);
                 db.SaveChanges();
 
@@ -167,7 +167,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                 if (existingAdmin.PasswordHash != updatedData.PasswordHash)
                 {
                     //if changed then hash the new password and update it
-                    existingAdmin.PasswordHash = CustomFunctions.CreateMD5(updatedData.PasswordHash);
+                    existingAdmin.PasswordHash = CustomFunctions.GetSha256HashBase64(updatedData.PasswordHash);
                 }
                 // Update others fields also
                 existingAdmin.Email = updatedData.Email;

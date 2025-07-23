@@ -12,6 +12,8 @@ namespace LifeinnovirorMentalHealthConsultency.Context.Tables
         public int NotificationId { get; set; }
 
         [Required]
+        [RegularExpression("Admin|Doctor|Patient",
+            ErrorMessage = "RecipientType must be Admin, Doctor, or Patient")]
         public string RecipientType { get; set; }
 
         [Required]

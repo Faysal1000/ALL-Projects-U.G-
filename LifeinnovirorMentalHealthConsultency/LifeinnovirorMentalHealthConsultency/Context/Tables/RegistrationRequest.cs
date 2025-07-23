@@ -15,13 +15,11 @@ namespace LifeinnovirorMentalHealthConsultency.Context.Tables
         public int DoctorId { get; set; }
         public Doctor Doctor { get; set; }
 
-        [Required]
         [RegularExpression("Pending|Approved|Rejected|Interview",
             ErrorMessage = "Status must be Pending, Approved, Rejected, or Interview")]
         [StringLength(20)]
         public string Status { get; set; } = "Pending";
 
-        [Required]
         public DateTime SubmittedAt { get; set; } = DateTime.Now;
 
         public DateTime? ReviewedAt { get; set; }

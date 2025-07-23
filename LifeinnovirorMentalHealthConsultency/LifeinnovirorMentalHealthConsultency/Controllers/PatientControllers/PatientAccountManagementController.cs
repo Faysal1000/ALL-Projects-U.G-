@@ -11,6 +11,7 @@ using System.Web;
 using System.Web.Http;
 using LifeinnovirorMentalHealthConsultency.Context;
 using LifeinnovirorMentalHealthConsultency.Context.Tables;
+using LifeinnovirorMentalHealthConsultency.Functional_Class;
 using LifeinnovirorMentalHealthConsultency.Models;
 using Newtonsoft.Json;
 
@@ -114,7 +115,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
                 }
 
                 // Hash password and set timestamps
-                model.PasswordHash = CustomFunctions.CreateMD5(model.PasswordHash);
+                model.PasswordHash = CustomFunctions.GetSha256HashBase64(model.PasswordHash);
                 model.CreatedAt = DateTime.Now;
                 model.UpdatedAt = DateTime.Now;
 
@@ -131,13 +132,13 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
                 {
                     try
                     {
-                        // Check file size limit (max 5 MB)
-                        const int maxFileSizeInBytes = 5 * 1024 * 1024;
+                        // Check file size limit (e.g., max 5 MB)
+                        const int maxFileSizeInBytes = CustomVariables.maxSizeOfProfilePictureInMB * 1024 * 1024;
                         var fileInfo = new FileInfo(photo.LocalFileName);
                         if (fileInfo.Length > maxFileSizeInBytes)
                         {
                             File.Delete(photo.LocalFileName);
-                            throw new Exception("Uploaded image must be less than 5 MB.");
+                            throw new Exception($"Uploaded image must be less than {CustomVariables.maxSizeOfProfilePictureInMB} MB.");
                         }
 
                         // Validate file extension
@@ -630,7 +631,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
                 }
 
                 //verify current password
-                if (patient.PasswordHash != CustomFunctions.CreateMD5(model.CurrentPassword))
+                if (patient.PasswordHash != CustomFunctions.GetSha256HashBase64(model.CurrentPassword))
                 {
                     return Content(HttpStatusCode.BadRequest, new
                     {
@@ -640,7 +641,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.PatientControllers
                 }
 
                 // Update password
-                patient.PasswordHash = CustomFunctions.CreateMD5(model.NewPassword);
+                patient.PasswordHash = CustomFunctions.GetSha256HashBase64(model.NewPassword);
                 await db.SaveChangesAsync();
 
                 return Ok(new
