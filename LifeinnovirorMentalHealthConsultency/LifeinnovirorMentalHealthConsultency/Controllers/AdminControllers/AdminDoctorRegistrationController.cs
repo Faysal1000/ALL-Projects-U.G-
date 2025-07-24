@@ -28,7 +28,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
             try
             {
                 var pendingDoctors = await db.Doctors
-                    .Where(d => d.Status == "Pending")
+                    .Where(d => d.Status == "Pending" || d.Status=="Interview")
                     .Select(d => new
                     {
                         d.DoctorId,
@@ -41,6 +41,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                         d.Status,
                         d.CreatedAt,
                     })
+                    .OrderByDescending(d => d.Status) // interview first
                     .ToListAsync();
 
                 return Ok(new
@@ -68,7 +69,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
         {
             try
             {
-                var count = await db.Doctors.CountAsync(d => d.Status == "Pending");
+                var count = await db.Doctors.CountAsync(d => d.Status == "Pending" || d.Status=="Interview");
 
                 return Ok(new
                 {
@@ -97,7 +98,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
         {
             try
             {
-                // Validate status
+                // Validate status (Pending|Approved|Interview|Rejected)
                 var validStatuses = new List<string> { "Approved", "Interview", "Rejected" };
                 if (!validStatuses.Contains(newStatus))
                 {
@@ -125,15 +126,26 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
 
                 // Create notification
                 string notificationMessage = "";
+                string mailStatusReport="";
+
                 if (newStatus == "Interview")
                 {
                     notificationMessage = CustomVariables.doctorInterviewNotificationMessage;
+                    mailStatusReport = EmailManagement.DoctorInterviewEmail(doctor.FullName, doctor.Email);
+
                 }
                 else if (newStatus == "Rejected")
                 {
                     notificationMessage = CustomVariables.doctorRejectNotificationMessage;
-                }
+                    mailStatusReport = EmailManagement.DoctorRejectedEmail(doctor.FullName, doctor.Email);
 
+                }
+                else if (newStatus == "Approved")
+                {
+                    notificationMessage = CustomVariables.doctorApprovedNotificationMessage;
+                    mailStatusReport = EmailManagement.DoctorApprovedEmail(doctor.FullName, doctor.Email);
+
+                }
                 if (!string.IsNullOrEmpty(notificationMessage))
                 {
                     var notification = new Notification
@@ -159,10 +171,12 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                 });
                 await db.SaveChangesAsync();
 
+                // Return response
                 return Ok(new
                 {
                     success = true,
                     message = $"Doctor status updated to '{newStatus}' successfully.",
+                    mailStatusReport = mailStatusReport
                 });
             }
             catch (Exception ex)

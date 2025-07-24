@@ -46,8 +46,8 @@ namespace LifeinnovirorMentalHealthConsultency.Context.Tables
         public string ProfilePhotoUrl { get; set; }
 
         [StringLength(20)]
-        [RegularExpression("Pending|Approved|Rejected",
-            ErrorMessage = "Status must be Pending, Approved, or Rejected")]
+        [RegularExpression("Pending|Approved|Interview|Rejected",
+            ErrorMessage = "Status must be Pending, Interview, Approved, or Rejected")]
         public string Status { get; set; } = "Pending";
 
         [Required]

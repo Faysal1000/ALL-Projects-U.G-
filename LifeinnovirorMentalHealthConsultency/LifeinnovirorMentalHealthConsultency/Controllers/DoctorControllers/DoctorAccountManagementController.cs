@@ -105,7 +105,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.DoctorControllers
                 // Find the latest rejected or pending request
                 var lastRejectedRequest = await db.Doctors
                     .Where(d => d.Email == model.Email &&
-                               (d.Status == "Rejected" || d.Status == "Pending"))
+                               (d.Status == "Rejected" || d.Status == "Pending" ||d.Status=="Interview")) 
                     .OrderByDescending(d => d.UpdatedAt)
                     .FirstOrDefaultAsync();
 

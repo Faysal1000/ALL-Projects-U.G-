@@ -9,6 +9,7 @@
         public const int maxSizeOfProfilePictureInMB = 5;
         public const string doctorInterviewNotificationMessage = "Your registration request has been reviewed. You are requested to attend an interview. Please check your email or contact admin for further details.";
         public const string doctorRejectNotificationMessage = "We regret to inform you that your doctor registration request has been rejected. For more information, please contact support.";
+        public const string doctorApprovedNotificationMessage = "Congratulation. Your registration request is approved";
 
 
 
