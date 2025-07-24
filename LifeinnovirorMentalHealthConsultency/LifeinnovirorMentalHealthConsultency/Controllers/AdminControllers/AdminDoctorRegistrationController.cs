@@ -8,6 +8,7 @@ using System.Web.Http;
 using LifeinnovirorMentalHealthConsultency.Context;
 using LifeinnovirorMentalHealthConsultency.Context.Tables;
 using LifeinnovirorMentalHealthConsultency.Functional_Class;
+using LifeinnovirorMentalHealthConsultency.Models;
 
 namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
 {
@@ -94,23 +95,31 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
 
         [HttpPost]
         [Route("api/Admin/updateDoctorStatus")]
-        public async Task<IHttpActionResult> UpdateDoctorStatus(int doctorId, string newStatus)
+        public async Task<IHttpActionResult> UpdateDoctorStatus(DoctorStatusUpdateRequestModel model)
         {
             try
             {
-                // Validate status (Pending|Approved|Interview|Rejected)
-                var validStatuses = new List<string> { "Approved", "Interview", "Rejected" };
-                if (!validStatuses.Contains(newStatus))
+                if (!ModelState.IsValid)
                 {
+                    var errors = ModelState.Where(ms => ms.Value.Errors.Count > 0)
+                                           .Select(ms => new
+                                           {
+                                               Field = ms.Key,
+                                               Errors = ms.Value.Errors.Select(e => e.ErrorMessage).ToList()
+                                           });
+
                     return Content(HttpStatusCode.BadRequest, new
                     {
                         success = false,
-                        message = "Invalid status value. Allowed values: Approved, Interview, Rejected."
+                        message = "Validation failed.",
+                        errors = errors,
+                        data = model
                     });
                 }
 
+
                 // Find doctor
-                var doctor = await db.Doctors.FirstOrDefaultAsync(d => d.DoctorId == doctorId);
+                var doctor = await db.Doctors.FirstOrDefaultAsync(d => d.DoctorId == model.DoctorId);
                 if (doctor == null)
                 {
                     return Content(HttpStatusCode.NotFound, new
@@ -121,26 +130,26 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                 }
 
                 // Update status
-                doctor.Status = newStatus;
+                doctor.Status = model.NewStatus;
                 doctor.UpdatedAt = DateTime.Now;
 
                 // Create notification
                 string notificationMessage = "";
                 string mailStatusReport="";
 
-                if (newStatus == "Interview")
+                if (model.NewStatus == "Interview")
                 {
                     notificationMessage = CustomVariables.doctorInterviewNotificationMessage;
                     mailStatusReport = EmailManagement.DoctorInterviewEmail(doctor.FullName, doctor.Email);
 
                 }
-                else if (newStatus == "Rejected")
+                else if (model.NewStatus == "Rejected")
                 {
                     notificationMessage = CustomVariables.doctorRejectNotificationMessage;
                     mailStatusReport = EmailManagement.DoctorRejectedEmail(doctor.FullName, doctor.Email);
 
                 }
-                else if (newStatus == "Approved")
+                else if (model.NewStatus == "Approved")
                 {
                     notificationMessage = CustomVariables.doctorApprovedNotificationMessage;
                     mailStatusReport = EmailManagement.DoctorApprovedEmail(doctor.FullName, doctor.Email);
@@ -151,7 +160,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                     var notification = new Notification
                     {
                         RecipientType = "Doctor",
-                        RecipientId = doctorId,
+                        RecipientId = model.DoctorId,
                         Message = notificationMessage,
                         SentAt = DateTime.Now,
                         Read = false
@@ -166,7 +175,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                     ActorType = "Admin",
                     ActorId = CustomFunctions.GetAdminUserIdFromToken(User),
                     Action = "Update Doctor Registration Status",
-                    Details = $"Doctor, Id = {doctorId}, Registration Status set to {newStatus}",
+                    Details = $"Doctor, Id = {model.DoctorId}, Registration Status set to {model.NewStatus}",
                     CreatedAt = DateTime.Now
                 });
                 await db.SaveChangesAsync();
@@ -175,7 +184,7 @@ namespace LifeinnovirorMentalHealthConsultency.Controllers.AdminControllers
                 return Ok(new
                 {
                     success = true,
-                    message = $"Doctor status updated to '{newStatus}' successfully.",
+                    message = $"Doctor status updated to '{model.NewStatus}' successfully.",
                     mailStatusReport = mailStatusReport
                 });
             }
