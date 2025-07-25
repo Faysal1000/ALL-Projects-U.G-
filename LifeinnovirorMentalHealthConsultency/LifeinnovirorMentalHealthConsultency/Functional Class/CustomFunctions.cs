@@ -49,6 +49,17 @@ public static class CustomFunctions
         return patient?.PatientId ?? 0;
     }
 
+    public static string GetUserRoleFromToken(IPrincipal user)
+    {
+        var claimsIdentity = user.Identity as ClaimsIdentity;
+
+        if (claimsIdentity == null || !claimsIdentity.IsAuthenticated)
+            return null;
+
+        return claimsIdentity.FindFirst(ClaimTypes.Role)?.Value;
+    }
+
+
 
     // this is a function which will be used to secure password using hashing
     public static string GetSha256HashBase64(string input)

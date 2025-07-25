@@ -202,7 +202,9 @@
     <Compile Include="Controllers\AdminControllers\AdminSpecializationManagementController.cs" />
     <Compile Include="Controllers\AdminControllers\AdminSubSpecializationManagementController.cs" />
     <Compile Include="Controllers\DoctorControllers\DoctorAccountManagementController.cs" />
+    <Compile Include="Controllers\DoctorControllers\DoctorTimeSlotManagementController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\NotificationManagementController.cs" />
     <Compile Include="Controllers\PatientControllers\PatientAccountManagementController.cs" />
     <Compile Include="Controllers\PatientControllers\PatientAppointmentController.cs" />
     <Compile Include="Functional Class\CustomFunctions.cs" />
