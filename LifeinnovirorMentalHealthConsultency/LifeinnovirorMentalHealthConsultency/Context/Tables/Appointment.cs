@@ -13,6 +13,12 @@ namespace LifeinnovirorMentalHealthConsultency.Context.Tables
 
         [Required]
         public int PatientId { get; set; }
+        [Required(ErrorMessage = "Full name is required.")]
+        [StringLength(100)]
+        public string FullName { get; set; }
+        [EmailAddress]
+        [Required]
+        public string Email { get; set; }
         public Patient Patient { get; set; }
 
         [Required]
@@ -46,6 +52,7 @@ namespace LifeinnovirorMentalHealthConsultency.Context.Tables
 
         public DateTime BookedAt { get; set; } = DateTime.Now;
         public DateTime? CancelledAt { get; set; }
+        public string CancellationReason { get; set; }
         public DateTime? ConfirmedAt { get; set; }
     }
 

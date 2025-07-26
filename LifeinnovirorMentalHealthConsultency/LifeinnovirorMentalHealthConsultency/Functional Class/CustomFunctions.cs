@@ -71,4 +71,5 @@ public static class CustomFunctions
             return Convert.ToBase64String(hashBytes);
         }
     }
+
 }

@@ -165,6 +165,94 @@ namespace LifeinnovirorMentalHealthConsultency.Functional_Class
 
         }
 
+
+
+        public static string PatientAppointmentBookingMail(
+                                                            string patientName,
+                                                            string patientEmail,
+                                                            string doctorName,
+                                                            DateTime appointmentDate,
+                                                            TimeSpan startTime,
+                                                            bool isOnline,
+                                                            string meetingLink = null)
+        {
+            string meetingInfo = isOnline && !string.IsNullOrEmpty(meetingLink)
+                ? $"<p>Your online meeting link:<br /><a href='{meetingLink}' style='color: #2a8bf2;'>{meetingLink}</a></p>"
+                : "<p>This is an in-person appointment. Please visit the clinic on time.</p>";
+
+            string message = $@"
+                <html>
+                <body style='font-family: Arial, sans-serif; line-height: 1.6;'>
+                    <p>Dear <strong>{patientName}</strong>,</p>
+
+                    <p>Your appointment with Dr. <strong>{doctorName}</strong> has been successfully booked.</p>
+
+                    <p><strong>Appointment Details:</strong></p>
+                    <ul style='list-style-type: none; padding-left: 0;'>
+                        <li><strong>Date:</strong> {appointmentDate}</li>
+                        <li><strong>Time:</strong> {startTime}</li>
+                        <li><strong>Mode:</strong> {(isOnline ? "Online" : "Offline")}</li>
+                    </ul>
+
+                    {meetingInfo}
+                    
+                    <p>If you have any questions or need to reschedule, please contact our support team.</p>
+
+                    <p>Best regards,<br />
+                    <strong>Lifeinnoviror Team</strong></p>
+                </body>
+                </html>";
+
+            string subject = "Appointment Booking - Lifeinnoviror";
+
+            return SendEmail(sender, patientEmail, subject, message);
+        }
+
+
+        public static string DoctorNewAppointmentNotificationMail(
+                                                            string doctorName,
+                                                            string doctorEmail,
+                                                            string patientName,
+                                                            DateTime appointmentDate,
+                                                            TimeSpan startTime,
+                                                            bool isOnline,
+                                                            string meetingLink = null)
+        {
+            string meetingInfo = isOnline && !string.IsNullOrEmpty(meetingLink)
+                ? $"<p>Online meeting link:<br /><a href='{meetingLink}' style='color: #2a8bf2;'>{meetingLink}</a></p>"
+                : "<p>This appointment is scheduled as an in-person visit.</p>";
+
+            string message = $@"
+                <html>
+                <body style='font-family: Arial, sans-serif; line-height: 1.6;'>
+                    <p>Dear Dr. <strong>{doctorName}</strong>,</p>
+
+                    <p>A new appointment has been booked with you by patient <strong>{patientName}</strong>.</p>
+
+                    <p><strong>Appointment Details:</strong></p>
+                    <ul style='list-style-type: none; padding-left: 0;'>
+                        <li><strong>Date:</strong> {appointmentDate}</li>
+                        <li><strong>Time:</strong> {startTime}</li>
+                        <li><strong>Mode:</strong> {(isOnline ? "Online" : "Offline")}</li>
+                    </ul>
+
+                    {meetingInfo}
+
+                    <p>Please be prepared for the appointment. Contact support if you have questions.</p>
+
+                    <p>Best regards,<br />
+                    <strong>Lifeinnoviror Team</strong></p>
+                </body>
+                </html>";
+
+            string subject = "New Appointment Booked - Lifeinnoviror";
+
+            return SendEmail(sender, doctorEmail, subject, message);
+        }
+
+
+
+
         private static string SendEmail(string sender, string receiver, string subject, string message)
         {
             var smtpClient = new SmtpClient("smtp.gmail.com")

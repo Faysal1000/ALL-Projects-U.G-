@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Faysal Ahmmed\\Desktop\\All Projects\\LifeinnovirorMentalHealthConsultency\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5910F55C-1961-433D-AD97-4EE06F8B2A41}|LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency.csproj|c:\\users\\faysal ahmmed\\desktop\\all projects\\lifeinnovirormentalhealthconsultency\\lifeinnovirormentalhealthconsultency\\controllers\\doctorcontrollers\\doctortimeslotmanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5910F55C-1961-433D-AD97-4EE06F8B2A41}|LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency.csproj|solutionrelative:lifeinnovirormentalhealthconsultency\\controllers\\doctorcontrollers\\doctortimeslotmanagementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5910F55C-1961-433D-AD97-4EE06F8B2A41}|LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency.csproj|c:\\users\\faysal ahmmed\\desktop\\all projects\\lifeinnovirormentalhealthconsultency\\lifeinnovirormentalhealthconsultency\\controllers\\patientcontrollers\\patientappointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5910F55C-1961-433D-AD97-4EE06F8B2A41}|LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency.csproj|solutionrelative:lifeinnovirormentalhealthconsultency\\controllers\\patientcontrollers\\patientappointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DoctorTimeSlotManagementController.cs",
-              "DocumentMoniker": "C:\\Users\\Faysal Ahmmed\\Desktop\\All Projects\\LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency\\Controllers\\DoctorControllers\\DoctorTimeSlotManagementController.cs",
-              "RelativeDocumentMoniker": "LifeinnovirorMentalHealthConsultency\\Controllers\\DoctorControllers\\DoctorTimeSlotManagementController.cs",
-              "ToolTip": "C:\\Users\\Faysal Ahmmed\\Desktop\\All Projects\\LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency\\Controllers\\DoctorControllers\\DoctorTimeSlotManagementController.cs",
-              "RelativeToolTip": "LifeinnovirorMentalHealthConsultency\\Controllers\\DoctorControllers\\DoctorTimeSlotManagementController.cs",
-              "ViewState": "AgIAAHgBAAAAAAAAAAAowHMBAAAoAAAAAAAAAA==",
+              "Title": "PatientAppointmentController.cs",
+              "DocumentMoniker": "C:\\Users\\Faysal Ahmmed\\Desktop\\All Projects\\LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency\\Controllers\\PatientControllers\\PatientAppointmentController.cs",
+              "RelativeDocumentMoniker": "LifeinnovirorMentalHealthConsultency\\Controllers\\PatientControllers\\PatientAppointmentController.cs",
+              "ToolTip": "C:\\Users\\Faysal Ahmmed\\Desktop\\All Projects\\LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency\\Controllers\\PatientControllers\\PatientAppointmentController.cs",
+              "RelativeToolTip": "LifeinnovirorMentalHealthConsultency\\Controllers\\PatientControllers\\PatientAppointmentController.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAowFoAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-25T18:54:48.69Z",
+              "WhenOpened": "2025-07-26T15:30:11.59Z",
               "EditorCaption": ""
             }
           ]
