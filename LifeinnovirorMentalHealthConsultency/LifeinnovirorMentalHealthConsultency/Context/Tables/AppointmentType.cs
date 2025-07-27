@@ -17,5 +17,8 @@ namespace LifeinnovirorMentalHealthConsultency.Context.Tables
 
         [Required]
         public decimal Cost { get; set; }
+
+        public string AppointmentDetails { get; set; } // e.g., "topic1. topic2. topic3"
+
     }
 }

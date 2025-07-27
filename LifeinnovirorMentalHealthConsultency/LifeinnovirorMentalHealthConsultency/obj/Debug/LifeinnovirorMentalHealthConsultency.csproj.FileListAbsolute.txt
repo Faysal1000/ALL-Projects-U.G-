@@ -281,3 +281,4 @@ C:\Users\Faysal Ahmmed\Desktop\All Projects\LifeinnovirorMentalHealthConsultency
 C:\Users\Faysal Ahmmed\Desktop\All Projects\LifeinnovirorMentalHealthConsultency\LifeinnovirorMentalHealthConsultency\bin\System.Memory.Data.xml
 C:\Users\Faysal Ahmmed\Desktop\All Projects\LifeinnovirorMentalHealthConsultency\LifeinnovirorMentalHealthConsultency\bin\System.Net.Http.WinHttpHandler.xml
 C:\Users\Faysal Ahmmed\Desktop\All Projects\LifeinnovirorMentalHealthConsultency\LifeinnovirorMentalHealthConsultency\obj\Debug\LifeinnovirorMentalHealthConsultency.Migrations.appointmentTableFixed.resources
+C:\Users\Faysal Ahmmed\Desktop\All Projects\LifeinnovirorMentalHealthConsultency\LifeinnovirorMentalHealthConsultency\obj\Debug\LifeinnovirorMentalHealthConsultency.Migrations.adddedAppointmentDetailsInAppointmentTypeTable.resources

@@ -1,0 +1,18 @@
+﻿namespace LifeinnovirorMentalHealthConsultency.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class adddedAppointmentDetailsInAppointmentTypeTable : DbMigration
+    {
+        public override void Up()
+        {
+            AddColumn("dbo.AppointmentTypes", "AppointmentDetails", c => c.String());
+        }
+        
+        public override void Down()
+        {
+            DropColumn("dbo.AppointmentTypes", "AppointmentDetails");
+        }
+    }
+}

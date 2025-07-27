@@ -299,6 +299,10 @@
     <Compile Include="Migrations\202507261830048_appointmentTableFixed.Designer.cs">
       <DependentUpon>202507261830048_appointmentTableFixed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202507270900106_adddedAppointmentDetailsInAppointmentTypeTable.cs" />
+    <Compile Include="Migrations\202507270900106_adddedAppointmentDetailsInAppointmentTypeTable.Designer.cs">
+      <DependentUpon>202507270900106_adddedAppointmentDetailsInAppointmentTypeTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppointmentBookModel.cs" />
     <Compile Include="Models\ChangePasswordModel.cs" />
@@ -341,6 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202507261830048_appointmentTableFixed.resx">
       <DependentUpon>202507261830048_appointmentTableFixed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202507270900106_adddedAppointmentDetailsInAppointmentTypeTable.resx">
+      <DependentUpon>202507270900106_adddedAppointmentDetailsInAppointmentTypeTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

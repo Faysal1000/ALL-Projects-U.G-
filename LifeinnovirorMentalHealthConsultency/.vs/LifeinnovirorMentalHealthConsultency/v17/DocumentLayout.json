@@ -1,37 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Faysal Ahmmed\\Desktop\\All Projects\\LifeinnovirorMentalHealthConsultency\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{5910F55C-1961-433D-AD97-4EE06F8B2A41}|LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency.csproj|c:\\users\\faysal ahmmed\\desktop\\all projects\\lifeinnovirormentalhealthconsultency\\lifeinnovirormentalhealthconsultency\\controllers\\patientcontrollers\\patientappointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5910F55C-1961-433D-AD97-4EE06F8B2A41}|LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency.csproj|solutionrelative:lifeinnovirormentalhealthconsultency\\controllers\\patientcontrollers\\patientappointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PatientAppointmentController.cs",
-              "DocumentMoniker": "C:\\Users\\Faysal Ahmmed\\Desktop\\All Projects\\LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency\\Controllers\\PatientControllers\\PatientAppointmentController.cs",
-              "RelativeDocumentMoniker": "LifeinnovirorMentalHealthConsultency\\Controllers\\PatientControllers\\PatientAppointmentController.cs",
-              "ToolTip": "C:\\Users\\Faysal Ahmmed\\Desktop\\All Projects\\LifeinnovirorMentalHealthConsultency\\LifeinnovirorMentalHealthConsultency\\Controllers\\PatientControllers\\PatientAppointmentController.cs",
-              "RelativeToolTip": "LifeinnovirorMentalHealthConsultency\\Controllers\\PatientControllers\\PatientAppointmentController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGkAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-27T04:14:03.211Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }
