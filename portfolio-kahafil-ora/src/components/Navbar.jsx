@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 import {
   FaFacebookF,
   FaTwitter,
@@ -32,19 +33,85 @@ const socialLinks = [
   { name: "LI", href: "#", icon: <FaLinkedin size={20} /> },
 ];
 
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Check if the user has scrolled down the page
+  // to change the navbar style
+  // This effect runs once on mount and sets up an event listener
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10); 
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+
+  // Lock scroll when mobile menu is open
+  // This effect runs whenever isOpen changes.
+  // It saves the current scroll position when the menu opens,
+  // and restores it when the menu closes.
+  // It also cleans up the styles when the component unmounts.
+  // This prevents the background from scrolling when the menu is open.
+  useEffect(() => {
+    let scrollY = 0;
+
+    if (isOpen) {
+      // Save current scroll position
+      scrollY = window.scrollY;
+      
+      // Lock scroll and freeze at top
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.overflow = "hidden";
+      document.body.style.width = "100%";
+    } else {
+      // Restore scroll position
+      const y = document.body.style.top;
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.overflow = "";
+      document.body.style.width = "";
+      window.scrollTo(0, parseInt(y || "0") * -1);
+    }
+
+    return () => {
+      // In case component unmounts while locked
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.overflow = "";
+      document.body.style.width = "";
+    };
+  }, [isOpen]);
+
+  // Handle window resize to close mobile menu
+  // to close the mobile menu if the window is resized to a larger width.
+  // It cleans up the event listener on unmount.
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsOpen(false); // Close the mobile menu if window is larger than md breakpoint
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
 
       <nav
-        className="bg-cover bg-no-repeat sticky top-0 z-50"
+        className={`bg-cover bg-no-repeat sticky top-0 z-50 transition-all duration-300 ${isScrolled ? "backdrop-blur-md shadow-xs py-0" : "py-2"}`}
         style={{
           backgroundImage: `url(${TEXTURE})`
         }}
       >
-      <div className="container mx-auto py-2 flex items-center">
+      <div className="container mx-auto flex items-center">
         {/* Desktop Menu */}
         <div className="hidden md:flex flex-[1] justify-between">
           {navItems.map((item) => (
@@ -91,7 +158,7 @@ const Navbar = () => {
           <button
             onClick={toggleMenu}
             style={{ color: TEXT_COLOR, fontFamily: FONT_FAMILY }}
-            className="focus:outline-none"
+            className="p-3 focus:outline-none"
           >
             {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
