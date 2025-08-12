@@ -14,7 +14,7 @@ const ROLE_TEXT = 'IT CONSULTANT';
 const HeroSection = () => {
   return (
     <section
-      className="w-full h-[60vh] md:h-[60vh] relative bg-cover bg-no-repeat"
+      className="w-full h-[60vh] md:h-[90vh] relative bg-cover bg-no-repeat"
       style={{
         backgroundImage: `url(${TEXTURE})`,
       }}
@@ -61,12 +61,12 @@ const HeroSection = () => {
             <img
               src={heroImage}
               alt="Kahafil"
-              className="w-full md:w-[70vh] md:mx-auto h-auto grayscale hover:grayscale-0 transition-all duration-500 md:absolute md:bottom-0 md:left-1/2 md:transform md:-translate-x-1/2"
+              className="w-full md:w-[100vh] md:mx-auto h-auto grayscale hover:grayscale-0 transition-all duration-500 md:absolute md:bottom-0 md:left-1/2 md:transform md:-translate-x-1/2"
             />
 
-            {/* Role Text with Icon - Mobile Only (center left) */}
+            {/* Role Text with Icon - Desktop Only (center left) */}
             <div
-                className="hidden md:flex absolute md:top-[40%] md:left-[30%] md:-translate-x-[30%] md:-translate-y-[40%] items-center text-base lg:text-lg xl:text-xl"
+                className="hidden md:flex absolute md:top-[50%] md:left-[25%] md:-translate-x-[30%] md:-translate-y-[40%] items-center text-base lg:text-lg xl:text-xl"
                 style={{ color: TEXT_COLOR, fontFamily: FONT_FAMILY }}
                 >
                 {ROLE_TEXT}
