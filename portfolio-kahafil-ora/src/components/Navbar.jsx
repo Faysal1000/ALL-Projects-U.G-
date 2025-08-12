@@ -10,7 +10,7 @@ import {
 import { GrMail } from "react-icons/gr";
 
 // ======= Configurable Variables =======
-const NAVBAR_BG = "#EFEAE4"; // Ribbon background
+const NAVBAR_TEXTURE = "url('https://www.transparenttextures.com/patterns/asfalt-dark.png')";
 const TEXT_COLOR = "#444";
 const HOVER_TEXT_COLOR = "#4a4a4a";
 const UNDERLINE_COLOR = "#444";
@@ -37,10 +37,15 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav
-      className="sticky top-0 z-50 shadow-lg"
-      style={{ backgroundColor: NAVBAR_BG }}
-    >
+      <nav
+        className="sticky top-0 z-50"
+        style={{
+          backgroundImage: NAVBAR_TEXTURE,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat"
+        }}
+      >
+
       <div className="container mx-auto py-2 flex items-center">
         {/* Desktop Menu */}
         <div className="hidden md:flex flex-[1] justify-between">
