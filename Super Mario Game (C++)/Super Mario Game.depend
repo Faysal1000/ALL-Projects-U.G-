@@ -855,7 +855,7 @@
 1526093414 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\imm.h
 	<_mingw_unicode.h>
 
-1632039198 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\glut.h
+1632039200 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\glut.h
 	"freeglut_std.h"
 
 1632039196 c:\program files\codeblocks\mingw\x86_64-w64-mingw32\include\gl\freeglut_std.h
@@ -877,6 +877,13 @@
 	<GL/gl.h>
 
 1700818077 source:c:\users\faysal ahmmed\desktop\super mario game\main.cpp
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+	<vector>
+	<cmath>
+
+1700822487 source:c:\users\faysal ahmmed\desktop\all projects\super mario game (c++)\main.cpp
 	<windows.h>
 	<GL/glut.h>
 	<iostream>
