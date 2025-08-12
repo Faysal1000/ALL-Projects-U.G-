@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import {
   FaFacebookF,
   FaTwitter,
-  FaInstagram,
   FaBars,
   FaTimes,
   FaLinkedin,
 } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
+//import texture from "../assets/texture.svg";
 
 // ======= Configurable Variables =======
-const NAVBAR_TEXTURE = "url('https://www.transparenttextures.com/patterns/asfalt-dark.png')";
+const TEXTURE= 'https://www.transparenttextures.com/patterns/asfalt-dark.png';
 const TEXT_COLOR = "#444";
 const HOVER_TEXT_COLOR = "#4a4a4a";
 const UNDERLINE_COLOR = "#444";
@@ -37,15 +37,13 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
+
       <nav
-        className="sticky top-0 z-50"
+        className="bg-cover bg-no-repeat sticky top-0 z-50"
         style={{
-          backgroundImage: NAVBAR_TEXTURE,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat"
+          backgroundImage: `url(${TEXTURE})`
         }}
       >
-
       <div className="container mx-auto py-2 flex items-center">
         {/* Desktop Menu */}
         <div className="hidden md:flex flex-[1] justify-between">
