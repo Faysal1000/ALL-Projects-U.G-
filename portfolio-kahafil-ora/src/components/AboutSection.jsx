@@ -1,4 +1,4 @@
-import aboutImage from "../assets/kahafil-ora-about-photo.png"; // Importing the about section image asset
+import aboutImage from "../assets/kahafil-ora-about-photo.png";
 import LogoAnimation from "./LogoAnimation";
 import Collaboration from "./Collaboration";
 const AboutSection = () => {
@@ -6,7 +6,7 @@ const AboutSection = () => {
     // Section is a column so children can grow; min-h-screen keeps it at least viewport height
     <section className="w-full min-h-screen pt-0 flex flex-col">
       {/* Wrapper: fills section (flex-1), starts at top (justify-start), allows children to shrink (min-h-0) */}
-      <div className="bg-[#fff] flex-1 flex py-[5.2%] px-[12.5%] flex-col justify-start items-start gap-[5.2%] min-h-0">
+      <div className="bg-[#fff] pt-15 md:pt-0 flex-1 flex py-[5.2%] px-[12.5%] flex-col justify-start items-start gap-[5.2%] min-h-0">
         {/* Top section */}
         <div className="flex flex-col items-center gap-[20px] self-stretch">
           <div className="text-[rgba(68,68,68,0.5)] font-['Fragment_Mono'] text-lg md:text-lg lg:text-xl font-[400] leading-normal uppercase">
@@ -70,8 +70,8 @@ const AboutSection = () => {
                   alt="About"
                   className="rounded-[130px] 
                    w-[40vw] sm:w-[35vw] md:w-[23vw] lg:w-[25vw] xl:w-[16vw] 
-                  min-w-[120px] max-w-[520px] aspect-[25/42] h-auto object-cover 
-                   grayscale hover:grayscale-0 transition-all duration-800 ease-in-out transform hover:scale-[1.15]
+                   min-w-[120px] max-w-[520px] aspect-[25/42] h-auto object-cover 
+                   hover:grayscale-0 transition-all duration-800 ease-in-out transform hover:scale-[1.15] md:grayscale
                    mx-auto"
                 />
               </div>
@@ -84,31 +84,19 @@ const AboutSection = () => {
           */}
 
           {/* MOBILE: two-row headings+values (visible only on small screens) */}
-          <div className="w-full md:hidden mt-4">
+          <div className="w-full md:hidden mt-4 text-center">
             {/* HEADINGS ROW */}
-            <div className="grid grid-cols-3 gap-4 w-full text-left">
-              <div className="text-[rgba(68,68,68,0.5)] font-['Fragment_Mono'] text-sm uppercase leading-normal">
-                Years of Experience
-              </div>
-              <div className="text-[rgba(68,68,68,0.5)] font-['Fragment_Mono'] text-sm uppercase leading-normal">
-                Satisfaction Clients
-              </div>
-              <div className="text-[rgba(68,68,68,0.5)] font-['Fragment_Mono'] text-sm uppercase leading-normal">
-                CLIENTS ON WORLDWIDE
-              </div>
+            <div className="grid grid-cols-3 gap-4 w-full text-[rgba(68,68,68,0.5)] font-['Fragment_Mono'] text-sm uppercase leading-normal">
+              <div>Years of Experience</div>
+              <div>Satisfaction Clients</div>
+              <div>CLIENTS ON WORLDWIDE</div>
             </div>
 
             {/* VALUES ROW */}
-            <div className="grid grid-cols-3 gap-4 w-full mt-2">
-              <div className="text-black font-['Poppins'] sm:text-3xl text-4xl font-light leading-normal">
-                22+
-              </div>
-              <div className="text-black font-['Poppins'] sm:text-3xl text-4xl font-light leading-normal">
-                100%
-              </div>
-              <div className="text-black font-['Poppins'] sm:text-3xl text-4xl font-light leading-normal">
-                70+
-              </div>
+            <div className="grid grid-cols-3 gap-4 w-full mt-2 text-black font-['Poppins'] sm:text-3xl text-4xl font-light leading-normal">
+              <div>22+</div>
+              <div>100%</div>
+              <div>70+</div>
             </div>
           </div>
 
@@ -143,8 +131,6 @@ const AboutSection = () => {
           </div>
         </div>
       </div>
-      <Collaboration />
-      <LogoAnimation />
     </section>
   );
 };

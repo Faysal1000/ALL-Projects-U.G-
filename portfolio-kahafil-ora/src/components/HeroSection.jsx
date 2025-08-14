@@ -90,7 +90,7 @@ const HeroSection = () => {
             MIDDLE COLUMN (always centered)
             - This code defines the middle part, always centered, taking 1/2 width on md+, full width on mobile, with image at bottom on mobile.
             ------------------------------------------------------------------ */}
-        <div className="w-full md:w-1/2 flex flex-col justify-end items-center relative md:flex-none h-full">
+        <div className="w-full pt-10 md:pt-0 md:w-1/2 flex flex-col justify-end items-center relative md:flex-none h-full">
           {/* This code shows KAHAFIL title on mobile only, justified left. */}
           <div
             className="md:hidden w-full text-left py-2 font-[700]"
@@ -112,22 +112,23 @@ const HeroSection = () => {
             <img
               src={heroImage}
               alt="Kahafil portrait"
-              className="z-50 w-[100vh] max-w-[480px] md:max-w-[680px] lg:max-w-[720px] xl:max-w-[870px] h-auto object-contain grayscale hover:grayscale-0 transition-all duration-500"
+              className="z-50 w-[100vh] max-w-[380px] md:max-w-[680px] lg:max-w-[720px] xl:max-w-[870px] h-auto object-contain hover:grayscale-0 transition-all duration-500 md:grayscale
+"
               style={{ display: "block" }}
             />
 
             {/* This code positions the role badge left-bottom on mobile, left-center on desktop. */}
             <figcaption
-              className="absolute left-0 top-[47%] md:-left-10 md:top-[54%] md:bottom-auto md:-translate-y-1/2 flex items-center space-x-0 px-3 py-1 md:rounded-lg"
+              className="absolute left-0 top-[45%] md:-left-10 md:top-[54%] md:bottom-auto md:-translate-y-1/2 flex items-center space-x-0 px-3 py-1 md:rounded-lg"
               style={{ color: TEXT_COLOR, fontFamily: FONT_FAMILY_GENERAL }}
             >
-              <span className="text-[0.8rem] sm:text-sm md:text-base lg:text-lg font-medium">
+              <span className="text-[0.6rem] sm:text-sm md:text-base lg:text-lg font-medium">
                 {ROLE_TEXT}
               </span>
               <img
                 src={dottedArrowIcon}
                 alt="dotted arrow"
-                className="w-14 h-auto md:w-20"
+                className="w-12 h-auto md:w-20"
               />
             </figcaption>
           </figure>
