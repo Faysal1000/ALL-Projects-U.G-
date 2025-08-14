@@ -28,11 +28,11 @@ const HeroSection = () => {
   return (
     // This code sets up the top-level section with full width/height, textured background, and hidden horizontal overflow.
     <section
-      className="w-full min-h-screen md:h-screen relative bg-cover bg-no-repeat overflow-x-hidden"
+      className="w-full h-screen relative bg-cover bg-no-repeat overflow-x-hidden"
       style={{ backgroundImage: `url(${texture})` }}
     >
       {/* This code creates a responsive container that stacks on mobile (flex-col) and becomes a flex row on md+ with justified content. */}
-      <div className="container mx-auto pt-0 md:pt-15 pb-0 flex flex-col md:flex-row md:items-start md:justify-between gap-0 relative">
+      <div className="container mx-auto pt-0 md:pt-15 pb-0 flex flex-col md:flex-row md:items-start md:justify-between gap-0 relative h-full">
         {/* ------------------------------------------------------------------
             LEFT COLUMN (desktop shown)
             - This code defines the left part, visible on md+, taking 1/4 width, containing name/year, portfolio label, and scroll prompt.
@@ -70,7 +70,7 @@ const HeroSection = () => {
                 /PORTFOLIO
               </span>
               <div
-                className="w-px h-24 bg-current ml-5.5 -mt-40"
+                className="w-px h-12 bg-current ml-5.5 -mt-28"
                 style={{ backgroundColor: "rgba(68,68,68,0.6)" }}
               />
             </div>
@@ -90,7 +90,7 @@ const HeroSection = () => {
             MIDDLE COLUMN (always centered)
             - This code defines the middle part, always centered, taking 1/2 width on md+, full width on mobile, with image at bottom on mobile.
             ------------------------------------------------------------------ */}
-        <div className="w-full md:w-1/2 flex flex-col items-center justify-end md:justify-center relative md:flex-none">
+        <div className="w-full md:w-1/2 flex flex-col justify-end items-center relative md:flex-none h-full">
           {/* This code shows KAHAFIL title on mobile only, justified left. */}
           <div
             className="md:hidden w-full text-left py-2 font-[700]"
@@ -118,7 +118,7 @@ const HeroSection = () => {
 
             {/* This code positions the role badge left-bottom on mobile, left-center on desktop. */}
             <figcaption
-              className="absolute left-0 top-[45%] md:-left-10 md:top-[52%] md:bottom-auto md:-translate-y-1/2 flex items-center space-x-0 px-3 py-1 md:rounded-lg"
+              className="absolute left-0 top-[47%] md:-left-10 md:top-[54%] md:bottom-auto md:-translate-y-1/2 flex items-center space-x-0 px-3 py-1 md:rounded-lg"
               style={{ color: TEXT_COLOR, fontFamily: FONT_FAMILY_GENERAL }}
             >
               <span className="text-[0.8rem] sm:text-sm md:text-base lg:text-lg font-medium">

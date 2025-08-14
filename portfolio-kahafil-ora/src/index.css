@@ -1,4 +1,43 @@
+/* index.css or your CSS file */
 @import "tailwindcss";
+
 html, body {
   overflow-x: hidden;
+}
+/* Marquee animation + mask (index.css) */
+.logo-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+/* Default copies = 2 (set inline style to override) */
+/* Also set will-change for better performance */
+.logo-track {
+  --speed: 12s;
+  --copies: 2; /* default number of repeated sets in DOM */
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 0;
+  will-change: transform;
+  animation: marquee var(--speed) linear infinite;
+  /* ensure it starts aligned at 0 for left-moving (default) */
+  transform: translateX(0);
+  animation-fill-mode: both;
+}
+
+/* If you want reverse direction, we set initial transform to the final keyframe
+   value so the animation plays backwards seamlessly (no jump). */
+.logo-track[data-direction="right"] {
+  transform: translateX(calc(-100% / var(--copies)));
+  animation-direction: reverse;
+}
+
+/* Keyframes now use the --copies variable so they move exactly one set width */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100%{ transform: translateX(calc(-100% / var(--copies))); }
 }

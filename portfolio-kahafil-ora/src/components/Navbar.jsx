@@ -19,8 +19,8 @@ const FONT_FAMILY = "'Fragment Mono', sans-serif";
 // ======= Nav Items =======
 const navItems = [
   { name: "HOME", href: "/" },
-  { name: "ABOUT", href: "/" },
-  { name: "THOUGHTS", href: "/" },
+  { name: "ABOUT", href: "/About" },
+  { name: "THOUGHTS", href: "/Thoughts" },
 ];
 
 // ======= Social Links =======
