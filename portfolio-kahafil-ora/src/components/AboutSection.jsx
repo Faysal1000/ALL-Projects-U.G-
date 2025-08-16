@@ -6,7 +6,7 @@ const AboutSection = () => {
     // Section is a column so children can grow; min-h-screen keeps it at least viewport height
     <section className="w-full min-h-screen pt-0 flex flex-col">
       {/* Wrapper: fills section (flex-1), starts at top (justify-start), allows children to shrink (min-h-0) */}
-      <div className="bg-[#fff] pt-15 md:pt-0 flex-1 flex py-[5.2%] px-[12.5%] flex-col justify-start items-start gap-[5.2%] min-h-0">
+      <div className="bg-[#fff] pt-15 flex-1 flex py-[5.2%] px-[12.5%] flex-col justify-start items-start gap-[5.2%] min-h-0">
         {/* Top section */}
         <div className="flex flex-col items-center gap-[20px] self-stretch">
           <div className="text-[rgba(68,68,68,0.5)] font-['Fragment_Mono'] text-lg md:text-lg lg:text-xl font-[400] leading-normal uppercase">

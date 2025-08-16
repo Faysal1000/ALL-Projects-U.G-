@@ -1,46 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import { FaArrowRight, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaRegCalendarAlt } from "react-icons/fa";
 
-// Data for all the cards in the carousel
-const cards = [
-  {
-    id: 1,
-    title: "Faysal Ahmmed",
-    img: "https://placehold.co/200",
-    desc: "very dedicated person in AI, deep learning along with research and Backend development.",
-    link: "https://faysalahmmed-portfolio.vercel.app/",
-  },
-  {
-    id: 2,
-    title: "Cloud Migration",
-    img: "https://placehold.co/200",
-    desc: "Move legacy infrastructure to cloud for scalability and reliability.",
-    link: "#",
-  },
-  {
-    id: 3,
-    title: "Cybersecurity",
-    img: "https://placehold.co/200",
-    desc: "Protect data and systems with practical, audited security controls.",
-    link: "#",
-  },
-  {
-    id: 4,
-    title: "DevOps & Automation",
-    img: "https://placehold.co/200",
-    desc: "Streamline delivery pipelines and reduce manual toil.",
-    link: "/devops-automation",
-  },
-  {
-    id: 5,
-    title: "Digital Transformation Strategy",
-    img: "https://placehold.co/200",
-    desc: "Helping businesses modernize operations through tailored digital adoption plans—enhancing efficiency, reducing costs, and boosting productivity.",
-    link: "#",
-  },
-];
-
-const CardCarousel = () => {
+const BlogsCarousel = ({ cards }) => {
   // Reference to the carousel container for measuring visible area
   const containerRef = useRef(null);
   // Reference to the first card to measure its width (including gap)
@@ -214,13 +176,13 @@ const CardCarousel = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full pt-15">
       {/* Carousel Wrapper */}
       <div className="relative w-full">
         {/* Left Navigation Arrow (hidden on mobile) */}
         <button
           onClick={() => goLeft(arrowMoveBy)}
-          className="hidden md:flex items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow"
+          className="hidden md:flex items-center justify-center absolute left-0 top-1/3 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow"
         >
           <FaChevronLeft />
         </button>
@@ -228,7 +190,7 @@ const CardCarousel = () => {
         {/* Right Navigation Arrow (hidden on mobile) */}
         <button
           onClick={() => goRight(arrowMoveBy)}
-          className="hidden md:flex items-center justify-center absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow"
+          className="hidden md:flex items-center justify-center absolute right-0 top-1/3 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow"
         >
           <FaChevronRight />
         </button>
@@ -254,17 +216,30 @@ const CardCarousel = () => {
               <div
                 key={card.id}
                 ref={i === 0 ? firstCardRef : null}
-                className="flex flex-col items-start gap-[10px] w-[300px] md:w-[325px] flex-shrink-0"
+                className="flex flex-col items-start gap-[10px] w-[300px] md:w-[500px] flex-shrink-0"
               >
                 {/* Card Image */}
                 <img
                   src={card.img}
                   alt={card.title}
-                  className="h-[200px] w-full rounded-[10px] object-cover"
+                  className="h-[220px] md:h-[300px] w-full rounded-[10px] object-cover"
                 />
 
+                <div className="flex justify-between items-center w-full">
+                  {/* Left text */}
+                  <div className="text-[rgba(68,68,68,0.5)] font-poppins text-sm font-medium leading-normal capitalize">
+                    {card.type}
+                  </div>
+
+                  {/* Right text with icon */}
+                  <div className="flex items-center gap-1 text-[rgba(68,68,68,0.5)] font-poppins text-sm font-medium leading-normal capitalize">
+                    <FaRegCalendarAlt className="text-[20px]" />
+                    <span>{card.date}</span>
+                  </div>
+                </div>
+
                 {/* Card Title */}
-                <div className="self-stretch text-[#444] font-Poppins text-lg md:text-xl font-medium uppercase leading-normal">
+                <div className="self-stretch text-[#444] font-Poppins text-lg md:text-2xl font-[700] capitalize leading-normal">
                   {card.title}
                 </div>
 
@@ -290,4 +265,4 @@ const CardCarousel = () => {
   );
 };
 
-export default CardCarousel;
+export default BlogsCarousel;

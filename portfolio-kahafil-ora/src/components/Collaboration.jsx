@@ -1,5 +1,5 @@
 import { FaArrowRight } from "react-icons/fa";
-import CardCarousel from "./CardCarousel";
+import CollaborationCarousel from "./CollaborationCarousel";
 
 const backgroundTextures = {
   diagonalNoise:
@@ -16,6 +16,45 @@ const backgroundTextures = {
   wavePattern: "https://www.transparenttextures.com/patterns/wavecut.png",
   linen: "https://www.transparenttextures.com/patterns/linen.png",
 };
+
+// Data for all the cards in the carousel
+const cards = [
+  {
+    id: 1,
+    title: "Faysal Ahmmed",
+    img: "https://placehold.co/200",
+    desc: "very dedicated person in AI, deep learning along with research and Backend development.",
+    link: "https://faysalahmmed-portfolio.vercel.app/",
+  },
+  {
+    id: 2,
+    title: "Cloud Migration",
+    img: "https://placehold.co/200",
+    desc: "Move legacy infrastructure to cloud for scalability and reliability.",
+    link: "#",
+  },
+  {
+    id: 3,
+    title: "Cybersecurity",
+    img: "https://placehold.co/200",
+    desc: "Protect data and systems with practical, audited security controls.",
+    link: "#",
+  },
+  {
+    id: 4,
+    title: "DevOps & Automation",
+    img: "https://placehold.co/200",
+    desc: "Streamline delivery pipelines and reduce manual toil.",
+    link: "/devops-automation",
+  },
+  {
+    id: 5,
+    title: "Digital Transformation Strategy",
+    img: "https://placehold.co/200",
+    desc: "Helping businesses modernize operations through tailored digital adoption plans—enhancing efficiency, reducing costs, and boosting productivity.",
+    link: "#",
+  },
+];
 
 const Collaboration = () => {
   return (
@@ -36,7 +75,7 @@ const Collaboration = () => {
       </div>
 
       {/* Carousel Section */}
-      <CardCarousel />
+      <CollaborationCarousel cards={cards} />
     </section>
   );
 };
