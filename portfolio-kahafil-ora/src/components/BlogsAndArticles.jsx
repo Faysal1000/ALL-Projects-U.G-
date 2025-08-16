@@ -83,7 +83,7 @@ const BlogsAndArticles = () => {
           <div key={genre} className="flex items-center">
             <button
               onClick={() => setActiveGenre(genre)}
-              className={`text-[#444] font-[Fragment_Mono] text-sm font-normal leading-normal uppercase px-2 pb-1 
+              className={`text-[#444] font-[Fragment_Mono] text-sm font-normal leading-normal uppercase pb-1 
                         border-b-2 transition-all duration-300 cursor-pointer
                         ${activeGenre === genre ? "border-[#444]/75" : "border-transparent hover:border-[#444]/50 text-[#444]/50"}`}
             >
@@ -98,7 +98,13 @@ const BlogsAndArticles = () => {
       </div>
 
       {/* Blogs carousel with filtered data */}
-      <BlogsCarousel cards={filteredCards} />
+      <BlogsCarousel
+        cards={filteredCards}
+        desktopImageWidth="500px"
+        desktopImageHeight="300px"
+        mobileImageWidth="300px"
+        mobileImageHeight="220px"
+      />
     </section>
   );
 };

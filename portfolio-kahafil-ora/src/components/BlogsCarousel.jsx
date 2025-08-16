@@ -1,8 +1,15 @@
 import React, { useRef, useState, useEffect } from "react";
 import { FaArrowRight, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { FaRegCalendarAlt } from "react-icons/fa";
+import PropTypes from "prop-types";
 
-const BlogsCarousel = ({ cards }) => {
+const BlogsCarousel = ({
+  cards,
+  desktopImageWidth = "500px",
+  desktopImageHeight = "300px",
+  mobileImageWidth = "300px",
+  mobileImageHeight = "220px",
+}) => {
   // Reference to the carousel container for measuring visible area
   const containerRef = useRef(null);
   // Reference to the first card to measure its width (including gap)
@@ -216,13 +223,13 @@ const BlogsCarousel = ({ cards }) => {
               <div
                 key={card.id}
                 ref={i === 0 ? firstCardRef : null}
-                className="flex flex-col items-start gap-[10px] w-[300px] md:w-[500px] flex-shrink-0"
+                className={`flex flex-col items-start gap-[10px] w-[${mobileImageWidth}] md:w-[${desktopImageWidth}] flex-shrink-0`}
               >
                 {/* Card Image */}
                 <img
                   src={card.img}
                   alt={card.title}
-                  className="h-[220px] md:h-[300px] w-full rounded-[10px] object-cover"
+                  className={`h-[${mobileImageHeight}] md:h-[${desktopImageHeight}] w-full rounded-[10px] object-cover`}
                 />
 
                 <div className="flex justify-between items-center w-full">
@@ -263,6 +270,26 @@ const BlogsCarousel = ({ cards }) => {
       </div>
     </div>
   );
+};
+
+// BlogCarousel object structure
+BlogsCarousel.propTypes = {
+  cards: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      type: PropTypes.string.isRequired,
+      genre: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      img: PropTypes.string.isRequired,
+      desc: PropTypes.string.isRequired,
+      link: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  desktopImageWidth: PropTypes.string,
+  desktopImageHeight: PropTypes.string,
+  mobileImageWidth: PropTypes.string,
+  mobileImageHeight: PropTypes.string,
 };
 
 export default BlogsCarousel;

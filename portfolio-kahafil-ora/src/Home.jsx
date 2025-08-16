@@ -6,6 +6,8 @@ import LogoAnimation from "./components/LogoAnimation.jsx";
 import LeadershipRoles from "./components/LeadershipRoles.jsx";
 import BlogsAndArticles from "./components/BlogsAndArticles.jsx";
 import Testimonial from "./components/Testimonial.jsx";
+import Footer from "./components/Footer.jsx";
+
 function Home() {
   return (
     <>
@@ -17,6 +19,7 @@ function Home() {
       <LeadershipRoles />
       <BlogsAndArticles />
       <Testimonial />
+      <Footer />
     </>
   );
 }
