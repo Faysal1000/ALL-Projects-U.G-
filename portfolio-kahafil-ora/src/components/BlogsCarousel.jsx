@@ -223,13 +223,25 @@ const BlogsCarousel = ({
               <div
                 key={card.id}
                 ref={i === 0 ? firstCardRef : null}
-                className={`flex flex-col items-start gap-[10px] w-[${mobileImageWidth}] md:w-[${desktopImageWidth}] flex-shrink-0`}
+                className="flex flex-col items-start gap-[10px] flex-shrink-0"
+                style={{
+                  width:
+                    window.innerWidth >= 768
+                      ? desktopImageWidth
+                      : mobileImageWidth,
+                }}
               >
                 {/* Card Image */}
                 <img
                   src={card.img}
                   alt={card.title}
-                  className={`h-[${mobileImageHeight}] md:h-[${desktopImageHeight}] w-full rounded-[10px] object-cover`}
+                  className="w-full rounded-[10px] object-cover"
+                  style={{
+                    height:
+                      window.innerWidth >= 768
+                        ? desktopImageHeight
+                        : mobileImageHeight,
+                  }}
                 />
 
                 <div className="flex justify-between items-center w-full">

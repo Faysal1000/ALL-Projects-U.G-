@@ -16,11 +16,11 @@ const KAHAFIL_ORA_FONT_FAMILY = "'Poppins', 'Fragment Mono', sans-serif";
    Will render in this order on the UI.
 ------------------------------*/
 const socialLinks = [
-  { label: "X", href: "https://instagram.com/example" },
+  { label: "X", href: "https://x.com" },
   { label: "LinkedIn", href: "https://linkedin.com/in/example" },
   { label: "YouTube", href: "https://example.com" },
   { label: "Facebook", href: "https://facebook.com/example" },
-  { label: "Instagram", href: "mailto:info@example.com" },
+  { label: "Instagram", href: "https://instagram.com/example" },
 ];
 /**
  * items: array of { image: string, link: string, socialMediaType: "instagram" | "facebook" | "linkedin" | "website" | "none" }
@@ -212,7 +212,7 @@ const Footer = ({ items = defaultItems }) => {
       </div>
       {/* ===================== END KAHAFIL ORA RESPONSIVE TEXT ===================== */}
 
-      <div className="w-full pt-10 px-2 md:px-10 text-2xl font-[Poppins,sans-serif] text-[#444] capitalize">
+      <div className="w-full pt-10 px-10 text-xl 2xl:text-2xl font-[Poppins,sans-serif] text-[#444] capitalize">
         {/*
         Mobile: vertical stack with nice gap.
         Desktop (md+): single row, no wrap, equal spacing between columns via justify-between.
@@ -319,21 +319,14 @@ const Footer = ({ items = defaultItems }) => {
       </div>
 
       {/* Last portion */}
-      <div className="flex w-full px-[60px] mt-10 py-[30px] justify-between bg-[#EBEBEB] flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0">
+      <div className="text-[#444] font-poppins text-xl font-light leading-normal capitalize flex w-full px-[60px] mt-10 py-[30px] justify-between bg-[#EBEBEB] flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0">
         {/* Arrow first on mobile */}
-        <div className="text-[#444] font-poppins text-xl font-light leading-normal capitalize order-first md:order-last">
+        <div className="order-first md:order-last">
           <FaArrowTurnUp size={20} />
         </div>
-
-        <div className="text-[#444] font-poppins text-xl font-light leading-normal capitalize">
-          Copyright © 2025 Kahafil Ora
-        </div>
-        <div className="text-[#444] font-poppins text-xl font-light leading-normal capitalize">
-          Privacy & Policy
-        </div>
-        <div className="text-[#444] font-poppins text-xl font-light leading-normal capitalize">
-          Terms & Conditions
-        </div>
+        <div>Copyright © 2025 Kahafil Ora</div>
+        <div>Privacy & Policy</div>
+        <div>Terms & Conditions</div>
       </div>
     </footer>
   );
