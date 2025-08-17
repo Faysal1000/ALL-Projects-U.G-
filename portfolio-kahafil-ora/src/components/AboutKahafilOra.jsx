@@ -1,7 +1,6 @@
 import aboutImage from "../assets/kahafil-ora-about-photo.png";
-import LogoAnimation from "./LogoAnimation";
-import Collaboration from "./Collaboration";
-const AboutSection = () => {
+
+const AboutKahafilOra = () => {
   return (
     // Section is a column so children can grow; min-h-screen keeps it at least viewport height
     <section className="w-full min-h-screen pt-0 flex flex-col">
@@ -135,4 +134,4 @@ const AboutSection = () => {
   );
 };
 
-export default AboutSection;
+export default AboutKahafilOra;

@@ -1,7 +1,7 @@
 import { FaArrowRight, FaRegCalendarAlt } from "react-icons/fa";
-import BlogGrid from "./BlogGrid";
 import { useState, useEffect } from "react";
-import Footer from "./Footer";
+import Footer from "./components/Footer";
+import BlogGrid from "./components/BlogGrid.jsx";
 
 // main news section
 const mainNews = {

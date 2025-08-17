@@ -1,10 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AboutSection from "./components/AboutSection.jsx";
+import AboutUs from "./AboutUs.jsx";
 import Home from "./Home.jsx";
 import Navbar from "./components/Navbar.jsx";
-import Thoughts from "./components/Thoughts.jsx";
+import Thoughts from "./Thoughts.jsx";
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     element: (
       <>
         <Navbar />
-        <AboutSection />
+        <AboutUs />
       </>
     ),
   },

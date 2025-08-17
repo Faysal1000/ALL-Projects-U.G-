@@ -1,4 +1,3 @@
-import { FaArrowRight } from "react-icons/fa";
 import CollaborationCarousel from "./CollaborationCarousel";
 
 const backgroundTextures = {

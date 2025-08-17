@@ -1,6 +1,6 @@
 import Navbar from "./components/Navbar.jsx";
 import HeroSection from "./components/HeroSection.jsx";
-import AboutSection from "./components/AboutSection.jsx";
+import AboutKahafilOra from "./components/AboutKahafilOra.jsx";
 import Collaboration from "./components/Collaboration.jsx";
 import LogoAnimation from "./components/LogoAnimation.jsx";
 import LeadershipRoles from "./components/LeadershipRoles.jsx";
@@ -13,7 +13,7 @@ function Home() {
     <>
       <Navbar />
       <HeroSection />
-      <AboutSection />
+      <AboutKahafilOra />
       <LogoAnimation />
       <Collaboration />
       <LeadershipRoles />
