@@ -1,34 +1,14 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const testimonials = [
-  {
-    text: "Kahafil Ora is an experienced IT Consultant known for delivering smart, tech-driven solutions to businesses. With a strong grasp of IT infrastructure and digital strategy, he helps organizations improve efficiency and achieve their goals through innovative technology.",
-    author: "kahafil ora",
-    designation: "CTO",
-    company: "Company name",
-  },
-  {
-    text: "Faysal Ahmmed is a dedicated researcher and software engineer with deep expertise in AI, deep learning, and backend development. He combines academic excellence with practical problem-solving skills.",
-    author: "Faysal Ahmmed",
-    designation: "Researcher",
-    company: "AIUB",
-  },
-  {
-    text: "Another testimonial text goes here for testing smooth transitions and animations in the carousel effect. This one is intentionally long so we can test overflow behaviour. If it is longer than the container allows, it will scroll inside the box (or be clamped if you prefer).",
-    author: "John Doe",
-    designation: "CEO",
-    company: "Another Co.",
-  },
-];
+import TESTIMONIALS from "/src/config/testimonialConfig.js";
 
 const Testimonial = () => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
+      setIndex((prev) => (prev + 1) % TESTIMONIALS.length);
+    }, 5000); // 5 second timer (5000ms) if need slow animation then increase value here ;)
     return () => clearInterval(timer);
   }, []);
 
@@ -62,17 +42,17 @@ const Testimonial = () => {
                   /* style to hide native scrollbar on webkit*/
                   style={{ WebkitOverflowScrolling: "touch" }}
                 >
-                  "{testimonials[index].text}"
+                  "{TESTIMONIALS[index].text}"
                 </div>
 
                 <div className="mt-4 text-center text-[#000] font-Amiri text-xl font-bold leading-normal capitalize">
-                  {testimonials[index].author}
+                  {TESTIMONIALS[index].author}
                 </div>
 
                 <div className="text-[#000] font-Amiri text-sm font-normal leading-normal capitalize">
-                  {testimonials[index].designation},{" "}
+                  {TESTIMONIALS[index].designation},{" "}
                   <span className="text-[#9747FF]">
-                    {testimonials[index].company}
+                    {TESTIMONIALS[index].company}
                   </span>
                 </div>
               </motion.div>

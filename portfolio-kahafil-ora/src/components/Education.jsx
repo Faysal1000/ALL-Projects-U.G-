@@ -31,9 +31,9 @@ const educationData = [
     institution: "Daffodil International School",
   },
   {
-    year: "2010",
-    title: "Diploma in Web Development",
-    institution: "XYZ Training Institute",
+    year: "2001",
+    title: "Microsoft Certified Architect",
+    institution: "Microsoft",
   },
   {
     year: "2009",

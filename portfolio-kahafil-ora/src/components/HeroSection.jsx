@@ -2,18 +2,19 @@ import React from "react";
 import { FaArrowDown } from "react-icons/fa";
 import heroImage from "../assets/kahafil-ora-image.png";
 import dottedArrowIcon from "../assets/vecteezy_hand-drawn-dotted-arrow-line-clip-art_22185812 1.png";
-import texture from "../assets/texture.svg";
+//import texture from "../assets/texture.svg";        //dont know why it is not working
 
 // ---------------------------
 // Configurable variables
 // ---------------------------
-// This section defines customizable elements like background texture, colors, fonts, and text content for easy modification.
 const TEXT_COLOR = "#444";
 const FONT_FAMILY_GENERAL = "'Plus Jakarta Sans', sans-serif";
 const KAHAFIL_ORA_FONT_FAMILY = "'Poppins', 'Fragment Mono', sans-serif"; // primary then fallback
 const BIO_TEXT =
   "A Visionary Leader With 22+ Years of Experience In Innovation And Growth. As MD Of Goinnovior Limited And Co-Founder of 360D Soul, Lifeinnovior, And Codeinnovior. He Blends Tech, Business, And Social Impact- Delivering ICT And InfoSec Solutions, Promoting Mental Health, And Enabling Free Tech Education.";
 const ROLE_TEXT = "IT CONSULTANT";
+const texture =
+  "https://www.transparenttextures.com/patterns/45-degree-fabric-light.png";
 
 /**
  * HERO SECTION

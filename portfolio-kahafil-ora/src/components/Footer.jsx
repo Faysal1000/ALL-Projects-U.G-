@@ -8,55 +8,12 @@ import {
 import { FiArrowLeft } from "react-icons/fi";
 import FitToWidth from "./FitToWidth";
 import { FaArrowTurnUp } from "react-icons/fa6";
+import {
+  FOOTER_IMAGES_AND_LINKS,
+  SOCIAL_LINKS,
+} from "/src/config/footerConfig";
 
 const KAHAFIL_ORA_FONT_FAMILY = "'Poppins', 'Fragment Mono', sans-serif";
-
-/* -----------------------------
-   Single source of truth for social links
-   Will render in this order on the UI.
-------------------------------*/
-const socialLinks = [
-  { label: "X", href: "https://x.com" },
-  { label: "LinkedIn", href: "https://linkedin.com/in/example" },
-  { label: "YouTube", href: "https://example.com" },
-  { label: "Facebook", href: "https://facebook.com/example" },
-  { label: "Instagram", href: "https://instagram.com/example" },
-];
-/**
- * items: array of { image: string, link: string, socialMediaType: "instagram" | "facebook" | "linkedin" | "website" | "none" }
- */
-const defaultItems = [
-  {
-    image: "src/assets/Footer_Images/footer_image (1).png",
-    link: "https://instagram.com/example1",
-    socialMediaType: "instagram",
-  },
-  {
-    image: "src/assets/Footer_Images/footer_image (2).png",
-    link: "https://facebook.com/example2",
-    socialMediaType: "facebook",
-  },
-  {
-    image: "src/assets/Footer_Images/footer_image (3).png",
-    link: "https://linkedin.com/in/example3",
-    socialMediaType: "linkedin",
-  },
-  {
-    image: "src/assets/Footer_Images/footer_image (4).png",
-    link: "https://example.com/4",
-    socialMediaType: "website",
-  },
-  {
-    image: "src/assets/Footer_Images/footer_image (5).png",
-    link: "https://instagram.com/example5",
-    socialMediaType: "instagram",
-  },
-  {
-    image: "src/assets/Footer_Images/footer_image (6).png",
-    link: "https://example.com/6",
-    socialMediaType: "website",
-  },
-];
 
 const iconForType = (type) => {
   switch (type) {
@@ -78,7 +35,7 @@ const overlayVariants = {
   hover: { scale: 1.2, opacity: 1 },
 };
 
-const Footer = ({ items = defaultItems }) => {
+const Footer = ({ items = FOOTER_IMAGES_AND_LINKS }) => {
   return (
     <footer className="bg-[#f8f8f8]">
       {/* image gallery */}
@@ -300,7 +257,7 @@ const Footer = ({ items = defaultItems }) => {
               aria-label="social links"
               className="flex flex-col space-y-2 items-start"
             >
-              {socialLinks.map(({ label, href }) => (
+              {SOCIAL_LINKS.map(({ label, href }) => (
                 <a
                   key={label}
                   href={href}

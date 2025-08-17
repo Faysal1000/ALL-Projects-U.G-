@@ -61,40 +61,36 @@ const MetricMarvels = () => {
           <div className="min-w-[600px] flex flex-col items-start">
             {/* Row 1 */}
             <div className="grid grid-cols-3 py-[4.14%] items-center border-b border-[#444] w-full">
-              <div className="text-[#444] font-[Amiri] text-xl">
-                Goinnovior Limited
-              </div>
+              <div className="text-[#444] font-[Amiri] text-xl">SkillJobs</div>
               <div className="text-[#444] text-center font-[Amiri] text-sm">
-                Founder & Managing Director
+                Panelist, IT Job Fair
               </div>
               <div className="text-[#444] text-right font-[Fragment_Mono] text-sm">
-                2016-Present
+                25024
               </div>
             </div>
 
             {/* Row 2 */}
             <div className="grid grid-cols-3 py-[4.14%] items-center border-b border-[#444] w-full">
               <div className="text-[#444] font-[Amiri] text-xl">
-                360D Soul Limited
+                IBA, University of Dhaka
               </div>
               <div className="text-[#444] text-center font-[Amiri] text-sm">
-                Founder & Managing Director
+                ACMP 4.0
               </div>
               <div className="text-[#444] text-right font-[Fragment_Mono] text-sm">
-                2023-Present
+                2025
               </div>
             </div>
 
             {/* Row 3 */}
             <div className="grid grid-cols-3 py-[4.14%] items-center border-b border-[#444] w-full">
-              <div className="text-[#444] font-[Amiri] text-xl">
-                CodeInnovior
-              </div>
+              <div className="text-[#444] font-[Amiri] text-xl">SkillJobs</div>
               <div className="text-[#444] text-center font-[Amiri] text-sm">
-                Founder & Managing Director
+                Speaker, Chakrimela 2025
               </div>
               <div className="text-[#444] text-right font-[Fragment_Mono] text-sm">
-                2020-Present
+                2025
               </div>
             </div>
           </div>

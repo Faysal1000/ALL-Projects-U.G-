@@ -1,73 +1,15 @@
 import { useState } from "react";
 import BlogsCarousel from "./BlogsCarousel";
-
-// Data for all the cards in the carousel
-const myCards = [
-  {
-    id: 1,
-    type: "Cyber Security",
-    genre: "Blogs & Articles",
-    date: "15 Aug 2025",
-    title:
-      "Faysal Ahmmed, A software engineer with excellent skills and academic scores",
-    img: "https://placehold.co/200",
-    desc: "Very dedicated person in AI, deep learning along with research and Backend development.",
-    link: "https://faysalahmmed-portfolio.vercel.app/",
-  },
-  {
-    id: 2,
-    type: "Cloud Migration",
-    genre: "Public Speaking & Training",
-    date: "15 Aug 2025",
-    title: "Cloud Migration",
-    img: "https://placehold.co/200",
-    desc: "Move legacy infrastructure to cloud for scalability and reliability.",
-    link: "#",
-  },
-  {
-    id: 3,
-    type: "Cybersecurity",
-    genre: "Recent Event Activities",
-    date: "15 Aug 2025",
-    title: "Cybersecurity",
-    img: "https://placehold.co/200",
-    desc: "Protect data and systems with practical, audited security controls.",
-    link: "#",
-  },
-  {
-    id: 4,
-    type: "DevOps & Automation",
-    genre: "Social Activities",
-    date: "15 Aug 2025",
-    title: "DevOps & Automation",
-    img: "https://placehold.co/200",
-    desc: "Streamline delivery pipelines and reduce manual toil.",
-    link: "/devops-automation",
-  },
-  {
-    id: 5,
-    type: "Digital Transformation",
-    genre: "Social Activities",
-    date: "15 Aug 2025",
-    title: "Digital Transformation Strategy",
-    img: "https://placehold.co/200",
-    desc: "Helping businesses modernize operations through tailored digital adoption plans—enhancing efficiency, reducing costs, and boosting productivity.",
-    link: "#",
-  },
-];
-
-const genres = [
-  "Blogs & Articles",
-  "Public Speaking & Training",
-  "Recent Event Activities",
-  "Social Activities",
-];
+import { BLOGS_AND_ARTICLES } from "/src/config/websiteArticleContent";
+import { ARTICLES_GENRES } from "/src/config/websiteArticleContent";
 
 const BlogsAndArticles = () => {
-  const [activeGenre, setActiveGenre] = useState("Blogs & Articles");
+  const [activeGenre, setActiveGenre] = useState(ARTICLES_GENRES[0]); // Default to first genre
 
   // Filtered cards based on activeGenre
-  const filteredCards = myCards.filter((card) => card.genre === activeGenre);
+  const filteredCards = BLOGS_AND_ARTICLES.filter(
+    (card) => card.genre === activeGenre
+  );
 
   return (
     <section className="bg-[#fff] pt-15 md:pt-0 flex-1 flex py-[5.2%] px-[12.5%] flex-col justify-start items-start gap-8 min-h-0">
@@ -79,7 +21,7 @@ const BlogsAndArticles = () => {
 
       {/* Header navigations */}
       <div className="flex justify-between items-center self-stretch flex-wrap">
-        {genres.map((genre, idx) => (
+        {ARTICLES_GENRES.map((genre, idx) => (
           <div key={genre} className="flex items-center">
             <button
               onClick={() => setActiveGenre(genre)}
@@ -90,7 +32,7 @@ const BlogsAndArticles = () => {
               {genre}
             </button>
 
-            {idx < genres.length - 1 && (
+            {idx < ARTICLES_GENRES.length - 1 && (
               <span className="mx-2 text-[#444] font-[Fragment_Mono]">/</span>
             )}
           </div>

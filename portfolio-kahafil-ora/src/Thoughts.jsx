@@ -2,73 +2,13 @@ import { FaArrowRight, FaRegCalendarAlt } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import Footer from "./components/Footer";
 import BlogGrid from "./components/BlogGrid.jsx";
-
-// main news section
-const mainNews = {
-  title: "আইটি প্রফেশনাল মিটআপ",
-  description:
-    "দেশের আইটি খাতের ১৬০ জন আইটি প্রফেশনালকে বিশ্বমানের দক্ষতা উন্নয়ন প্রশিক্ষণ দেওয়া হয়েছে। সম্প্রতি প্রশিক্ষণ শেষে ঢাকা বিশ্ববিদ্যালয়ের আইবিএ বিভাগে ACMP 4.0 মিটআপ ২০২৪ অনুষ্ঠিত হয়।",
-  date: "May 25, 2025",
-  category: "Education, Social Impact",
-  link: "https://www.facebook.com/events/123456789",
-  image: "src/assets/thoughts_image.jpg",
-};
-
-//blogs and articles section
-const blogsAndArticles = [
-  {
-    id: 1,
-    type: "Cyber Security",
-    genre: "Blogs & Articles",
-    date: "15 Aug 2025",
-    title:
-      "Faysal Ahmmed, A software engineer with excellent skills and academic scores",
-    img: "https://placehold.co/200",
-    desc: "Very dedicated person in AI, deep learning along with research and Backend development.",
-    link: "https://faysalahmmed-portfolio.vercel.app/",
-  },
-  {
-    id: 2,
-    type: "Cloud Migration",
-    genre: "Public Speaking & Training",
-    date: "15 Aug 2025",
-    title: "Cloud Migration",
-    img: "https://placehold.co/200",
-    desc: "Move legacy infrastructure to cloud for scalability and reliability.",
-    link: "#",
-  },
-  {
-    id: 3,
-    type: "Cybersecurity",
-    genre: "Recent Event Activities",
-    date: "15 Aug 2025",
-    title: "Cybersecurity",
-    img: "https://placehold.co/200",
-    desc: "Protect data and systems with practical, audited security controls.",
-    link: "#",
-  },
-  {
-    id: 4,
-    type: "DevOps & Automation",
-    genre: "Social Activities",
-    date: "15 Aug 2025",
-    title: "DevOps & Automation",
-    img: "https://placehold.co/200",
-    desc: "Streamline delivery pipelines and reduce manual toil.",
-    link: "/devops-automation",
-  },
-  {
-    id: 5,
-    type: "Digital Transformation",
-    genre: "Social Activities",
-    date: "15 Aug 2025",
-    title: "Digital Transformation Strategy",
-    img: "https://placehold.co/200",
-    desc: "Helping businesses modernize operations through tailored digital adoption plans—enhancing efficiency, reducing costs, and boosting productivity.",
-    link: "#",
-  },
-];
-// similarly i have to make object for other sections
+import {
+  THOUGHT_SECTION_MAIN_NEWS,
+  BLOGS_AND_ARTICLES,
+  PUBLIC_SPEAKING_AND_TRAINING_ARTICLES,
+  RECENT_EVENT_AND_ACTIVITIES,
+  SOCIAL_ACTIVITIES,
+} from "./config/websiteArticleContent.js";
 
 const genres = [
   "Blogs & Articles",
@@ -103,22 +43,22 @@ const Thoughts = () => {
                bg-no-repeat min-h-[60vh] md:min-h-screen
                bg-contain md:bg-cover bg-top"
         style={{
-          backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%), url(${mainNews.image})`,
+          backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%), url(${THOUGHT_SECTION_MAIN_NEWS.image})`,
           backgroundColor: "#d3d3d3",
         }}
       >
         {/* Top row */}
         <div className="flex justify-between items-center w-full text-white/50 font-poppins text-base md:text-xl font-medium leading-normal capitalize">
-          <div>{mainNews.category}</div>
+          <div>{THOUGHT_SECTION_MAIN_NEWS.category}</div>
           <div className="flex items-center space-x-2">
             <FaRegCalendarAlt />
-            <span>{mainNews.date}</span>
+            <span>{THOUGHT_SECTION_MAIN_NEWS.date}</span>
           </div>
         </div>
 
         {/* Headline */}
         <div className="text-white font-poppins text-2xl lg:text-3xl 2xl:text-4xl font-bold leading-normal capitalize">
-          {mainNews.title}
+          {THOUGHT_SECTION_MAIN_NEWS.title}
         </div>
 
         {/* Description */}
@@ -126,12 +66,12 @@ const Thoughts = () => {
           className="self-stretch text-white font-poppins font-light leading-normal capitalize 
                  text-base md:text-lg lg:text-xl"
         >
-          {mainNews.description}
+          {THOUGHT_SECTION_MAIN_NEWS.description}
         </div>
 
         {/* Link */}
         <a
-          href={mainNews.link}
+          href={THOUGHT_SECTION_MAIN_NEWS.link}
           className="flex items-center gap-2 text-[#FFFFFF] font-poppins text-[15px] font-medium leading-normal capitalize cursor-pointer hover:text-[#9747FF]"
         >
           <span>Read on Facebook</span>
@@ -146,7 +86,7 @@ const Thoughts = () => {
           Blogs & Articles
           <span className="text-[#9747FF]">.</span>
         </div>
-        <BlogGrid cards={blogsAndArticles} initialCount={initialCount} />
+        <BlogGrid cards={BLOGS_AND_ARTICLES} initialCount={initialCount} />
       </div>
 
       {/*Public Speaking & Training.*/}
@@ -156,7 +96,10 @@ const Thoughts = () => {
           Public Speaking & Training
           <span className="text-[#9747FF]">.</span>
         </div>
-        <BlogGrid cards={blogsAndArticles} initialCount={initialCount} />
+        <BlogGrid
+          cards={PUBLIC_SPEAKING_AND_TRAINING_ARTICLES}
+          initialCount={initialCount}
+        />
       </div>
 
       {/*Recent Event Activities.*/}
@@ -166,7 +109,10 @@ const Thoughts = () => {
           Recent Event Activities
           <span className="text-[#9747FF]">.</span>
         </div>
-        <BlogGrid cards={blogsAndArticles} initialCount={initialCount} />
+        <BlogGrid
+          cards={RECENT_EVENT_AND_ACTIVITIES}
+          initialCount={initialCount}
+        />
       </div>
 
       {/*Social Activities.*/}
@@ -176,7 +122,7 @@ const Thoughts = () => {
           Social Activities
           <span className="text-[#9747FF]">.</span>
         </div>
-        <BlogGrid cards={blogsAndArticles} initialCount={initialCount} />
+        <BlogGrid cards={SOCIAL_ACTIVITIES} initialCount={initialCount} />
       </div>
       <Footer />
     </section>

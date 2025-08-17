@@ -5,10 +5,12 @@ import LeadershipRoles from "./components/LeadershipRoles";
 import Footer from "./components/Footer";
 import MetricMarvels from "./components/MetricMarvels";
 import Education from "./components/Education";
+import Navbar from "./components/Navbar";
 
 const AboutUs = () => {
   return (
     <div>
+      <Navbar />
       <AboutUsHeroSection />
       <AboutKahafilOra />
       <LogoAnimation />
