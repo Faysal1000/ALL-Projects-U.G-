@@ -1,0 +1,4 @@
+ISIC-2017: https://challenge.isic-archive.com/data/#2017
+ISIC-2018: https://challenge.isic-archive.com/data/#2018
+HAM10000: https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000
+MILK10K: https://challenge.isic-archive.com/data/#milk10k
