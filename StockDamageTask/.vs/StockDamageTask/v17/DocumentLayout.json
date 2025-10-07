@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Faysal Ahmmed\\Desktop\\StockDamageTask\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1F392119-FE40-4709-B52D-CA03459E8F54}|StockDamageTask\\StockDamageTask.csproj|c:\\users\\faysal ahmmed\\desktop\\stockdamagetask\\stockdamagetask\\views\\stockdamage\\stockdamagemaintain.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1F392119-FE40-4709-B52D-CA03459E8F54}|StockDamageTask\\StockDamageTask.csproj|solutionrelative:stockdamagetask\\views\\stockdamage\\stockdamagemaintain.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F392119-FE40-4709-B52D-CA03459E8F54}|StockDamageTask\\StockDamageTask.csproj|c:\\users\\faysal ahmmed\\desktop\\stockdamagetask\\stockdamagetask\\controllers\\stockdamagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F392119-FE40-4709-B52D-CA03459E8F54}|StockDamageTask\\StockDamageTask.csproj|solutionrelative:stockdamagetask\\controllers\\stockdamagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StockDamageMaintain.cshtml",
+              "DocumentMoniker": "C:\\Users\\Faysal Ahmmed\\Desktop\\StockDamageTask\\StockDamageTask\\Views\\StockDamage\\StockDamageMaintain.cshtml",
+              "RelativeDocumentMoniker": "StockDamageTask\\Views\\StockDamage\\StockDamageMaintain.cshtml",
+              "ToolTip": "C:\\Users\\Faysal Ahmmed\\Desktop\\StockDamageTask\\StockDamageTask\\Views\\StockDamage\\StockDamageMaintain.cshtml",
+              "RelativeToolTip": "StockDamageTask\\Views\\StockDamage\\StockDamageMaintain.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4BAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-07T11:47:55.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StockDamageController.cs",
+              "DocumentMoniker": "C:\\Users\\Faysal Ahmmed\\Desktop\\StockDamageTask\\StockDamageTask\\Controllers\\StockDamageController.cs",
+              "RelativeDocumentMoniker": "StockDamageTask\\Controllers\\StockDamageController.cs",
+              "ToolTip": "C:\\Users\\Faysal Ahmmed\\Desktop\\StockDamageTask\\StockDamageTask\\Controllers\\StockDamageController.cs",
+              "RelativeToolTip": "StockDamageTask\\Controllers\\StockDamageController.cs",
+              "ViewState": "AgIAALsAAAAAAAAAAAAAANEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-07T11:25:25.584Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
