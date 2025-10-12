@@ -229,12 +229,11 @@
     /* This script sets the item value automatically to its box
         it will trigger when the select item name option is changed
     */
-
     // getting the data from c# to jquery
     var subItemCodes = @Html.Raw(subItemCodesJson);
     var stocks = @Html.Raw(stocksJson);
 
-    $('#itemName').change(function() {
+    $('#itemName').change(function () {
         var itemNameValue = $(this).val();
 
         if (!itemNameValue) {
@@ -302,11 +301,21 @@
     function updateGrandTotal() {
         var grandTotal = 0;
         $('#damageTable tbody tr').each(function () {
-            var total = parseFloat($(this).find('td:eq(10)').text()) || 0;
+            var row = $(this);
+            //skip row if it has class 'table-danger' means it is edited
+            if (row.hasClass('table-danger')) {
+                return; 
+            }
+            var total = parseFloat(row.find('td:eq(10)').text()) || 0;
             grandTotal += total;
         });
         $('#grandTotal').val(grandTotal.toFixed(3));
     }
+
+    // after the document ready the gradtotal will be calculated and show
+    $(document).ready(function () {
+        updateGrandTotal();
+    });
 
     // this fucntion will clear the input fields
     function clearInputs() {
@@ -329,6 +338,14 @@
     var stockDamageList = [];  // this will temporarily hold the object before saving to db
 
     $('#add').click(function () {
+        // checking if user inserted more than the stock value
+        var stockQuantity = $('#stock').val();
+        var quantity = $('#quantity').val();
+        if (stockQuantity - quantity < 0) {
+            alert("Invalid data!. You can't insert quantity more than the stock");
+            return;
+        }
+
         var tempId = generateTempId(); // temp id generation while adding the data
 
         // here getting all the fields data to view in the table
@@ -337,14 +354,12 @@
         var itemCode = $('#itemCode').val();
         var batchNo = $('#batchNo').val();
         var currency = $('#currency').val();
-        var quantity = $('#quantity').val();
         var amount_in = $('#amount_in').val();
         var rate = $('#rate').val();
         var exchangeRate = $('#exchangeRate').val();
         var totalAmount = $('#totalAmount').val();
 
         //extra details for sending in server side to save
-        var stockQuantity = $('#stock').val();
         var drACHead = $('#DrACHead').val();
         var employeeId = $('#employee').val();
         var comments = $('#comments').val();
@@ -476,12 +491,15 @@
         $('#warehouseName option').filter(function () {
             return $(this).text() == warehouseNameText;
         }).prop('selected', true);
+
         // similarly other value will be sent to tehir respective field
         // some field need to be retrigger to make sure it will get auto data
-        $('#itemName').val(row.find('td:eq(2)').text()).trigger('change');
+        $('#itemName').val(row.find('td:eq(2)').text());
+        $('#itemName')[0].dispatchEvent(new Event('change'));
+
         $('#itemCode').val(row.find('td:eq(3)').text());
         $('#batchNo').val(row.find('td:eq(4)').text());
-        $('#currency').val(row.find('td:eq(5)').text()).trigger('change');
+        $('#currency').val(row.find('td:eq(5)').text());
         $('#quantity').val(row.find('td:eq(6)').text());
         $('#rate').val(row.find('td:eq(7)').text());
         $('#amount_in').val(row.find('td:eq(8)').text());
@@ -499,6 +517,8 @@
             $('#voucherNo').val(voucherNo);
             $('#voucherNo').prop('disabled', true);
         }
+        //this will recalculate the total again removing the diting row
+        updateGrandTotal();
     });
 
 </script>
