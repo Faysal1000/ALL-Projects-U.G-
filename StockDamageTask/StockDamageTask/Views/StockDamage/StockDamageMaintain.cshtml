@@ -175,7 +175,7 @@
             }
             @if (ViewBag.StockDamages != null && ((List<StockDamageTask.DTOs.StockDamageDTO>)ViewBag.StockDamages).Count > 0)
             {
-                foreach (var damageRecord in ViewBag.StockDamages)
+                /*foreach (var damageRecord in ViewBag.StockDamages)
                 {
                     <tr>
                         <td>@slNo</td>
@@ -202,7 +202,7 @@
                         <td class="d-none">@damageRecord.VoucherNo</td> <!-- here this Hidden column -->
                     </tr>
                     slNo++;
-                }
+                }*/
             }
             else
             {
@@ -279,6 +279,19 @@
 </script>
 
 <script>
+    //newly added for amount in
+    function updateAmountIn() {
+        var quantity = parseInt($('#quantity').val()) || 0;
+        var itemRate = parseFloat($('#rate').val()) || 0;
+        var amount_in = quantity * itemRate;
+        $('#amount_in').val(amount_in.toFixed(3));
+
+    }
+    // if any of the value is changed it will recalculate and display
+    $('#quantity, #rate').on('input', updateAmountIn);
+</script>
+
+<script>
     // function to calculate total where it will get quantity, item rate and the exchange rate
     // all three multiplication = totalAmount
     function calculateTotal() {
@@ -289,6 +302,7 @@
         var totalAmount = quantity * itemRate * exchangeRate;
         $('#totalAmount').val(totalAmount.toFixed(3));
     }
+
 
     // if any of the value is changed it will recalculate and display
     $('#quantity, #rate, #exchangeRate').on('input', calculateTotal);
