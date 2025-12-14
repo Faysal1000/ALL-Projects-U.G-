@@ -1,0 +1,14 @@
+(10K+ image)
+https://www.kaggle.com/datasets/hasnainjaved/melanoma-skin-cancer-dataset-of-10000-images
+
+(3k+ image)
+https://www.kaggle.com/datasets/fanconic/skin-cancer-malignant-vs-benign
+
+(ph^2 dataset)
+https://datasetninja.com/ph2
+
+(13.9k images)
+https://www.kaggle.com/datasets/bhaveshmittal/melanoma-cancer-dataset
+
+(2000 images isic 2017)
+https://challenge.isic-archive.com/data/#2017
